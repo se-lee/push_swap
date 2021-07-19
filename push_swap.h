@@ -20,15 +20,14 @@ stacks
 
 */
 
-
 /*check*/
 //whether arguments are valid: strings, decimals, no argument, ...what else?
 //whether stack arguments are already sorted -> do nothing
 
 /*prep*/
 //prepare stacks a and b
-//create linked list: store each argument to each node and put them into stack a
-
+//create linked list, circular, going both ways
+//store each argument to each node and put them into stack a
 
 /*operations*/
 //swap sa sb ss
@@ -36,6 +35,9 @@ stacks
 //rotate ra rb rr
 //reverse rotate rra rrb rrr
 
+/*sorting*/
+//chunks
+//
 
 /*display*/
 //display error message
