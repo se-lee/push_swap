@@ -6,44 +6,30 @@
 # include <stdlib.h>
 # include "libft/libft.h"
 
-/*
+
+//each element in the linked list
 typedef struct s_list
 {
-	void			*content;
+	int				*content;
+	struct s_list	*prev;
 	struct s_list	*next;
 }				t_list;
-*/
 
-/*
-stacks
+//stack
+typedef struct s_stack
+{
+	t_list	*top;
+	t_list	*bottom;
+}				t_stack;
 
-
-*/
 
 /*check*/
-//whether arguments are valid: strings, decimals, no argument, ...what else?
-//whether stack arguments are already sorted -> do nothing
 
 /*prep*/
-//prepare stacks a and b
-//create linked list, circular, going both ways
-//store each argument to each node and put them into stack a
-
-/*operations*/
-//swap sa sb ss
-//push pb pa
-//rotate ra rb rr
-//reverse rotate rra rrb rrr
 
 /*sorting*/
-//chunks
-//
 
 /*display*/
-//display error message
-//display operation name
-//display numbers
-//
 
 
 
