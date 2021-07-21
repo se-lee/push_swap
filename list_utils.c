@@ -14,13 +14,11 @@ t_list	*ft_new_node(void *content)
 	return (new_element);
 }
 
-
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	(*new).next = *lst;
 	*lst = new;
 }
-
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
@@ -36,7 +34,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	last_element = ft_lstlast(*lst);
 	(*last_element).next = new;
 }
-
 
 t_list	*ft_lstlast(t_list *lst)
 {
@@ -55,3 +52,4 @@ t_list	*ft_lstlast(t_list *lst)
 //prepare stacks a and b
 //create linked list, circular, going both ways
 //store each argument to each node and put them into stack a
+

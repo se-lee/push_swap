@@ -22,15 +22,19 @@ typedef struct s_stack
 	t_list	*bottom;
 }				t_stack;
 
-
 /*check*/
-
 /*prep*/
-
 /*sorting*/
-
 /*display*/
 
+/* questions to solve:
+- linked list functions from libft -- struct defined in libft header and push_swap header/
+	-> if i use libft functions, will it use struct from libft.h? or push_swap.h??
+
+
+
+
+*/
 
 
 #endif
