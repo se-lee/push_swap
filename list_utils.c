@@ -1,28 +1,28 @@
 #include "push_swap.h"
 
 //init element
-t_list	*ft_new_node(void *content)
+t_node	*ft_new_node(void *content)
 {
-	t_list	*new_element;
+	t_node	*new_node;
 
-	new_element = malloc(sizeof(t_list));
-	if (!new_element)
+	new_node = malloc(sizeof(t_node));
+	if (!new_node)
 		return (NULL);
-	new_element->content = content;
-	new_element->next = NULL;
-	new_element->prev = NULL;
-	return (new_element);
+	new_node->content = content;
+	new_node->next = NULL;
+	new_node->prev = NULL;
+	return (new_node);
 }
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_node **lst, t_node *new)
 {
 	(*new).next = *lst;
 	*lst = new;
 }
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_node **lst, t_node *new)
 {
-	t_list	*last_element;
+	t_node	*last_element;
 
 	if (lst == NULL || new == NULL)
 		return ;
@@ -35,7 +35,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	(*last_element).next = new;
 }
 
-t_list	*ft_lstlast(t_list *lst)
+t_node	*ft_lstlast(t_node *lst)
 {
 	if (lst == NULL)
 		return (NULL);

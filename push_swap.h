@@ -8,18 +8,18 @@
 
 
 //each element in the linked list
-typedef struct s_list
+typedef struct s_node
 {
 	int				*content;
-	struct s_list	*prev;
-	struct s_list	*next;
-}				t_list;
+	struct s_node	*prev;
+	struct s_node	*next;
+}				t_node;
 
 //stack
 typedef struct s_stack
 {
-	t_list	*top;
-	t_list	*bottom;
+	t_node	*top;  //points to the top node
+	t_node	*bottom; //points to the bottom node
 }				t_stack;
 
 /*check*/
