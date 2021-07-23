@@ -3,15 +3,15 @@
 //init element
 t_list	*ft_new_node(void *content)
 {
-	t_list	*new_element;
+	t_list	*new_node;
 
-	new_element = malloc(sizeof(t_list));
-	if (!new_element)
+	new_node = malloc(sizeof(t_list));
+	if (!new_node)
 		return (NULL);
-	new_element->content = content;
-	new_element->next = NULL;
-	new_element->prev = NULL;
-	return (new_element);
+	new_node->content = content;
+	new_node->next = NULL;
+	new_node->prev = NULL;
+	return (new_node);
 }
 
 void	ft_lstadd_front(t_list **lst, t_list *new)

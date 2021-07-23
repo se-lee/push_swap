@@ -7,9 +7,14 @@
 //reverse rotate rra rrb rrr
 
 void swap();
-
+{
+	
+}
 
 void push();
+
+
+void pop();
 
 
 void rotate();
