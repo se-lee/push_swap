@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_node	*ft_lstmap(t_node *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*new_element;
-	t_list	*new_list;
+	t_node	*new_element;
+	t_node	*new_list;
 
 	if (!lst)
 		return (NULL);
