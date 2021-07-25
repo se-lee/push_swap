@@ -23,6 +23,8 @@ typedef struct s_stack
 }				t_stack;
 
 /*check*/
+
+
 /*prep*/
 /*sorting*/
 /*display*/

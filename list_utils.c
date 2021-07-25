@@ -3,15 +3,9 @@
 //init element
 t_node	*ft_new_node(void *content)
 {
-<<<<<<< HEAD
-	t_list	*new_node;
-
-	new_node = malloc(sizeof(t_list));
-=======
 	t_node	*new_node;
 
 	new_node = malloc(sizeof(t_node));
->>>>>>> c50e22777fa6e1562b8927a7b26df43c29c6ed0a
 	if (!new_node)
 		return (NULL);
 	new_node->content = content;
@@ -50,6 +44,28 @@ t_node	*ft_lstlast(t_node *lst)
 	if ((*lst).next == NULL)
 		return (lst);
 	return (NULL);
+}
+
+void init_stack(t_stack *stack, t_node *node)
+{
+	stack->top = node//top node
+	stack->bottom = node//bottom node
+}
+
+
+
+int main(int argc, char **argv)
+{
+	int i;
+
+	i = 0;
+	
+	while (argv[i] != NULL)
+	{
+		ft_atoi(argv[i]);
+
+
+
 }
 
 

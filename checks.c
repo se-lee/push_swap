@@ -4,6 +4,8 @@
 //whether arguments are valid: strings, decimals, no argument, ...what else?
 //whether stack arguments are already sorted -> do nothing
 
+int check_sorted
+
 int	check_no_arg(int argc)
 {// if there is no argument return -1;
 	if (argc <= 1)
