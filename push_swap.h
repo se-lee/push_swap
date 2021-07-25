@@ -6,7 +6,6 @@
 # include <stdlib.h>
 # include "libft/libft.h"
 
-
 //each element in the linked list
 typedef struct s_node
 {

@@ -2,9 +2,19 @@
 
 void init_stack(t_stack *stack, t_node *node)
 {
-	stack->top = node//top node
-	stack->bottom = node//bottom node
+//malloc here if needed
+	stack->top = NULL;
+	stack->bottom = NULL;
 }
+
+//a free function here
+
+
+/*
+
+do i need to malloc and free a stack?
+
+*/
 
 
 
