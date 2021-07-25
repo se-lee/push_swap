@@ -14,6 +14,7 @@ t_node	*ft_new_node(void *content)
 	return (new_node);
 }
 
+//erase libft functions later
 void	ft_lstadd_front(t_node **lst, t_node *new)
 {
 	(*new).next = *lst;
@@ -52,6 +53,7 @@ void init_stack(t_stack *stack, t_node *node)
 	stack->bottom = node//bottom node
 }
 
+// a function to do atoi and store again to argv[i];
 
 
 int main(int argc, char **argv)
@@ -62,10 +64,16 @@ int main(int argc, char **argv)
 	
 	while (argv[i] != NULL)
 	{
-		ft_atoi(argv[i]);
+		ft_atoi(argv[i]); //need 
+		i++;
+	}
 
-
-
+	i = 0;
+	while (argv[i] != NULL)
+	{
+		printf("arg[%d]: %d\n", i, argv[i]);
+		i++;
+	}
 }
 
 

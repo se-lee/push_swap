@@ -8,7 +8,8 @@
 
 void swap();
 {
-	
+//stack->top becomes the next node
+//next node becomes the stack->top
 }
 
 void push();
