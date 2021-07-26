@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_node **lst, t_node *new)
+void	ft_lstadd_back(t_node **lst, t_node *new) //**lst is the first element
 {
 	t_node	*last_element;
 

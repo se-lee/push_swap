@@ -60,7 +60,8 @@ char			*ft_utoa_base(unsigned long int n, const char *base);
 
 typedef struct s_node
 {
-	void			*content;
+	int				content;
+	struct s_node	*prev;
 	struct s_node	*next;
 }				t_node;
 

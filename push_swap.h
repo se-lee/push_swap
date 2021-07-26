@@ -6,34 +6,21 @@
 # include <stdlib.h>
 # include "libft/libft.h"
 
-//each element in the linked list
-typedef struct s_node
-{
-	int				*content;
-	struct s_node	*prev;
-	struct s_node	*next;
-}				t_node;
-
-//stack
 typedef struct s_stack
 {
 	t_node	*top;  //points to the top node
 	t_node	*bottom; //points to the bottom node
+	int		node_count;
 }				t_stack;
 
-/*check*/
+void init_stack(t_stack *stack);
+t_node	*ft_new_node(int content);
 
-
-/*prep*/
-/*sorting*/
-/*display*/
-
-/* questions to solve:
+/* questions:
 - linked list functions from libft -- struct defined in libft header and push_swap header/
 	-> if i use libft functions, will it use struct from libft.h? or push_swap.h??
 
-
-
+- circular linked list -- how to tell top and bottom
 
 */
 
