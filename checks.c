@@ -5,7 +5,7 @@
 //whether stack arguments are already sorted -> do nothing
 
 int check_sorted(t_stack *stack)
-{
+{//if stack is sorted, return 0; if not sorted return -1;
 	t_node *cursor;
 
 	cursor = stack->top;
@@ -17,8 +17,6 @@ int check_sorted(t_stack *stack)
 			return (-1);
 	}
 	return (0);
-	//if stack is sorted, return 0;
-	//if not sorted return -1;
 }
 
 int	check_no_arg(int argc)
@@ -45,6 +43,10 @@ int	ft_isdigit(int c)
 */
 	}
 }
+
+
+
+
 
 int	check_duplicate()
 {// if duplicate number is found, return -1;
