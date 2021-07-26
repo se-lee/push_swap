@@ -24,5 +24,5 @@ void	ft_lstadd_back(t_node **lst, t_node *new) //**lst is the first element
 		return ;
 	}
 	last_element = ft_lstlast(*lst);
-	(*last_element).next = new;
+	last_element->next = new;
 }

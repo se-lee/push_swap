@@ -12,13 +12,13 @@
 
 #include "libft.h"
 
-void	ft_lstiter(t_node *lst, void (*f)(void *))
+void	ft_lstiter(t_node *lst, void (*f)(int))
 {
 	if (!lst || !f)
 		return ;
 	while (lst != NULL)
 	{
-		f((*lst).content);
-		lst = (*lst).next;
+		f(lst->content);
+		lst = lst->next;
 	}
 }

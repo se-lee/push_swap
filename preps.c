@@ -1,11 +1,9 @@
 #include "push_swap.h"
 
-/*prep*/
-//store each argument to each node and put them into stack a
-// a function to do atoi and store the value to each node;
-
 void add_to_stack_back(t_stack *stack, t_node *new_node)
 {
+	t_node *cursor;
+
 	if (stack->top == NULL)
 	{
 		stack->top = new_node;
@@ -14,7 +12,12 @@ void add_to_stack_back(t_stack *stack, t_node *new_node)
 	}
 	else
 	{
+		cursor = stack->top;
+		while (cursor->next != NULL)
+			cursor = cursor->next;
 		new_node->prev = stack->bottom;
+		cursor->next = new_node;
+		new_node->prev = cursor;
 		stack->bottom = new_node;
 		stack->node_count++;
 	}
@@ -27,7 +30,7 @@ void	print_list(t_stack *stack)
 	node = stack->top;
 	while (node != NULL)
 	{
-		printf("%d ", node->content);
+		printf("stack: %d \n", node->content);
 		node = node->next;
 	}
 }
@@ -35,8 +38,7 @@ void	print_list(t_stack *stack)
 int main(int argc, char **argv)
 {
 	int i;
-	t_stack *stack;
-	int test;
+	t_stack stack;
 
 	i = 1;
 	while (argv[i] != NULL)
@@ -44,18 +46,22 @@ int main(int argc, char **argv)
 		printf("arg[%d]str: %s\n", i, argv[i]);
 		i++;
 	}
-	printf("test %d, %d ", ft_atoi(argv[1]), ft_atoi(argv[2]));
-	
-	init_stack(stack);
-	i = 0;
+
+	printf("node1: %d\n", (ft_lstnew(ft_atoi(argv[1]))->content));
+	printf("node2: %d\n", (ft_lstnew(ft_atoi(argv[2]))->content));
+	printf("node3: %d\n", (ft_lstnew(ft_atoi(argv[3]))->content));
+	printf("node4: %d\n", (ft_lstnew(ft_atoi(argv[4]))->content));
+	printf("node5: %d\n", (ft_lstnew(ft_atoi(argv[5]))->content));
+
+	init_stack(&stack);
+	i = 1;
 	while (argv[i] != NULL)
 	{
-		add_to_stack_back(stack, ft_new_node(ft_atoi(argv[i])));
+		add_to_stack_back(&stack, ft_lstnew(ft_atoi(argv[i])));
 		i++;
 	}
-	add_to_stack_back(stack, ft_new_node(ft_atoi(argv[i])));
-	print_list(stack);
-	printf("stack size: %d\n", stack->node_count);
+	print_list(&stack);
+	printf("count: %d\n", stack.node_count);
 
 	return (0);	
 }

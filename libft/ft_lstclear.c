@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_lstclear(t_node **lst, void (*del)(void*))
+void	ft_lstclear(t_node **lst, void (*del)(int))
 {
 	t_node	*curr_elem;
 	t_node	*next_elem;

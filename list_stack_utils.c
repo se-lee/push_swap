@@ -1,19 +1,5 @@
 #include "push_swap.h"
 
-//init element
-t_node	*ft_new_node(int content)
-{
-	t_node	*new_node;
-
-	new_node = malloc(sizeof(t_node));
-	if (!new_node)
-		return (NULL);
-	new_node->content = content;
-	new_node->next = NULL;
-	new_node->prev = NULL;
-	return (new_node);
-}
-
 void init_stack(t_stack *stack)
 {
 	stack->top = NULL;
@@ -64,19 +50,4 @@ void	ft_lstadd_back(t_node **lst, t_node *new) //lst is the first element
 	last_element = ft_lstlast(*lst);
 	(*last_element).next = new;
 }
-
 ----------------------------------------*/
-
-
-// int main(int argc, char **argv)
-// {
-// 	int i;
-
-// 	i = 0;
-	
-// 	while (argv[i] != NULL)
-// 	{
-// 		printf("arg[%d]: %s\n", i, argv[i]);
-// 		i++;
-// 	}
-// }
