@@ -18,7 +18,11 @@ void	add_to_stack_back(t_stack *stack, t_node *new_node);
 void	print_list(t_stack *stack);  //erase this later
 void	init_stack(t_stack *stack);
 void	add_to_stack(t_stack *stack, t_node *new_node); //push
-void	store_to_stack(char **argv);
+void	store_to_stack(char **argv, t_stack *stack);
+
+/*operations*/
+void swap(t_stack *stack, t_node *node1, t_node *node2); //revise
+
 
 
 #endif

@@ -7,21 +7,20 @@ void init_stack(t_stack *stack)
 	stack->node_count = 0;
 }
 
-void add_to_stack(t_stack *stack, t_node *new_node) //push
+void add_to_stack(t_stack *stack, t_node *new_node) //push (add on top)
 {
 	if (stack->top == NULL)
 		stack->top = new_node;
 	else
 	{
 		new_node->next = stack->top;
+		stack->top->prev = new_node;
 		stack->top = new_node;
 	}
 }
 
-void add_to_stack_back(t_stack *stack, t_node *new_node)
+void add_to_stack_back(t_stack *stack, t_node *new_node) //add to the back(bottom)
 {
-	t_node *cursor;
-
 	if (stack->top == NULL)
 	{
 		stack->top = new_node;
@@ -30,12 +29,9 @@ void add_to_stack_back(t_stack *stack, t_node *new_node)
 	}
 	else
 	{
-		cursor = stack->top;
-		while (cursor->next != NULL)
-			cursor = cursor->next;
 		new_node->prev = stack->bottom;
-		cursor->next = new_node;
-		new_node->prev = cursor;
+		stack->bottom->next = new_node;
+		new_node->prev = stack->bottom;
 		stack->bottom = new_node;
 		stack->node_count++;
 	}
