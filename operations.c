@@ -18,9 +18,15 @@ void swap(t_stack *stack, t_node *node1, t_node *node2)
 	stack->top = node2;
 }
 
-void pop(t_stack *stack);
+void pop(t_stack *stack)
+{
 
-void push_to(t_stack *stack1, t_stack *stack2);
+}
+
+void push_to(t_stack *stack1, t_stack *stack2)
+{
+
+}
 
 void rotate();
 

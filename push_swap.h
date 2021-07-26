@@ -23,6 +23,18 @@ void	store_to_stack(char **argv, t_stack *stack);
 /*operations*/
 void swap(t_stack *stack, t_node *node1, t_node *node2); //revise
 
-
-
 #endif
+
+
+/*
+- get arguments
+- check errors
+- check whether sorted or not
+- if sorted, do nothing and finish
+- if not sorted, sort
+
+when sorting
+
+
+
+*/

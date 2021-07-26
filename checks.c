@@ -4,10 +4,21 @@
 //whether arguments are valid: strings, decimals, no argument, ...what else?
 //whether stack arguments are already sorted -> do nothing
 
-int check_sorted(_/*stack?*/_)
+int check_sorted(t_stack *stack)
 {
-	//if stack is sorted, return 1;
-	//if not sorted return 0;
+	t_node *cursor;
+
+	cursor = stack->top;
+	while (cursor->next != NULL)
+	{
+		if (cursor->content < cursor->next->content)
+			cursor = cursor->next;
+		else
+			return (-1);
+	}
+	return (0);
+	//if stack is sorted, return 0;
+	//if not sorted return -1;
 }
 
 int	check_no_arg(int argc)
