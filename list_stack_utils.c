@@ -7,8 +7,8 @@ void init_stack(t_stack *stack)
 	stack->node_count = 0;
 }
 
-void add_to_stack(t_stack *stack, t_node *new_node) //push (add on top)
-{
+void add_to_stack(t_stack *stack, t_node *new_node)
+{//push (add on top)
 	if (stack->top == NULL)
 		stack->top = new_node;
 	else
@@ -19,8 +19,8 @@ void add_to_stack(t_stack *stack, t_node *new_node) //push (add on top)
 	}
 }
 
-void add_to_stack_back(t_stack *stack, t_node *new_node) //add to the back(bottom)
-{
+void add_to_stack_back(t_stack *stack, t_node *new_node)
+{//add to the back(bottom)
 	if (stack->top == NULL)
 	{
 		stack->top = new_node;
@@ -37,14 +37,30 @@ void add_to_stack_back(t_stack *stack, t_node *new_node) //add to the back(botto
 	}
 }
 
+
+void	store_to_stack(char **argv, t_stack *stack)
+{
+	int i;
+//	t_stack stack;
+
+//	init_stack(&stack);
+	i = 1;
+	while (argv[i] != NULL)
+	{
+		add_to_stack_back(stack, ft_lstnew(ft_atoi(argv[i])));
+		i++;
+	}
+}
+
 void	print_list(t_stack *stack)
 {
 	t_node *node;
 
 	node = stack->top;
+	printf("\n\n");
 	while (node != NULL)
 	{
-		printf("stack: %d \n", node->content);
+		printf("%d \n", node->content);
 		node = node->next;
 	}
 }

@@ -15,13 +15,14 @@ typedef struct s_stack
 
 void	init_stack(t_stack *stack);
 void	add_to_stack_back(t_stack *stack, t_node *new_node);
-void	print_list(t_stack *stack);  //erase this later
 void	init_stack(t_stack *stack);
 void	add_to_stack(t_stack *stack, t_node *new_node); //push
 void	store_to_stack(char **argv, t_stack *stack);
+void	print_list(t_stack *stack);  //erase this later
 
 /*operations*/
 void swap(t_stack *stack, t_node *node1, t_node *node2); //revise
+void pop_and_push(t_stack *stack1, t_stack *stack2);
 
 #endif
 
