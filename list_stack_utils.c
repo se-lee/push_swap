@@ -6,21 +6,22 @@
 /*   By: selee <selee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:14 by selee             #+#    #+#             */
-/*   Updated: 2021/07/27 16:31:20 by selee            ###   ########.fr       */
+/*   Updated: 2021/07/27 17:44:37 by selee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void init_stack(t_stack *stack)
+void	init_stack(t_stack *stack)
 {
 	stack->top = NULL;
 	stack->bottom = NULL;
 	stack->node_count = 0;
 }
 
-void add_to_stack(t_stack *stack, t_node *new_node)
-{//push (add on top)
+/* push (add on top) */
+void	add_to_stack(t_stack *stack, t_node *new_node)
+{
 	if (stack->top == NULL)
 		stack->top = new_node;
 	else
@@ -31,8 +32,9 @@ void add_to_stack(t_stack *stack, t_node *new_node)
 	}
 }
 
-void add_to_stack_back(t_stack *stack, t_node *new_node)
-{//add to the back(bottom)
+/* add to the back(bottom) */
+void	add_to_stack_back(t_stack *stack, t_node *new_node)
+{
 	if (stack->top == NULL)
 	{
 		stack->top = new_node;
@@ -51,10 +53,8 @@ void add_to_stack_back(t_stack *stack, t_node *new_node)
 
 void	store_to_stack(char **argv, t_stack *stack)
 {
-	int i;
-//	t_stack stack;
+	int	i;
 
-//	init_stack(&stack);
 	i = 1;
 	while (argv[i] != NULL)
 	{
@@ -65,7 +65,7 @@ void	store_to_stack(char **argv, t_stack *stack)
 
 void	print_list(t_stack *stack)
 {
-	t_node *node;
+	t_node	*node;
 
 	node = stack->top;
 	printf("\n\n");
@@ -75,4 +75,3 @@ void	print_list(t_stack *stack)
 		node = node->next;
 	}
 }
-

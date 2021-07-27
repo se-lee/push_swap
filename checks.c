@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:33:03 by selee             #+#    #+#             */
-/*   Updated: 2021/07/27 16:33:05 by selee            ###   ########.fr       */
+/*   Updated: 2021/07/27 17:05:21 by selee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,9 @@ int	ft_isdigit(int c)
 	}
 }
 
+int	check_duplicate();
+// if duplicate number is found, return -1;
 
+int check_int_max_min();
+//check if the argument is bigger/smaller than int max/min
 
-
-
-int	check_duplicate()
-{// if duplicate number is found, return -1;
-
-}
-
-int check_int_max_min()
-{//check if the argument is bigger/smaller than int max/min
-}

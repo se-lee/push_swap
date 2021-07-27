@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:59 by selee             #+#    #+#             */
-/*   Updated: 2021/07/27 16:52:25 by selee            ###   ########.fr       */
+/*   Updated: 2021/07/27 17:03:42 by selee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void pop_and_push(t_stack *stack1, t_stack *stack2)
 	//t_node	top2;
 
 	if (stack2->top == NULL)
-	{//if stack2 is empty
+	{
 		stack2->top = stack1->top;
 		stack1->top = stack1->top->next;
 		stack1->top->prev = NULL;
