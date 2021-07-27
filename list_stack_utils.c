@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list_stack_utils.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: selee <selee@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/27 16:31:14 by selee             #+#    #+#             */
+/*   Updated: 2021/07/27 16:31:20 by selee            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void init_stack(t_stack *stack)
@@ -36,7 +48,6 @@ void add_to_stack_back(t_stack *stack, t_node *new_node)
 		stack->node_count++;
 	}
 }
-
 
 void	store_to_stack(char **argv, t_stack *stack)
 {
