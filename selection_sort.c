@@ -1,6 +1,7 @@
 #include "push_swap.h"
 #include <stdio.h>
 
+
 void	selection_sort_list(t_stack *stack1, t_stack *stack2)
 {
 	int		min;
@@ -12,19 +13,24 @@ void	selection_sort_list(t_stack *stack1, t_stack *stack2)
 	min = cursor->content;
 	position = 1;
 	while (cursor->next != NULL)
-	{
-		if (cursor->next->content < cursor->content)
+	{	
+		position++;
+		if (cursor->next->content < min)
 		{
 			min = cursor->next->content;
 			min_position = position;
 		}
 		cursor = cursor->next;
-		position++;
 	}
-
-	printf("min no.: %d\n min position: %d\n", min, min_position);
-
+printf("min_pos: %d\n", min_position);
+	while (min_position > 1)
+	{
+		rotate(stack1);
+		min_position--;
+	}
+	pop_and_push(stack1, stack2);
 }
+
 
 int main(int argc, char **argv)
 {
@@ -37,13 +43,14 @@ int main(int argc, char **argv)
 	init_stack(&stack2);
 	store_to_stack(argv, &stack1);
 
-	seleciton_sort_list(&stack1, &stack2);
-
 	print_list(&stack1);
 	printf("------\nstack1\n");
 	print_list(&stack2);
 	printf("------\nstack2\n\n");
 
+	print_list(&stack1);
+	printf("------\nstack1_after\n");
+	printf("top: %d\nbottom: %d", stack1.top->content, stack1.bottom->content);
 	return (0);
 }
 
