@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: selee <selee@student.42.fr>                +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:59 by selee             #+#    #+#             */
-/*   Updated: 2021/07/27 17:03:42 by selee            ###   ########.fr       */
+/*   Updated: 2021/07/28 12:59:44 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,9 @@ void pop_and_push(t_stack *stack1, t_stack *stack2)
 	}
 }
 
+//stack->top becomes bottom; stack->top->next becomes new stack->top;
 void rotate(t_stack *stack)
-{//stack->top becomes bottom; stack->top->next becomes new stack->top;
+{
 	stack->top->prev = stack->bottom;
 	stack->bottom->next = stack->top;
 	stack->top->next->prev = NULL;
@@ -63,8 +64,9 @@ void rotate(t_stack *stack)
 	stack->bottom->next = NULL;
 }
 
+//stack->bottom beomes top; stack->top becomes second node;
 void rev_rotate(t_stack *stack)
-{//stack->bottom beomes top; stack->top becomes second node;
+{
 	stack->bottom->next = stack->top;
 	stack->top->prev = stack->bottom;
 	stack->top = stack->bottom;
@@ -72,7 +74,7 @@ void rev_rotate(t_stack *stack)
 	stack->bottom->next = NULL;
 	stack->top->prev = NULL;
 }
-
+/*
 int main(int argc, char **argv)
 {
 	int i;
@@ -108,3 +110,4 @@ rev_rotate(&stack1);
 
 	return (0);
 }
+*/
