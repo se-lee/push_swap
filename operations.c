@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:59 by selee             #+#    #+#             */
-/*   Updated: 2021/07/28 12:59:44 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/07/29 14:37:50 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void pop_and_push(t_stack *stack1, t_stack *stack2)
 {//pop from stack1, push to stack2
 	//t_node	top1;
 	//t_node	top2;
-
 	if (stack2->top == NULL)
 	{
 		stack2->top = stack1->top;
@@ -46,11 +45,14 @@ void pop_and_push(t_stack *stack1, t_stack *stack2)
 	else
 	{
 		stack2->top->prev = stack1->top;
+		if (stack1->top->next == NULL)
+			stack1->top = NULL;
 		stack1->top = stack1->top->next;
 		stack2->top->prev->next = stack2->top;
 		stack2->top = stack2->top->prev;
 		stack1->top->prev = NULL;
 	}
+	
 }
 
 //stack->top becomes bottom; stack->top->next becomes new stack->top;
@@ -74,40 +76,3 @@ void rev_rotate(t_stack *stack)
 	stack->bottom->next = NULL;
 	stack->top->prev = NULL;
 }
-/*
-int main(int argc, char **argv)
-{
-	int i;
-	t_stack	stack1;
-	t_stack	stack2;
-
-	i = 1;
-	init_stack(&stack1);
-	init_stack(&stack2);
-
-	store_to_stack(argv, &stack1);
-	printf("--before--\n");
-	print_list(&stack1);
-	printf("------\nstack1\n");
-	// print_list(&stack2);
-	// printf("------\nstack2\n\n");
-
-rev_rotate(&stack1);
-
-	printf("--after--\n\n");
-	print_list(&stack1);
-	printf("------\nstack1\n");
-	// print_list(&stack2);
-	// printf("------\nstack2\n\n");
-
-rev_rotate(&stack1);
-
-	printf("--after2--\n\n");
-	print_list(&stack1);
-	printf("------\nstack1\n");
-	// print_list(&stack2);
-	// printf("------\nstack2\n\n");
-
-	return (0);
-}
-*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: selee <selee@student.42.fr>                +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:33:03 by selee             #+#    #+#             */
-/*   Updated: 2021/07/27 17:05:21 by selee            ###   ########.fr       */
+/*   Updated: 2021/07/29 15:01:27 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,30 +31,32 @@ int check_sorted(t_stack *stack)
 	return (0);
 }
 
+// if there is no argument return -1;
 int	check_no_arg(int argc)
-{// if there is no argument return -1;
+{
 	if (argc <= 1)
 		return (-1);
 	else
 		return (0);
 }
 
-int	check_non_int(char *arg)
-{//check if argument includes non-int values
-	int	i;
+// //check if argument includes non-int values
+// int	check_non_int(char *arg)
+// {
+// 	int	i;
 
-	i = 0;
-	while (arg[i] != NULL)
-	{
-		if ()
-/*
-int	ft_isalpha(int c)
-int	ft_isascii(int c)
-int	ft_isdigit(int c)
-...
-*/
-	}
-}
+// 	i = 0;
+// 	while (arg[i] != NULL)
+// 	{
+// 		if ()
+// /*
+// int	ft_isalpha(int c)
+// int	ft_isascii(int c)
+// int	ft_isdigit(int c)
+// ...
+// */
+// 	}
+// }
 
 int	check_duplicate();
 // if duplicate number is found, return -1;

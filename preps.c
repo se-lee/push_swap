@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   preps.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: selee <selee@student.42.fr>                +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:32:07 by selee             #+#    #+#             */
-/*   Updated: 2021/07/27 16:32:30 by selee            ###   ########.fr       */
+/*   Updated: 2021/07/29 14:35:12 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 void	store_to_stack(char **argv, t_stack *stack)
 {
 	int	i;
-//	t_stack stack;
 
-//	init_stack(&stack);
 	i = 1;
 	while (argv[i] != NULL)
 	{
@@ -25,5 +23,7 @@ void	store_to_stack(char **argv, t_stack *stack)
 		i++;
 	}
 }
+
+//need a function to convert 
 
 
