@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:33:03 by selee             #+#    #+#             */
-/*   Updated: 2021/07/30 15:33:02 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/07/30 19:15:05 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	check_no_arg(int argc)
 		return (0);
 }
 
+/*
 //check if argument includes non-int values
 int	check_non_int(char *arg)
 {
@@ -50,12 +51,10 @@ int	check_non_int(char *arg)
 	while (arg[i] != NULL)
 	{
 		if ()
-/*
 int	ft_isalpha(int c)
 int	ft_isascii(int c)
 int	ft_isdigit(int c)
 ...
-*/
 	}
 }
 
@@ -71,3 +70,4 @@ int	check_duplicate(t_stack *stack)
 //check if the argument is bigger/smaller than int max/min
 int check_int_max_min();
 
+*/
