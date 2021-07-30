@@ -25,7 +25,3 @@ void display_ko(void)
 {
 	ft_putstr_fd("KO\n", 1);
 }
-
-
-
-
