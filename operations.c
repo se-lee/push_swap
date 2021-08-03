@@ -3,21 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:59 by selee             #+#    #+#             */
-/*   Updated: 2021/07/29 14:37:50 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/03 16:22:00 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
-
-/*operations*/
-//swap sa sb ss(sa&sb)
-//push pb pa
-//rotate ra rb rr(ra&rb)
-//reverse rotate rra rrb rrr(rra&rrb)
 
 void swap(t_stack *stack, t_node *node1, t_node *node2)
 {
