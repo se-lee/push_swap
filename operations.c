@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:59 by selee             #+#    #+#             */
-/*   Updated: 2021/08/03 16:22:00 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/04 01:13:10 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,13 @@ void pop_and_push(t_stack *stack1, t_stack *stack2)
 	else
 	{
 		stack2->top->prev = stack1->top;
-		if (stack1->top->next == NULL)
-			stack1->top = NULL;
 		stack1->top = stack1->top->next;
 		stack2->top->prev->next = stack2->top;
 		stack2->top = stack2->top->prev;
+		if (stack1->top->next == NULL)
+			stack1->top = NULL;
 		stack1->top->prev = NULL;
 	}
-	
 }
 
 //stack->top becomes bottom; stack->top->next becomes new stack->top;

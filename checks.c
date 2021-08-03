@@ -6,17 +6,61 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:33:03 by selee             #+#    #+#             */
-/*   Updated: 2021/08/03 20:22:01 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/03 21:55:52 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*check*/
-//whether arguments are valid: strings, decimals, no argument, ...what else?
-//whether stack arguments are already sorted -> do nothing
+int	check_no_arg(int argc)
+{
+	if (argc <= 1)
+		return (-1);
+	else
+		return (0);
+}
 
-//if stack is sorted, return 0; if not sorted return -1;
+int	check_non_int(char **argv)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	while (argv[i] != NULL)
+	{
+		j = 0;
+		while (argv[i][j])
+		{
+			if (ft_isdigit(argv[i][j]) == 0)
+				return (-1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+int	check_duplicate(char **argv)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+
+	while (argv[i] != NULL)
+	{
+		j = i + 1;
+		while (argv[j] != NULL)
+		{
+			if (ft_strcmp(argv[i], argv[j]) == 0)
+				return (-1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
 int check_sorted(t_stack *stack)
 {
 	t_node *cursor;
@@ -31,50 +75,19 @@ int check_sorted(t_stack *stack)
 	return (0);
 }
 
-// if there is no argument return -1;
-int	check_no_arg(int argc)
+int main(int argc, char **argv)
 {
-	if (argc <= 1)
-		return (-1);
-	else
-		return (0);
-}
+	int no_arg;
+	int non_int;
+	int dup;
 
-//check if argument includes non-int values
-int	check_non_int(char *arg)
-{
-	int	i;
+	no_arg = check_no_arg(argc);
+	non_int= check_non_int(argv);
+	dup = check_duplicate(argv);
 
-	i = 0;
-	while (arg[i] != NULL)
-	{
-		if (ft_isdigit(arg[i]) != 1)
-			return (-1);
-		i++;
-	}
-	return (0);
-}
-
-// if duplicate number is found, return -1;
-//once the char strings are ok, do store_to_stack and check the ints
-
-int	check_duplicate(t_stack *stack)
-{
-	t_node *cursor;
-
-	cursor = stack->top;
-	
+	printf("no_arg: %d\n", no_arg);
+	printf("non_int: %d\n", no_arg);
+	printf("dup: %d\n", no_arg);
 
 	return (0);
-}
-
-/*
-//check if the argument is bigger/smaller than int max/min
-int check_int_max_min();
-
-*/
-
-int	all_check(t_stack *stack)
-{
-	
 }

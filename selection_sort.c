@@ -36,7 +36,7 @@ void	select_sort_list(t_stack *stack1, t_stack *stack2)
 	{
 		pop_push_min(stack1, stack2);
 	}
-	while (stack2->top->next != NULL)
+	while (stack2->top != NULL)
 	 	pop_and_push(stack2, stack1);
 }
 
