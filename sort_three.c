@@ -16,7 +16,6 @@ int		get_min_nbr(t_stack *stack)
 		else
 			break;
 	}
-	printf("min: %d  ", min);
 	return (min);
 }
 
@@ -36,7 +35,6 @@ int		get_max_nbr(t_stack *stack)
 		else
 			break;
 	}
-	printf("max: %d  ", max);
 	return (max);
 }
 
@@ -49,29 +47,26 @@ int		get_mid_nbr(t_stack *stack)
 	temp = stack->top;
 	while (stack)
 	{
-		if (temp->content != get_min_nbr(stack) && temp->content != get_max_nbr(stack))
+		if ((temp->content != get_min_nbr(stack)) && (temp->content != get_max_nbr(stack)))
 			mid = temp->content;
 		if (temp->next)
 			temp = temp->next;
 		else
 			break;
 	}
-	printf("mid: %d  ", mid);
 	return (mid);
 }
 
-
 void	three_args_top_min(t_stack *stack)
 {
-// need extra cases -- error cases (eg if stack is already sorted),
-//	rev_rotate(stack);
-	swap(stack);
+	rev_rotate(stack);
+	swap(stack, 'a');
 }
 
 void	three_args_top_mid(t_stack *stack)
 {
 	if (stack->top->next->content < stack->top->content)
-		swap(stack);
+		swap(stack, 'a');
 	else if (stack->top->next->content > stack->top->content)
 		rev_rotate(stack);
 }
@@ -86,7 +81,7 @@ void	three_args_top_max(t_stack *stack)
 	else if (stack->top->next->content != min)
 	{
 		rotate(stack);
-		swap(stack);
+		swap(stack, 'a');
 	}
 }
 
@@ -97,14 +92,16 @@ void	sort_three_args(t_stack *stack)
 	int	max;
 
 	min = get_min_nbr(stack);
+	mid = get_mid_nbr(stack);
 	max = get_max_nbr(stack);
+	if (check_sorted(stack) == 0)
+		return ;
 	if (stack->top->content == min)
-	{
-		if (check_sorted(stack) != -1)
-			return ;
-		else
-			three_args_top_min(stack);
-	}
+		three_args_top_min(stack);
+	else if (stack->top->content == mid)
+		three_args_top_mid(stack);
+	else if (stack->top->content == max)
+		three_args_top_max(stack);
 }
 
 int	main(int argc, char **argv)
@@ -115,6 +112,7 @@ int	main(int argc, char **argv)
 	store_to_stack(argv, &stack_a);
 	print_list(&stack_a);
 	sort_three_args(&stack_a);
+	printf("\nafter: \n");
 	print_list(&stack_a);
 
 	return (0);

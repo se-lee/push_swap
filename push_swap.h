@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/06 20:11:07 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/07 00:05:33 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	add_to_stack(t_stack *stack, t_node *new_node);
 void	store_to_stack(char **argv, t_stack *stack);
 
 /* operations */
-void	swap(t_stack *stack);
+void	swap(t_stack* stack, char stack_name);
 void	pop_and_push(t_stack *stack1, t_stack *stack2);
 void	rotate(t_stack *stack);
 void	rev_rotate(t_stack *stack);
