@@ -6,12 +6,13 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:33:03 by selee             #+#    #+#             */
-/*   Updated: 2021/08/03 21:55:52 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/06 20:14:57 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//maybe i dont need this function. 
 int	check_no_arg(int argc)
 {
 	if (argc <= 1)
@@ -75,6 +76,7 @@ int check_sorted(t_stack *stack)
 	return (0);
 }
 
+/*
 int main(int argc, char **argv)
 {
 	int no_arg;
@@ -91,3 +93,4 @@ int main(int argc, char **argv)
 
 	return (0);
 }
+*/

@@ -6,48 +6,61 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:59 by selee             #+#    #+#             */
-/*   Updated: 2021/08/04 01:13:10 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/06 23:29:51 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void swap(t_stack *stack, t_node *node1, t_node *node2)
+void	swap(t_stack* stack)
 {
-	t_node *temp;
-
-	node1->prev = node2;
-	node1->next = node2->next;
-	node2->prev = NULL;
-	node2->next = node1;
-	node2->next->prev = node1;
-	stack->top = node2;
+	// t_node	*temp;
+	
+	// temp = stack->top;
+	// temp->next = stack->top->next->next;
+	stack->top->next->next->prev = stack->top;
+	stack->top->prev = stack->top->next;
+	stack->top->next = stack->top->prev->next;
+	stack->top->prev->next = stack->top;
+	stack->top = stack->top->next;
+	stack->top->prev = NULL;
+//	temp->prev = stack->top;
 }
 
-void pop_and_push(t_stack *stack1, t_stack *stack2)
+	// if (stack->size > 2)
+	// 	top_next->next->prev = stack->top;
+	// temp->next = top_next->next;
+	// stack->top = top_next;
+	// stack->top->prev = NULL;
+	// stack->top->next = temp;
+	// temp->prev = stack->top;
+	// if (stack->size == 2)
+	// 	stack->bottom = stack->top->next;
+	// if (flag == A)
+
+void pop_and_push(t_stack *source, t_stack *dest)
 {//pop from stack1, push to stack2
 	//t_node	top1;
 	//t_node	top2;
-	if (stack2->top == NULL)
+	if (dest->top == NULL)
 	{
-		stack2->top = stack1->top;
-		stack1->top = stack1->top->next;
-		stack1->top->prev = NULL;
-		stack2->top->next = NULL;
+		dest->top = source->top;
+		source->top = source->top->next;
+		source->top->prev = NULL;
+		dest->top->next = NULL;
 	}
 	else
 	{
-		stack2->top->prev = stack1->top;
-		stack1->top = stack1->top->next;
-		stack2->top->prev->next = stack2->top;
-		stack2->top = stack2->top->prev;
-		if (stack1->top->next == NULL)
-			stack1->top = NULL;
-		stack1->top->prev = NULL;
+		dest->top->prev = source->top;
+		source->top = source->top->next;
+		dest->top->prev->next = dest->top;
+		dest->top = dest->top->prev;
+		if (source->top->next == NULL)
+			source->top = NULL;
+		source->top->prev = NULL;
 	}
 }
 
-//stack->top becomes bottom; stack->top->next becomes new stack->top;
 void rotate(t_stack *stack)
 {
 	stack->top->prev = stack->bottom;
@@ -67,4 +80,23 @@ void rev_rotate(t_stack *stack)
 	stack->bottom = stack->top->prev;
 	stack->bottom->next = NULL;
 	stack->top->prev = NULL;
+}
+
+// stack a and b
+
+int main(int argc, char **argv)
+{
+	t_stack	stack_a;
+
+	init_stack(&stack_a);
+	store_to_stack(argv, &stack_a);
+	printf("before:\n");
+	print_list(&stack_a);
+
+	swap(&stack_a);
+
+	printf("after:\n");
+	print_list(&stack_a);
+
+	return (0);
 }

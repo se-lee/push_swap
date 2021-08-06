@@ -1,6 +1,4 @@
 #include "push_swap.h"
-#include <stdio.h>
-
 
 void	pop_push_min(t_stack *stack1, t_stack *stack2)
 {

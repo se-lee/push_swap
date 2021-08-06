@@ -14,6 +14,7 @@ a list of instructions that doesn’t sort the list.
 void display_operation(char *op)
 {
 	//display operation name. sa, sb etc.
+	
 }
 
 void display_error(void)
