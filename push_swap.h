@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/07 02:28:19 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/07 23:01:53 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,18 @@ void	store_to_stack(char **argv, t_stack *stack);
 void	sa(t_stack *stack);
 void	sb(t_stack *stack);
 void	ss(t_stack *stack_a, t_stack *stack_b);
+void	pa(t_stack *stack_b, t_stack *stack_a);
+void	pb(t_stack *stack_a, t_stack *stack_b);
 void	ra(t_stack *stack);
 void	rb(t_stack *stack);
 void	rr(t_stack *stack_a, t_stack *stack_b);
 void	rra(t_stack *stack);
 void	rrb(t_stack *stack);
 void	rrr(t_stack *stack_a, t_stack *stack_b);
-void	pop_and_push(t_stack *stack1, t_stack *stack2);
-void	rev_rotate(t_stack *stack);
+void	pa(t_stack *stack_b, t_stack *stack_a);
+void	pb(t_stack *stack_a, t_stack *stack_b);
+// void	pop_and_push(t_stack *stack1, t_stack *stack2);
+// void	rev_rotate(t_stack *stack);
 
 /* checks */
 int check_sorted(t_stack *stack);
