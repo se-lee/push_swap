@@ -59,29 +59,30 @@ int		get_mid_nbr(t_stack *stack)
 
 void	three_args_top_min(t_stack *stack)
 {
-	rev_rotate(stack);
-	swap(stack, 'a');
+	rra(stack);
+	sa(stack);
 }
 
 void	three_args_top_mid(t_stack *stack)
 {
 	if (stack->top->next->content < stack->top->content)
-		swap(stack, 'a');
+		sa(stack);
 	else if (stack->top->next->content > stack->top->content)
-		rev_rotate(stack);
+		rra(stack);
 }
 
+/* think about ways to clarify ra/rb; sa/sb */
 void	three_args_top_max(t_stack *stack)
 {
 	int	min;
 
 	min = get_min_nbr(stack);
 	if (stack->top->next->content == min)
-		rotate(stack);
+		ra(stack);
 	else if (stack->top->next->content != min)
 	{
-		rotate(stack);
-		swap(stack, 'a');
+		ra(stack);
+		sa(stack);
 	}
 }
 

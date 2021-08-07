@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   op_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:59 by selee             #+#    #+#             */
-/*   Updated: 2021/08/07 00:06:00 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/07 02:26:48 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_stack* stack, char stack_name)
+void	sa(t_stack *stack)
 {
 	stack->top->next->next->prev = stack->top;
 	stack->top->prev = stack->top->next;
@@ -20,10 +20,25 @@ void	swap(t_stack* stack, char stack_name)
 	stack->top->prev->next = stack->top;
 	stack->top = stack->top->prev;
 	stack->top->prev = NULL;
-	if (stack_name == 'a')
-		ft_putendl_fd("sa", 1);
-	else if (stack_name == 'b')
-		ft_putendl_fd("sb", 1);
+	ft_putendl_fd("sa", 1);
+}
+
+void	sb(t_stack *stack)
+{
+	stack->top->next->next->prev = stack->top;
+	stack->top->prev = stack->top->next;
+	stack->top->next = stack->top->next->next;
+	stack->top->prev->next = stack->top;
+	stack->top = stack->top->prev;
+	stack->top->prev = NULL;
+	ft_putendl_fd("sb", 1);
+}
+
+void	ss(t_stack *stack_a, t_stack *stack_b)
+{
+	sa(stack_a);
+	sb(stack_b);
+	ft_putendl_fd("ss", 1);
 }
 
 void pop_and_push(t_stack *source, t_stack *dest)
@@ -47,16 +62,6 @@ void pop_and_push(t_stack *source, t_stack *dest)
 			source->top = NULL;
 		source->top->prev = NULL;
 	}
-}
-
-void rotate(t_stack *stack)
-{
-	stack->top->prev = stack->bottom;
-	stack->bottom->next = stack->top;
-	stack->top->next->prev = NULL;
-	stack->bottom = stack->top;
-	stack->top = stack->bottom->next;
-	stack->bottom->next = NULL;
 }
 
 //stack->bottom beomes top; stack->top becomes second node;
