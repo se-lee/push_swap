@@ -6,7 +6,7 @@
 #    By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/14 13:48:53 by selee             #+#    #+#              #
-#    Updated: 2021/08/03 21:51:46 by seoyounglee      ###   ########lyon.fr    #
+#    Updated: 2021/08/07 02:08:10 by seoyounglee      ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,10 +25,9 @@ SRCS	= ft_bzero.c ft_calloc.c ft_isalnum.c\
 		  ft_itoa.c ft_strtrim.c ft_strmapi.c\
 		  ft_split.c ft_itoa_base.c ft_utoa_base.c\
 		  ft_strstr.c ft_strcmp.c\
-
-BONUS	= ft_lstnew.c ft_lstadd_front.c ft_lstlast.c ft_lstsize.c\
-		ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c\
-		ft_lstiter.c ft_lstmap.c
+		  ft_lstnew.c ft_lstadd_front.c ft_lstlast.c ft_lstsize.c\
+		  ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c\
+		  ft_lstiter.c ft_lstmap.c
 
 OBJS	= $(SRCS:.c=.o)
 
