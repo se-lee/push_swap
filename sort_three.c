@@ -104,17 +104,3 @@ void	sort_three_args(t_stack *stack)
 		three_args_top_max(stack);
 }
 
-int	main(int argc, char **argv)
-{
-	t_stack stack_a;
-
-	init_stack(&stack_a);
-	store_to_stack(argv, &stack_a);
-	print_list(&stack_a);
-	sort_three_args(&stack_a);
-	printf("\nafter: \n");
-	print_list(&stack_a);
-
-	return (0);
-}
-

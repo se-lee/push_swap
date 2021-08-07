@@ -1,6 +1,9 @@
 HEADER	=	push_swap.h
-SRCS	=	\
-
+SRCS	=	checks.c\
+			list_stack_utils.c\
+			operations.c\
+			preps.c\
+			sort_three.c\
 
 OBJS	= $(SRCS:.c=.o)
 NAME	= push_swap
@@ -37,3 +40,5 @@ re:	fclean all
 .PHONY: all clean fclean re init
 
 # note: linked list in libft is make bonus
+
+
