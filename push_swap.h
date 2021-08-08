@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/07 23:01:53 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/08 04:24:43 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,10 @@ void	pb(t_stack *stack_a, t_stack *stack_b);
 // void	rev_rotate(t_stack *stack);
 
 /* checks */
-int check_sorted(t_stack *stack);
-int	check_non_int(char **argv);
-int	check_no_arg(int argc);
-int	check_duplicate(char **argv);
-
+int		check_sorted(t_stack *stack);
+int		check_non_int(char **argv);
+int		check_no_arg(int argc);
+int		check_duplicate(t_node *top);
 
 /* sort */
 void	sort_three_args(t_stack *stack);
@@ -61,6 +60,13 @@ void	three_args_top_max(t_stack *stack);
 void	three_args_top_mid(t_stack *stack);
 int		get_min_nbr(t_stack *stack);
 int		get_max_nbr(t_stack *stack);
+
+/* big */
+void	a_to_b(t_stack *stack_a, t_stack *stack_b);
+
+
+/* misc */
+void	error_exit(void);
 
 
 /*test functions - to be erased later*/

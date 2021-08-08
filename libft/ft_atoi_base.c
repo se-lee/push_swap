@@ -1,3 +1,5 @@
+#include "libft.h"
+
 int	ft_base_check(char *base)
 {
 	int		i;

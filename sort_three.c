@@ -71,7 +71,6 @@ void	three_args_top_mid(t_stack *stack)
 		rra(stack);
 }
 
-/* think about ways to clarify ra/rb; sa/sb */
 void	three_args_top_max(t_stack *stack)
 {
 	int	min;

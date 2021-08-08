@@ -3,8 +3,11 @@ SRCS	=	checks.c\
 			list_stack_utils.c\
 			op_swap.c\
 			op_rotate.c\
+			op_rev_rotate.c\
+			op_push.c\
 			preps.c\
 			sort_three.c\
+			sort_big.c\
 			main.c\
 
 OBJS	= $(SRCS:.c=.o)

@@ -6,21 +6,22 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:33:03 by selee             #+#    #+#             */
-/*   Updated: 2021/08/06 20:14:57 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/08 04:27:38 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 //maybe i dont need this function. 
-int	check_no_arg(int argc)
-{
-	if (argc <= 1)
-		return (-1);
-	else
-		return (0);
-}
+// int	check_no_arg(int argc)
+// {
+// 	if (argc <= 1)
+// 		return (-1);
+// 	else
+// 		return (0);
+// }
 
+// consider '+' and '-'
 int	check_non_int(char **argv)
 {
 	int	i;
@@ -30,9 +31,11 @@ int	check_non_int(char **argv)
 	while (argv[i] != NULL)
 	{
 		j = 0;
+		if (argv[i][0] == '+' || argv[i][0] == '-')
+			j++;
 		while (argv[i][j])
 		{
-			if (ft_isdigit(argv[i][j]) == 0)
+			if (ft_isdigit(argv[i][j]) != 1)
 				return (-1);
 			j++;
 		}
@@ -41,6 +44,10 @@ int	check_non_int(char **argv)
 	return (0);
 }
 
+
+// once all arguments are digits, store as linked list
+
+/*
 int	check_duplicate(char **argv)
 {
 	int	i;
@@ -61,6 +68,47 @@ int	check_duplicate(char **argv)
 	}
 	return (0);
 }
+*/
+
+int	check_duplicate(t_node *top)
+{
+//	int	i;
+	int	value;
+	t_node	*cursor;
+
+	while (top->next != NULL)
+	{
+		cursor = top->next;
+		value = top->content;
+		while (cursor->next != NULL)
+		{
+			if (cursor->content == value)
+				return (-1);
+			cursor = cursor->next;
+		}
+		top = top->next;
+	}
+	return (0);
+}
+
+
+	// while (a->next)
+	// {
+	// 	temp = a->next;
+	// 	cur_value = a->value;
+	// 	while (temp)
+	// 	{
+	// 		if (temp->value == cur_value)
+	// 			print_error();
+	// 		if (temp->next)
+	// 			temp = temp->next;
+	// 		else
+	// 			break;
+	// 	}
+	// 	a = a->next;
+	// }
+	// while (a->prev)
+	// 	a = a->prev;
 
 int check_sorted(t_stack *stack)
 {
@@ -79,18 +127,31 @@ int check_sorted(t_stack *stack)
 /*
 int main(int argc, char **argv)
 {
+	t_stack	a;
 	int no_arg;
 	int non_int;
 	int dup;
+	int	sorted;
+	int	i;
 
-	no_arg = check_no_arg(argc);
+	i = 0;
+	while(argv[i] != NULL)
+	{
+		printf("argv[%d]%s\n", i, argv[i]);
+		i++;
+	}
 	non_int= check_non_int(argv);
-	dup = check_duplicate(argv);
-
-	printf("no_arg: %d\n", no_arg);
-	printf("non_int: %d\n", no_arg);
-	printf("dup: %d\n", no_arg);
+	init_stack(&a);
+	store_to_stack(argv, &a);
+//	no_arg = check_no_arg(argc);
+	dup = check_duplicate(a.top);
+	sorted = check_sorted(&a);
+	print_list(&a);
+	printf("\nsorted: %d\n", sorted);
+	printf("non_int: %d\n", non_int);
+	printf("dup: %d\n", dup);
 
 	return (0);
 }
+
 */
