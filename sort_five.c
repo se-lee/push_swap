@@ -58,9 +58,9 @@ void	select_sort_list(t_stack *stack1, t_stack *stack2)
 
 
 
-int main(int argc, char **argv)
-{
+// int main(int argc, char **argv)
+// {
 
 
-}
+// }
 

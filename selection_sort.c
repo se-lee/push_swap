@@ -38,29 +38,29 @@ void	select_sort_list(t_stack *stack1, t_stack *stack2)
 	 	pa(stack2, stack1);
 }
 
-int main(int argc, char **argv)
-{
-	int i;
-	t_stack	stack1;
-	t_stack	stack2;
+// int main(int argc, char **argv)
+// {
+// 	int i;
+// 	t_stack	stack1;
+// 	t_stack	stack2;
 
 
-	i = 1;
-	init_stack(&stack1);
-	init_stack(&stack2);
-	store_to_stack(argv, &stack1);
+// 	i = 1;
+// 	init_stack(&stack1);
+// 	init_stack(&stack2);
+// 	store_to_stack(argv, &stack1);
 
-	print_list(&stack1);
-	printf("------\nstack1\n");
-	print_list(&stack2);
-	printf("------\nstack2\n\n");
+// 	print_list(&stack1);
+// 	printf("------\nstack1\n");
+// 	print_list(&stack2);
+// 	printf("------\nstack2\n\n");
 
-	select_sort_list(&stack1, &stack2);
-	printf("-------------------------\n");
-	print_list(&stack1);
-	printf("------\nstack1_after\n");
-	print_list(&stack2);
-	printf("------\nstack2_after\n\n");
-	printf("top: %d\nbottom: %d", stack1.top->content, stack1.bottom->content);
-	return (0);
-}
+// 	select_sort_list(&stack1, &stack2);
+// 	printf("-------------------------\n");
+// 	print_list(&stack1);
+// 	printf("------\nstack1_after\n");
+// 	print_list(&stack2);
+// 	printf("------\nstack2_after\n\n");
+// 	printf("top: %d\nbottom: %d", stack1.top->content, stack1.bottom->content);
+// 	return (0);
+// }
