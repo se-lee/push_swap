@@ -42,27 +42,27 @@ void	pb(t_stack *stack_a, t_stack *stack_b)
 }
 
 
-int main(int argc, char **argv)
-{
-	t_stack	a;
-	t_stack	b;
+// int main(int argc, char **argv)
+// {
+// 	t_stack	a;
+// 	t_stack	b;
 
-	init_stack(&a);
-	init_stack(&b);
-	store_to_stack(argv, &a);
+// 	init_stack(&a);
+// 	init_stack(&b);
+// 	store_to_stack(argv, &a);
 
-print_list(&a);
-print_list(&b);
+// print_list(&a);
+// print_list(&b);
 
-	pb(&a, &b);
-	pb(&a, &b);
+// 	pb(&a, &b);
+// 	pb(&a, &b);
 	
-	pa(&b, &a);
-	pa(&b, &a);
+// 	pa(&b, &a);
+// 	pa(&b, &a);
 
-print_list(&a);
-print_list(&b);
+// print_list(&a);
+// print_list(&b);
 
-	return (0);
+// 	return (0);
 
-}
+// }

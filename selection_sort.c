@@ -22,10 +22,10 @@ void	pop_push_min(t_stack *stack1, t_stack *stack2)
 	}
 	while (min_position > 1)
 	{
-		rotate(stack1);
+		ra(stack1);
 		min_position--;
 	}
-	pop_and_push(stack1, stack2);
+	pb(stack1, stack2);
 }
 
 void	select_sort_list(t_stack *stack1, t_stack *stack2)
@@ -35,7 +35,7 @@ void	select_sort_list(t_stack *stack1, t_stack *stack2)
 		pop_push_min(stack1, stack2);
 	}
 	while (stack2->top != NULL)
-	 	pop_and_push(stack2, stack1);
+	 	pa(stack2, stack1);
 }
 
 int main(int argc, char **argv)
@@ -61,6 +61,6 @@ int main(int argc, char **argv)
 	printf("------\nstack1_after\n");
 	print_list(&stack2);
 	printf("------\nstack2_after\n\n");
-//	printf("top: %d\nbottom: %d", stack1.top->content, stack1.bottom->content);
+	printf("top: %d\nbottom: %d", stack1.top->content, stack1.bottom->content);
 	return (0);
 }
