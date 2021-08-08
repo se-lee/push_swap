@@ -23,16 +23,16 @@ printf("[ab]pivot: %d\n", pivot);
 	cursor = stack_a->top;
 	while (cursor->next != NULL)
 	{
-		if (stack_a->top->content <= pivot)
+		if (cursor->content <= pivot)
 		{
+		cursor = cursor->next;	
 			pb(stack_a, stack_b);
 		}
-		else if (stack_a->top->content > pivot)
+		else if (cursor->content > pivot)
 		{
+		cursor = cursor->next;
 			ra(stack_a);
 		}
-		cursor = cursor->next;
 	}
-
 }
 
