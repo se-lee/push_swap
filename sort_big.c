@@ -35,4 +35,3 @@ printf("[ab]pivot: %d\n", pivot);
 		}
 	}
 }
-

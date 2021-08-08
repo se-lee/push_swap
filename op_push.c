@@ -16,7 +16,10 @@ void	pa(t_stack *stack_b, t_stack *stack_a)
 		stack_b->top = stack_b->top->next;
 		stack_a->top->prev->next = stack_a->top;
 		stack_a->top = stack_a->top->prev;
+		stack_b->top->prev = NULL;
 	}
+	stack_b->node_count--;
+	stack_a->node_count++;
 	ft_putendl_fd("pa", 1);
 }
 
@@ -33,11 +36,13 @@ void	pb(t_stack *stack_a, t_stack *stack_b)
 	else
 	{
 		stack_b->top->prev = stack_a->top;
-
 		stack_a->top = stack_a->top->next;
 		stack_b->top->prev->next = stack_b->top;
 		stack_b->top = stack_b->top->prev;
+		stack_a->top->prev = NULL;
 	}
+	stack_a->node_count--;
+	stack_b->node_count++;
 	ft_putendl_fd("pb", 1);
 }
 
