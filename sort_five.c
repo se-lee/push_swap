@@ -44,26 +44,29 @@ int		get_avg_nbr(t_stack *stack)
 
 void	sort_five(t_stack *stack_a, t_stack *stack_b)
 {
-	int	avg;
-	t_node *cursor;
+	int	mid;
+	int	pb_count;
 
-	avg = get_avg_nbr(stack_a);
-printf("avg: %d \n", avg);
-	cursor = stack_a->top;
-	// while (stack_b->node_count <= 2)
-	// {
-	// 	if (cursor->content <= avg)
-	// 		pb(stack_a, stack_b);
-	// 	cursor = cursor->next;
-	// }
-print_list(stack_b);
-	// if (stack_b->top->content < stack_b->top->next->content)
-	// 	sb(stack_b);
+	mid = get_mid_nbr_five(stack_a->top);
+	pb_count = 0;
+	while (stack_a)
+	{
+		if (stack_a->top->content < mid)
+		{
+			pb(stack_a, stack_b);
+			pb_count++;
+		}
+		else
+			ra(stack_a);
+		if (pb_count == 2)
+			break;	
+	}
 	sort_three_args(stack_a);
-print_list(stack_a);
-	// pa(stack_b, stack_a);
-	// pa(stack_b, stack_a);
+	sort_two(stack_b);
+	pa(stack_b, stack_a);
+	pa(stack_b, stack_a);
 }
+/*
 
 int main(int argc, char **argv)
 {
@@ -78,7 +81,7 @@ int main(int argc, char **argv)
 	print_list(&b);
 	mid = get_mid_nbr_five(a.top);
 	printf("mid: %d\n", mid);
-//	sort_five(&a, &b);
+	sort_five(&a, &b);
 
 	printf("after:\n");
 	print_list(&a);
@@ -87,3 +90,4 @@ int main(int argc, char **argv)
 	return (0);
 }
 
+*/

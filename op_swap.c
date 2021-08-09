@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:59 by selee             #+#    #+#             */
-/*   Updated: 2021/08/09 01:32:11 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/09 04:08:33 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,26 @@ void	sa(t_stack *stack)
 
 void	sb(t_stack *stack)
 {
-	stack->top->next->next->prev = stack->top;
-	stack->top->prev = stack->top->next;
-	stack->top->next = stack->top->next->next;
-	stack->top->prev->next = stack->top;
-	stack->top = stack->top->prev;
-	stack->top->prev = NULL;
+	if (stack->node_count < 2)
+		return ;
+	if (stack->node_count > 2)
+	{
+		stack->top->next->next->prev = stack->top;
+		stack->top->prev = stack->top->next;
+		stack->top->next = stack->top->next->next;
+		stack->top->prev->next = stack->top;
+		stack->top = stack->top->prev;
+		stack->top->prev = NULL;
+	}
+	else if (stack->node_count == 2)
+	{
+		stack->bottom = stack->top;
+		stack->top->prev = stack->top->next;
+		stack->top->next = stack->top->next->next; //should be NULL;
+		stack->top->prev->next = stack->top;
+		stack->top = stack->top->prev;
+		stack->top->prev = NULL;
+	}
 	ft_putendl_fd("sb", 1);
 }
 
