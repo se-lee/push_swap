@@ -62,6 +62,24 @@ printf("b_bottom: %d  \n", stack_b.bottom->content);
 }
 
 
+/* rotate main */
+// int main(int argc, char **argv)
+// {
+// 	t_stack a;
+// 	t_stack	b;
+
+// 	init_stack(&a);
+// 	init_stack(&b);
+// 	store_to_stack(argv, &b);
+// 	print_list(&b);
+
+// 	rb(&b);
+// 	rb(&b);
+// 	print_list(&b);
+
+// 	return (0);
+// }
+
 /* sort_five main */
 int main(int argc, char **argv)
 {

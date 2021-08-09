@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_stack_utils.c                                 :+:      :+:    :+:   */
+/*   stack_prep.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: selee <selee@student.42.fr>                +#+  +:+       +#+        */
+/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:14 by selee             #+#    #+#             */
-/*   Updated: 2021/07/27 17:44:37 by selee            ###   ########.fr       */
+/*   Updated: 2021/08/09 06:42:05 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	init_stack(t_stack *stack)
+void	init_stack(t_stack *stack_a, t_stack *stack_b)
 {
-	stack->top = NULL;
-	stack->bottom = NULL;
-	stack->node_count = 0;
+	stack_a->top = NULL;
+	stack_a->bottom = NULL;
+	stack_a->node_count = 0;
+	stack_b->top = NULL;
+	stack_b->bottom = NULL;
+	stack_b->node_count = 0;
+
 }
 
 /* push (add on top) */
@@ -63,15 +67,36 @@ void	store_to_stack(char **argv, t_stack *stack)
 	}
 }
 
-void	print_list(t_stack *stack)
+void	print_list(t_stack *stack_a, t_stack *stack_b)
 {
-	t_node	*node;
+	t_node	*node_a;
+	t_node	*node_b;
+	int		count;
 
-	node = stack->top;
-	printf("\n\n");
-	while (node != NULL)
+	node_a = stack_a->top;
+	node_b = stack_b->top;
+	count = stack_a->node_count;
+	printf("\n");
+	// printf("a_node_count: %d\n", stack_a->node_count);
+	printf("---------------------------\n\n");
+	while (count > 0)
 	{
-		printf("%d \n", node->content);
-		node = node->next;
+//		if (node_a->content)
+		printf("%d\n", node_a->content);
+		node_a = node_a->next;
+		// else
+		// 	printf("     ");
+		// printf("        ");
+		// if (node_b->content)
+		// { 
+		// 	printf("%d\n", node_b->content);
+		// }
+		// else
+		// 	printf("     ");
+		// printf("\n");
+		// node_b = node_b->next;
+		count--;
 	}
+	printf("_____a    _____b\n\n");
+	printf("---------------------------");
 }

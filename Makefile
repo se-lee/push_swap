@@ -1,6 +1,6 @@
 HEADER	=	push_swap.h
 SRCS	=	checks.c\
-			list_stack_utils.c\
+			stack_prep.c\
 			get_numbers.c\
 			op_swap.c\
 			op_rotate.c\

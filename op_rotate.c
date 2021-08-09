@@ -50,22 +50,3 @@ void	rr(t_stack *stack_a, t_stack *stack_b)
 	rb(stack_b);
 	ft_putendl_fd("rr", 1);
 }
-
-
-// int main(int argc, char **argv)
-// {
-// 	t_stack a;
-// 	t_stack	b;
-
-// 	init_stack(&a);
-// 	init_stack(&b);
-// 	store_to_stack(argv, &b);
-// 	print_list(&b);
-
-// 	rb(&b);
-// 	rb(&b);
-// 	print_list(&b);
-
-// 	return (0);
-// }
-
