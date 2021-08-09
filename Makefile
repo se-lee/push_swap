@@ -11,6 +11,7 @@ SRCS	=	checks.c\
 			sort_five.c\
 			sort_big.c\
 			bubble_sort.c\
+			quick_sort.c\
 			main.c\
 
 OBJS	= $(SRCS:.c=.o)

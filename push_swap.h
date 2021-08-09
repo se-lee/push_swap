@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/09 05:59:31 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/09 22:24:17 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <stddef.h>
 # include "libft/libft.h"
 
 typedef struct s_stack
@@ -51,16 +52,20 @@ void	rrb(t_stack *stack);
 void	rrr(t_stack *stack_a, t_stack *stack_b);
 
 /* sort */
+void	sort_two_a(t_stack *stack_a);
+void	sort_two_b(t_stack *stack_b);
 void	sort_three_args(t_stack *stack);
 void	three_args_top_max(t_stack *stack);
 void	three_args_top_mid(t_stack *stack);
 void	sort_five(t_stack *stack_a, t_stack *stack_b);
 void	bubble_sort(int arr[], int size);
+void    quick_sort(int array[], size_t length);
+
 
 /* get numbers*/
 int		get_min_nbr(t_stack *stack);
 int		get_max_nbr(t_stack *stack);
-int		get_mid_nbr(t_stack *stack);
+int		get_mid_nbr(t_node *node, int size);
 int		get_avg_nbr(t_stack *stack);
 int		get_mid_nbr_five(t_node *node);
 

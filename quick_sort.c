@@ -43,6 +43,7 @@ void    quick_sort(int array[], size_t length)
     quick_sort(&array[pivot_index + 1], length - (pivot_index + 1));
 }
 
+/*
 int main()
 {
     size_t            i;
@@ -68,3 +69,4 @@ int main()
     printf("\n");
     return (0);
 }
+*/

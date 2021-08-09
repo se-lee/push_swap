@@ -38,24 +38,6 @@ int		get_max_nbr(t_stack *stack)
 	return (max);
 }
 
-int		get_mid_nbr(t_stack *stack)
-{
-	int	mid;
-	t_node	*temp;
-
-	mid = 0;
-	temp = stack->top;
-	while (stack)
-	{
-		if ((temp->content != get_min_nbr(stack)) && (temp->content != get_max_nbr(stack)))
-			mid = temp->content;
-		if (temp->next)
-			temp = temp->next;
-		else
-			break;
-	}
-	return (mid);
-}
 
 int		get_avg_nbr(t_stack *stack)
 {
@@ -69,6 +51,7 @@ int		get_avg_nbr(t_stack *stack)
 	return (avg);
 }
 
+/* revise: modify to handle three arguments too. get_mid above is lame. */
 int		get_mid_nbr_five(t_node *node)
 {
 	int	i;
@@ -84,3 +67,43 @@ int		get_mid_nbr_five(t_node *node)
 	bubble_sort(nbr, 5);
 	return (nbr[2]);
 }
+
+int		get_mid_nbr(t_node *node, int size)
+{
+	int	i;
+	int	nbr[size];
+
+	i = 0;
+	while (i < size)
+	{
+		nbr[i] = node->content;
+		node = node->next;
+		i++;
+	}
+	bubble_sort(nbr, size);
+	return (nbr[size / 2]);
+}
+
+// int		get_pivot(t_stack *stack)
+// {
+// 	int	i;
+// 	int	pivot;
+// }
+
+int	main(int argc, char **argv)
+{
+	t_stack	a;
+	t_stack	b;
+	int	mid;
+
+	init_stack(&a, &b);
+	store_to_stack(argv, &a);
+	
+	mid = get_mid_nbr(a.top, a.node_count);
+	printf("mid: %d \n", mid);
+
+	return (0);
+}
+
+
+

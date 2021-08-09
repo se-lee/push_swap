@@ -35,7 +35,7 @@ void	sort_three_args(t_stack *stack)
 	int	max;
 
 	min = get_min_nbr(stack);
-	mid = get_mid_nbr(stack);
+	mid = get_mid_nbr(stack->top, 3);
 	max = get_max_nbr(stack);
 	if (check_sorted(stack) == 0)
 		return ;

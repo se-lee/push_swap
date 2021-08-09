@@ -1,11 +1,6 @@
 #include "push_swap.h"
 
 
-void	sort_b(t_stack *stack)
-{
-	//
-}
-
 
 void	a_to_b(t_stack *stack_a, t_stack *stack_b)
 {

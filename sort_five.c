@@ -8,7 +8,7 @@ in stack a, do three number sort
 pa two numbers
 */
 
-void	sort_two(t_stack *stack)
+void	sort_two_b(t_stack *stack)
 {
 	if (stack->top->content < stack->top->next->content)
 		sb(stack);
@@ -19,7 +19,7 @@ void	sort_five(t_stack *stack_a, t_stack *stack_b)
 	int	mid;
 	int	pb_count;
 
-	mid = get_mid_nbr_five(stack_a->top);
+	mid = get_mid_nbr(stack_a->top, stack_a->node_count);
 	pb_count = 0;
 	while (stack_a)
 	{
@@ -34,7 +34,7 @@ void	sort_five(t_stack *stack_a, t_stack *stack_b)
 			break;	
 	}
 	sort_three_args(stack_a);
-	sort_two(stack_b);
+	sort_two_b(stack_b);
 	pa(stack_b, stack_a);
 	pa(stack_b, stack_a);
 }
