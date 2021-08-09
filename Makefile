@@ -1,13 +1,16 @@
 HEADER	=	push_swap.h
 SRCS	=	checks.c\
 			list_stack_utils.c\
+			get_numbers.c\
 			op_swap.c\
 			op_rotate.c\
 			op_rev_rotate.c\
 			op_push.c\
 			preps.c\
 			sort_three.c\
+			sort_five.c\
 			sort_big.c\
+			bubble_sort.c\
 			main.c\
 
 OBJS	= $(SRCS:.c=.o)

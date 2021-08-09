@@ -73,28 +73,3 @@ void	pb(t_stack *stack_a, t_stack *stack_b)
 	ft_putendl_fd("pb", 1);
 }
 
-
-// int main(int argc, char **argv)
-// {
-// 	t_stack	a;
-// 	t_stack	b;
-
-// 	init_stack(&a);
-// 	init_stack(&b);
-// 	store_to_stack(argv, &a);
-
-// print_list(&a);
-// print_list(&b);
-
-// 	pb(&a, &b);
-// 	pb(&a, &b);
-	
-// 	pa(&b, &a);
-// 	pa(&b, &a);
-
-// print_list(&a);
-// print_list(&b);
-
-// 	return (0);
-
-// }

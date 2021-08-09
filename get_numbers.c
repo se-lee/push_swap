@@ -1,0 +1,86 @@
+#include "push_swap.h"
+
+int		get_min_nbr(t_stack *stack)
+{
+	int	min;
+	t_node	*temp;
+
+	min = stack->top->content;
+	temp = stack->top;
+	while (stack)
+	{
+		if (temp->content < min)
+			min = temp->content;
+		if (temp->next)
+			temp = temp->next;
+		else
+			break;
+	}
+	return (min);
+}
+
+int		get_max_nbr(t_stack *stack)
+{
+	int	max;
+	t_node *temp;
+
+	max = stack->top->content;
+	temp = stack->top;
+	while (stack)
+	{
+		if (temp->content > max)
+			max = temp->content;
+		if (temp->next)
+			temp = temp->next;
+		else
+			break;
+	}
+	return (max);
+}
+
+int		get_mid_nbr(t_stack *stack)
+{
+	int	mid;
+	t_node	*temp;
+
+	mid = 0;
+	temp = stack->top;
+	while (stack)
+	{
+		if ((temp->content != get_min_nbr(stack)) && (temp->content != get_max_nbr(stack)))
+			mid = temp->content;
+		if (temp->next)
+			temp = temp->next;
+		else
+			break;
+	}
+	return (mid);
+}
+
+int		get_avg_nbr(t_stack *stack)
+{
+	int	avg;
+	int	min;
+	int	max;
+
+	min = get_min_nbr(stack);
+	max = get_max_nbr(stack);
+	avg = (min + max) / 2;
+	return (avg);
+}
+
+int		get_mid_nbr_five(t_node *node)
+{
+	int	i;
+	int	nbr[5];
+
+	i = 0;
+	while(i < 5)
+	{
+		nbr[i] = node->content;
+		node = node->next;
+		i++;
+	}
+	bubble_sort(nbr, 5);
+	return (nbr[2]);
+}
