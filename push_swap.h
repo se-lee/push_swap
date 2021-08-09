@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/08 04:24:43 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/09 03:36:12 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,11 @@ void	sort_three_args(t_stack *stack);
 void	three_args_top_max(t_stack *stack);
 void	three_args_top_mid(t_stack *stack);
 int		get_min_nbr(t_stack *stack);
+int		get_mid_nbr(t_stack *stack);
 int		get_max_nbr(t_stack *stack);
+int		get_avg_nbr(t_stack *stack);
+void	bubble_sort(int arr[], int size);
+
 
 /* big */
 void	a_to_b(t_stack *stack_a, t_stack *stack_b);
