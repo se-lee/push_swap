@@ -11,7 +11,7 @@ int	main(int argc, char **argv)
 		store_to_stack(argv, &stack_a);
 
 		a_to_b(&stack_a, &stack_b);
-		print_list(&stack_a, &stack_b);
+//		display_stacks()
 	}
 	// 	if (stack_a.node_count == 3)
 	// 		sort_three_args(&stack_a);
