@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:25:59 by selee             #+#    #+#             */
-/*   Updated: 2021/08/10 03:02:15 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/10 03:45:38 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int		get_avg_nbr(t_stack *stack)
 	return (avg);
 }
 
+
 int		get_mid_nbr(t_node *node, int size)
 {
 	int	i;
@@ -76,33 +77,37 @@ int		get_mid_nbr(t_node *node, int size)
 		i++;
 	}
 	quick_sort(nbr, size);
-	i = 0;
-	while (i < size)
-	{
-		printf("%d  ", nbr[i]);
-		i++;
-	}
-	printf("\n");
 	return (nbr[size / 2]);
 }
 
-
-t_pivot		get_pivot(t_stack *stack, int size)
+t_pivot		get_pivot(t_node *node, int size)
 {
-	t_pivot 	pv;
+	int	i;
+	int	nbr[size];
+	t_pivot pv;
 
-	pv.piv_big = get_mid_nbr(stack->top, size); //スタック全体の中央値
-	pv.piv_small = get_mid_nbr(stack->top, (size / 2)); //スタックの前の半分の中央値
+	i = 0;
+	while (i < size)
+	{
+		nbr[i] = node->content;
+		node = node->next;
+		i++;
+	}
+	quick_sort(nbr, size);
 
-printf("size: %d  \n", size/2);
+	// i = 0;
+	// while (i < size)
+	// {
+	// 	printf("%d  ", nbr[i]);
+	// 	i++;
+	// }
+
+	pv.piv_big = nbr[size / 2];
+	pv.piv_small = nbr[size / 4];	
+
 	return (pv);
 }
 
-/*
-get each node->content, store into int array
-do quick sor
-
-*/
 
 int	main(int argc, char **argv)
 {
@@ -113,8 +118,8 @@ int	main(int argc, char **argv)
 	init_stack(&a, &b);
 	store_to_stack(argv, &a);
 	
-	pv = get_pivot(&a, a.node_count);
-	print_list(&a, &b);
+	pv = get_pivot(a.top, a.node_count);
+//	print_list(&a, &b);
 	
 	printf("\npv_big:%d  ", pv.piv_big);
 	printf("pv_small:%d  \n", pv.piv_small);
