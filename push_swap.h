@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/10 04:17:35 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/10 05:17:18 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,14 @@ void	sort_three_args(t_stack *stack);
 void	three_args_top_max(t_stack *stack);
 void	three_args_top_mid(t_stack *stack);
 void	sort_five(t_stack *stack_a, t_stack *stack_b);
-void	bubble_sort(int arr[], int size);　//これ消す
+void	bubble_sort(int arr[], int size); //これ消す
 void    quick_sort(int array[], size_t length);
 
 /* get numbers*/
 int		get_min_nbr(t_stack *stack);
 int		get_max_nbr(t_stack *stack);
 int		get_mid_nbr(t_node *node, int size);
-int		get_avg_nbr(t_stack *stack);
+int		get_avg_nbr(t_stack *stack);  //多分これも消す
 t_pivot		get_pivot(t_node *node, int size);
 
 /* big */
@@ -94,5 +94,16 @@ void	error_exit(void);
 void	pop_push_min(t_stack *stack1, t_stack *stack2);
 void	print_list(t_stack *stack_a, t_stack *stack_b);
 void	select_sort_list(t_stack *stack1, t_stack *stack2);
+void	display_stacks(t_stack *stack[2], char *message);
+
+
 
 #endif
+
+
+/*
+Todo
+ドリアンのクイックソート見直す。自分のものにする。
+
+
+*/
