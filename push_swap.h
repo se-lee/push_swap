@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/09 22:24:17 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/10 02:45:11 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,28 @@ typedef struct s_stack
 	t_node	*bottom;
 	int		node_count;
 }				t_stack;
+
+typedef struct s_opcount
+{
+	int	pa;
+	int	pb;
+	int	ra;
+	int	rb;
+}				t_opcount;
+
+typedef struct s_pivot
+{
+	int	piv_big;
+	int	piv_small;
+}				t_pivot;
+
+/*-- これいらんかも ---*/
+typedef struct s_node_i
+{
+	int	index;
+	int	value;
+}				t_node_i;
+//----<----->-----///
 
 /* checks */
 int		check_sorted(t_stack *stack);
@@ -67,7 +89,6 @@ int		get_min_nbr(t_stack *stack);
 int		get_max_nbr(t_stack *stack);
 int		get_mid_nbr(t_node *node, int size);
 int		get_avg_nbr(t_stack *stack);
-int		get_mid_nbr_five(t_node *node);
 
 /* big */
 void	a_to_b(t_stack *stack_a, t_stack *stack_b);

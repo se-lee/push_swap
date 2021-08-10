@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_numbers.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/10 01:25:59 by selee             #+#    #+#             */
+/*   Updated: 2021/08/10 03:02:15 by selee            ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int		get_min_nbr(t_stack *stack)
@@ -38,7 +50,7 @@ int		get_max_nbr(t_stack *stack)
 	return (max);
 }
 
-
+//これいらんかもね
 int		get_avg_nbr(t_stack *stack)
 {
 	int	avg;
@@ -49,23 +61,6 @@ int		get_avg_nbr(t_stack *stack)
 	max = get_max_nbr(stack);
 	avg = (min + max) / 2;
 	return (avg);
-}
-
-/* revise: modify to handle three arguments too. get_mid above is lame. */
-int		get_mid_nbr_five(t_node *node)
-{
-	int	i;
-	int	nbr[5];
-
-	i = 0;
-	while(i < 5)
-	{
-		nbr[i] = node->content;
-		node = node->next;
-		i++;
-	}
-	bubble_sort(nbr, 5);
-	return (nbr[2]);
 }
 
 int		get_mid_nbr(t_node *node, int size)
@@ -80,27 +75,49 @@ int		get_mid_nbr(t_node *node, int size)
 		node = node->next;
 		i++;
 	}
-	bubble_sort(nbr, size);
+	quick_sort(nbr, size);
+	i = 0;
+	while (i < size)
+	{
+		printf("%d  ", nbr[i]);
+		i++;
+	}
+	printf("\n");
 	return (nbr[size / 2]);
 }
 
-// int		get_pivot(t_stack *stack)
-// {
-// 	int	i;
-// 	int	pivot;
-// }
+
+t_pivot		get_pivot(t_stack *stack, int size)
+{
+	t_pivot 	pv;
+
+	pv.piv_big = get_mid_nbr(stack->top, size); //スタック全体の中央値
+	pv.piv_small = get_mid_nbr(stack->top, (size / 2)); //スタックの前の半分の中央値
+
+printf("size: %d  \n", size/2);
+	return (pv);
+}
+
+/*
+get each node->content, store into int array
+do quick sor
+
+*/
 
 int	main(int argc, char **argv)
 {
 	t_stack	a;
 	t_stack	b;
-	int	mid;
+	t_pivot pv;
 
 	init_stack(&a, &b);
 	store_to_stack(argv, &a);
 	
-	mid = get_mid_nbr(a.top, a.node_count);
-	printf("mid: %d \n", mid);
+	pv = get_pivot(&a, a.node_count);
+	print_list(&a, &b);
+	
+	printf("\npv_big:%d  ", pv.piv_big);
+	printf("pv_small:%d  \n", pv.piv_small);
 
 	return (0);
 }
