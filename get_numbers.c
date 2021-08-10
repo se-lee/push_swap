@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:25:59 by selee             #+#    #+#             */
-/*   Updated: 2021/08/10 03:45:38 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/10 03:47:15 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int		get_max_nbr(t_stack *stack)
 	return (max);
 }
 
-//これいらんかもね
+/*---- これいらんかもね -----*/
 int		get_avg_nbr(t_stack *stack)
 {
 	int	avg;
@@ -62,6 +62,7 @@ int		get_avg_nbr(t_stack *stack)
 	avg = (min + max) / 2;
 	return (avg);
 }
+/*---- これいらんかもね -----*/
 
 
 int		get_mid_nbr(t_node *node, int size)
@@ -108,7 +109,7 @@ t_pivot		get_pivot(t_node *node, int size)
 	return (pv);
 }
 
-
+/*
 int	main(int argc, char **argv)
 {
 	t_stack	a;
@@ -126,6 +127,5 @@ int	main(int argc, char **argv)
 
 	return (0);
 }
-
-
+*/
 

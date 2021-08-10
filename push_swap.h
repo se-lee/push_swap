@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/10 02:45:11 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/10 04:17:35 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,6 @@ typedef struct s_pivot
 	int	piv_small;
 }				t_pivot;
 
-/*-- これいらんかも ---*/
-typedef struct s_node_i
-{
-	int	index;
-	int	value;
-}				t_node_i;
-//----<----->-----///
-
 /* checks */
 int		check_sorted(t_stack *stack);
 int		check_non_int(char **argv);
@@ -56,7 +48,7 @@ int		check_duplicate(t_node *top);
 
 /* stack_prep */
 void	init_stack(t_stack *stack_a, t_stack *stack_b);
-void	add_to_stack(t_stack *stack, t_node *new_node);
+void	add_to_stack(t_stack *stack, t_node *new_node); //これ使ってないと思う
 void	add_to_stack_back(t_stack *stack, t_node *new_node);
 void	store_to_stack(char **argv, t_stack *stack);
 
@@ -80,15 +72,15 @@ void	sort_three_args(t_stack *stack);
 void	three_args_top_max(t_stack *stack);
 void	three_args_top_mid(t_stack *stack);
 void	sort_five(t_stack *stack_a, t_stack *stack_b);
-void	bubble_sort(int arr[], int size);
+void	bubble_sort(int arr[], int size);　//これ消す
 void    quick_sort(int array[], size_t length);
-
 
 /* get numbers*/
 int		get_min_nbr(t_stack *stack);
 int		get_max_nbr(t_stack *stack);
 int		get_mid_nbr(t_node *node, int size);
 int		get_avg_nbr(t_stack *stack);
+t_pivot		get_pivot(t_node *node, int size);
 
 /* big */
 void	a_to_b(t_stack *stack_a, t_stack *stack_b);
