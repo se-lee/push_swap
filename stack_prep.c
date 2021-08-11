@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:14 by selee             #+#    #+#             */
-/*   Updated: 2021/08/11 02:59:04 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/12 01:43:49 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,17 +67,17 @@ void	store_to_stack(char **argv, t_stack *stack)
 	}
 }
 
-void	print_list(t_stack *stack_a, char flag)
+void	print_list(t_stack *stack, char a_or_b)
 {
-	t_node	*node_a;
+	t_node	*node;
 
-	node_a = stack_a->top;
+	node = stack->top;
 	printf("---------------------------\n\n");
-	while (node_a->next != NULL)
+	while (node->next != NULL)
 	{
-		printf("%d  \n", node_a->content);
-		node_a = node_a->next;
+		printf("%d  \n", node->content);
+		node = node->next;
 	}
-	printf("---%c---\n", flag);
+	printf("---%c---\n", a_or_b);
 	printf("---------------------------\n");
 }

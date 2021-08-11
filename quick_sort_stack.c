@@ -3,25 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort_stack.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:26:59 by selee             #+#    #+#             */
-/*   Updated: 2021/08/10 01:27:01 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/12 01:39:59 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	quick_sort_a(t_stack *stack)
+void	push_small_to_b(t_stack *stack_a, t_stack *stack_b)
 {
-//
+	t_node	*cursor;
+	t_pivcount	pvcnt;
+//	int		temp;
+
+	cursor = stack_a->top;
+	get_pivot(stack_a->top, stack_a->node_count, &pvcnt);
+	while (cursor->next != NULL)
+	{
+		if (cursor->content <= pvcnt.piv_big)
+			pb(stack_a, stack_b);
+		else
+			ra(stack_a);
+		cursor = cursor->next;
+	}
+
 }
 
 
-void	quick_sort_b(t_stack *stack)
-{
+// void	quick_sort_b(t_stack *stack)
+// {
 
-}
+// }
+
+
 
 
 

@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/11 07:51:32 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/12 01:34:32 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,18 @@ void	sort_two_a(t_stack *stack_a);
 void	sort_two_b(t_stack *stack_b);
 void	sort_two(t_stack *stack_a, t_stack *stack_b, int a_or_b);
 void	a_sort_three(t_stack *stack);
+void	b_sort_three(t_stack *stack_b);
 void	a_three_top_max(t_stack *stack);
 void	a_three_top_mid(t_stack *stack);
 void	sort_five(t_stack *stack_a, t_stack *stack_b);
 void	bubble_sort(int arr[], int size); //これ消す
 void    quick_sort(int array[], size_t length);
+
+/* small sort */
+void	sort_less_five(t_stack *stack_a, t_stack *stack_b, int count, int a_or_b);
+void	sort_five(t_stack *stack_a, t_stack *stack_b);
+
+
 
 /* get numbers*/
 int		get_min_nbr(t_stack *stack);
@@ -83,10 +90,13 @@ int		get_avg_nbr(t_stack *stack);  //多分これも消す
 void		get_pivot(t_node *node, int size, t_pivcount *pv);
 
 /* big */
-void	a_to_b(t_stack *stack_a, t_stack *stack_b);
+void	a_to_b(t_stack *stack_a, t_stack *stack_b, int range, int *cnt);
+void	push_small_to_b(t_stack *stack_a, t_stack *stack_b);
+
 
 /* misc */
 void	error_exit(void);
+void	init_op_count(t_pivcount *count);
 
 /*test functions - to be erased later*/
 void	pop_push_min(t_stack *stack1, t_stack *stack2);

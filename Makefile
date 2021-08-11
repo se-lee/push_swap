@@ -6,14 +6,13 @@ SRCS	=	checks.c\
 			op_rotate.c\
 			op_rev_rotate.c\
 			op_push.c\
-			preps.c\
 			sort_three.c\
-			sort_five.c\
-			sort_big.c\
+			sort_three_rev.c\
+			sort_small.c\
 			bubble_sort.c\
 			quick_sort.c\
+			quick_sort_stack.c\
 			main.c\
-			c_display.c\
 
 OBJS	= $(SRCS:.c=.o)
 NAME	= push_swap

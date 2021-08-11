@@ -1,5 +1,7 @@
 #include "push_swap.h"
 
+/* function to sort three arguments in reverse order (for stack b) */
+
 void	b_three_top_min(t_stack *stack_b)
 {
 	int	max;
@@ -43,7 +45,7 @@ void	b_sort_three(t_stack *stack_b)
 	int	max;
 
 	min = get_min_nbr(stack_b);
-	mid = get_mid_nbr(stack_b, 3);
+	mid = get_mid_nbr(stack_b->top, 3);
 	max = get_max_nbr(stack_b);
 
 	if (check_sorted(stack_b) == 0)
