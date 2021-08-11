@@ -1,5 +1,12 @@
 #include "push_swap.h"
 
+int	ft_max(int a, int b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
+
 static void	display_number_width11(int num)
 {
 	int	ct[2];
@@ -40,7 +47,7 @@ void	display_stacks(t_stack *stack[2], char *message)
 	{
 		if (ct[0] < stack[0]->node_count)
 		{
-			display_number_width11(*((int *)cur[0]->content));
+			display_number_width11((cur[0]->content));
 			cur[0] = cur[0]->next;
 		}
 		else
@@ -48,7 +55,7 @@ void	display_stacks(t_stack *stack[2], char *message)
 		ft_putstr_fd("     ", 1);
 		if (ct[0] < stack[1]->node_count)
 		{
-			display_number_width11(*((int *)cur[1]->content));
+			display_number_width11((cur[1]->content));
 			cur[1] = cur[1]->next;
 		}
 		ft_putendl_fd("", 1);

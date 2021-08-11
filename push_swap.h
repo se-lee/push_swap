@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/10 05:17:18 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/11 02:54:52 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,15 @@ typedef struct s_stack
 	int		node_count;
 }				t_stack;
 
-typedef struct s_opcount
+typedef struct s_pivcount
 {
+	int	piv_small;
+	int	piv_big;
 	int	pa;
 	int	pb;
 	int	ra;
 	int	rb;
-}				t_opcount;
-
-typedef struct s_pivot
-{
-	int	piv_big;
-	int	piv_small;
-}				t_pivot;
+}				t_pivcount;
 
 /* checks */
 int		check_sorted(t_stack *stack);
@@ -80,23 +76,19 @@ int		get_min_nbr(t_stack *stack);
 int		get_max_nbr(t_stack *stack);
 int		get_mid_nbr(t_node *node, int size);
 int		get_avg_nbr(t_stack *stack);  //多分これも消す
-t_pivot		get_pivot(t_node *node, int size);
+void		get_pivot(t_node *node, int size, t_pivcount *pv);
 
 /* big */
 void	a_to_b(t_stack *stack_a, t_stack *stack_b);
 
-
 /* misc */
 void	error_exit(void);
 
-
 /*test functions - to be erased later*/
 void	pop_push_min(t_stack *stack1, t_stack *stack2);
-void	print_list(t_stack *stack_a, t_stack *stack_b);
+void	print_list(t_stack *stack_a, char flag);
 void	select_sort_list(t_stack *stack1, t_stack *stack2);
 void	display_stacks(t_stack *stack[2], char *message);
-
-
 
 #endif
 

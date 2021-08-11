@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:14 by selee             #+#    #+#             */
-/*   Updated: 2021/08/09 06:42:05 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/11 02:59:04 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,36 +67,17 @@ void	store_to_stack(char **argv, t_stack *stack)
 	}
 }
 
-void	print_list(t_stack *stack_a, t_stack *stack_b)
+void	print_list(t_stack *stack_a, char flag)
 {
 	t_node	*node_a;
-	t_node	*node_b;
-	int		count;
 
 	node_a = stack_a->top;
-	node_b = stack_b->top;
-	count = stack_a->node_count;
-	printf("\n");
-	// printf("a_node_count: %d\n", stack_a->node_count);
 	printf("---------------------------\n\n");
-	while (count > 0)
+	while (node_a->next != NULL)
 	{
-//		if (node_a->content)
-		printf("%d\n", node_a->content);
+		printf("%d  \n", node_a->content);
 		node_a = node_a->next;
-		// else
-		// 	printf("     ");
-		// printf("        ");
-		// if (node_b->content)
-		// { 
-		// 	printf("%d\n", node_b->content);
-		// }
-		// else
-		// 	printf("     ");
-		// printf("\n");
-		// node_b = node_b->next;
-		count--;
 	}
-	printf("_____a    _____b\n\n");
-	printf("---------------------------");
+	printf("---%c---\n", flag);
+	printf("---------------------------\n");
 }

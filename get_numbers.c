@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_numbers.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:25:59 by selee             #+#    #+#             */
-/*   Updated: 2021/08/10 03:47:15 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/11 01:13:23 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,10 @@ int		get_mid_nbr(t_node *node, int size)
 	return (nbr[size / 2]);
 }
 
-t_pivot		get_pivot(t_node *node, int size)
+void		get_pivot(t_node *node, int size, t_pivcount *pv)
 {
 	int	i;
 	int	nbr[size];
-	t_pivot pv;
 
 	i = 0;
 	while (i < size)
@@ -103,10 +102,8 @@ t_pivot		get_pivot(t_node *node, int size)
 	// 	i++;
 	// }
 
-	pv.piv_big = nbr[size / 2];
-	pv.piv_small = nbr[size / 4];	
-
-	return (pv);
+	pv->piv_big = nbr[size / 2];
+	pv->piv_small = nbr[size / 4];	
 }
 
 /*

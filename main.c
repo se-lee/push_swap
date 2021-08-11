@@ -10,9 +10,14 @@ int	main(int argc, char **argv)
 		init_stack(&stack_a, &stack_b);
 		store_to_stack(argv, &stack_a);
 
+	//print_list(&stack_a, &stack_b);
 		a_to_b(&stack_a, &stack_b);
-//		display_stacks()
+	print_list(&stack_a, 'a');
+	print_list(&stack_b, 'b');
 	}
+	return (0);
+}
+
 	// 	if (stack_a.node_count == 3)
 	// 		sort_three_args(&stack_a);
 	// 	else
@@ -20,7 +25,4 @@ int	main(int argc, char **argv)
 	// }
 	// printf("\nafter: \n");
 	// print_list(&stack_a, &stack_b);
-
-	return (0);
-}
 

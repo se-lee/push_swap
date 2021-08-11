@@ -13,6 +13,7 @@ SRCS	=	checks.c\
 			bubble_sort.c\
 			quick_sort.c\
 			main.c\
+			c_display.c\
 
 OBJS	= $(SRCS:.c=.o)
 NAME	= push_swap
