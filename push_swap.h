@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/11 05:24:23 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/11 07:51:32 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ void	rrr(t_stack *stack_a, t_stack *stack_b);
 void	sort_two_a(t_stack *stack_a);
 void	sort_two_b(t_stack *stack_b);
 void	sort_two(t_stack *stack_a, t_stack *stack_b, int a_or_b);
-void	sort_three_args(t_stack *stack);
-void	three_args_top_max(t_stack *stack);
-void	three_args_top_mid(t_stack *stack);
+void	a_sort_three(t_stack *stack);
+void	a_three_top_max(t_stack *stack);
+void	a_three_top_mid(t_stack *stack);
 void	sort_five(t_stack *stack_a, t_stack *stack_b);
 void	bubble_sort(int arr[], int size); //これ消す
 void    quick_sort(int array[], size_t length);

@@ -3,59 +3,73 @@
 /*                                                        :::      ::::::::   */
 /*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:26:27 by selee             #+#    #+#             */
-/*   Updated: 2021/08/10 01:26:29 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/11 07:51:46 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	three_args_top_min(t_stack *stack)
+void	sort_two(t_stack *stack_a, t_stack *stack_b, int a_or_b)
 {
-	rra(stack);
-	sa(stack);
-}
-
-void	three_args_top_mid(t_stack *stack)
-{
-	if (stack->top->next->content < stack->top->content)
-		sa(stack);
-	else if (stack->top->next->content > stack->top->content)
-		rra(stack);
-}
-
-void	three_args_top_max(t_stack *stack)
-{
-	int	min;
-
-	min = get_min_nbr(stack);
-	if (stack->top->next->content == min)
-		ra(stack);
-	else if (stack->top->next->content != min)
+	if (a_or_b == A)
 	{
-		ra(stack);
-		sa(stack);
+		if (stack_a->top->content > stack_a->top->next->content)
+			sa(stack_a);
+	}
+	else if (a_or_b == B)
+	{
+		if (stack_b->top->content < stack_b->top->next->content)
+			sb(stack_b);
 	}
 }
 
-void	sort_three_args(t_stack *stack)
+void	a_three_top_min(t_stack *stack_a)
+{
+	rra(stack_a);
+	sa(stack_a);
+}
+
+void	a_three_top_mid(t_stack *stack_a)
+{
+	if (stack_a->top->next->content < stack_a->top->content)
+		sa(stack_a);
+	else if (stack_a->top->next->content > stack_a->top->content)
+		rra(stack_a);
+}
+
+void	a_three_top_max(t_stack *stack_a)
+{
+	int	min;
+
+	min = get_min_nbr(stack_a);
+	if (stack_a->top->next->content == min)
+		ra(stack_a);
+	else if (stack_a->top->next->content != min)
+	{
+		ra(stack_a);
+		sa(stack_a);
+	}
+}
+
+void	a_sort_three(t_stack *stack_a)
 {
 	int	min;
 	int	mid;
 	int	max;
 
-	min = get_min_nbr(stack);
-	mid = get_mid_nbr(stack->top, 3);
-	max = get_max_nbr(stack);
-	if (check_sorted(stack) == 0)
+	min = get_min_nbr(stack_a);
+	mid = get_mid_nbr(stack_a->top, 3);
+	max = get_max_nbr(stack_a);
+	if (check_sorted(stack_a) == 0)
 		return ;
-	if (stack->top->content == min)
-		three_args_top_min(stack);
-	else if (stack->top->content == mid)
-		three_args_top_mid(stack);
-	else if (stack->top->content == max)
-		three_args_top_max(stack);
+	if (stack_a->top->content == min)
+		a_three_top_min(stack_a);
+	else if (stack_a->top->content == mid)
+		a_three_top_mid(stack_a);
+	else if (stack_a->top->content == max)
+		a_three_top_max(stack_a);
 }
 
