@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/11 02:54:52 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/11 05:24:23 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include "libft/libft.h"
+
+# define A 1
+# define B 2
 
 typedef struct s_stack
 {
@@ -64,6 +67,7 @@ void	rrr(t_stack *stack_a, t_stack *stack_b);
 /* sort */
 void	sort_two_a(t_stack *stack_a);
 void	sort_two_b(t_stack *stack_b);
+void	sort_two(t_stack *stack_a, t_stack *stack_b, int a_or_b);
 void	sort_three_args(t_stack *stack);
 void	three_args_top_max(t_stack *stack);
 void	three_args_top_mid(t_stack *stack);

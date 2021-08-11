@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:26:11 by selee             #+#    #+#             */
-/*   Updated: 2021/08/11 04:06:57 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/11 05:01:03 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,7 @@ void	b_to_a(t_stack *stack_a, t_stack *stack_b)
 		else
 			rb(stack_b);
 	}
-	a_to_b(stack_a, stack_b);
-	b_to_a(stack_a, stack_b);
+
 }
 
 /*
@@ -107,6 +106,12 @@ void	a_to_b(t_stack *stack_a, t_stack *stack_b)
 		divide_big_piv(stack_a, stack_b, &pvcnt);
 		temp--;
 	}
-	a_to_b(stack_a, stack_b);
-	b_to_a(stack_a, stack_b);
+
 }
+
+
+/*
+
+
+
+*/
