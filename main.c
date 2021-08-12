@@ -12,8 +12,10 @@ int	main(int argc, char **argv)
 	store_to_stack(argv, &stack_a);
 
 	print_list(&stack_a, 'a');
-//	push_small_to_b(&stack_a, &stack_b);
-//	print_list(&stack_a, 'a');
+	a_to_b_test(&stack_a, &stack_b, stack_a.node_count);
+	sort_less_five(&stack_a, &stack_b, stack_a.node_count, A);
+	sort_b_pa(&stack_a, &stack_b, stack_b.node_count);
+	print_list(&stack_a, 'a');
 	print_list(&stack_b, 'b');
 	
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:14 by selee             #+#    #+#             */
-/*   Updated: 2021/08/12 01:43:49 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/12 01:54:38 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	print_list(t_stack *stack, char a_or_b)
 
 	node = stack->top;
 	printf("---------------------------\n\n");
-	while (node->next != NULL)
+	while (node)
 	{
 		printf("%d  \n", node->content);
 		node = node->next;

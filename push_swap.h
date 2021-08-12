@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/12 01:34:32 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/12 04:35:36 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,15 @@ int		get_mid_nbr(t_node *node, int size);
 int		get_avg_nbr(t_stack *stack);  //多分これも消す
 void		get_pivot(t_node *node, int size, t_pivcount *pv);
 
+/* push_swap */
+void	push_swap(t_stack *stack_a, t_stack *stack_b);
+
+
 /* big */
 void	a_to_b(t_stack *stack_a, t_stack *stack_b, int range, int *cnt);
-void	push_small_to_b(t_stack *stack_a, t_stack *stack_b);
-
+void	push_small_to_b(t_stack *stack_a, t_stack *stack_b, t_pivcount *pvcnt);
+void	a_to_b_test(t_stack *stack_a, t_stack *stack_b, int range);
+void	sort_b_pa(t_stack *stack_a, t_stack *stack_b, int range);
 
 /* misc */
 void	error_exit(void);
@@ -108,8 +113,12 @@ void	display_stacks(t_stack *stack[2], char *message);
 
 
 /*
-Todo
 ドリアンのクイックソート見直す。自分のものにする。
+エラーケースしっかりやる
 
+あああ
+終わらない
+なんでこんなむずいの
+もやもやするよおおおおおお
 
 */
