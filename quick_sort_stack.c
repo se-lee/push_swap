@@ -13,7 +13,23 @@ reset
 -> count the number of rb, then do rrb
 */
 
-// int range is the part where i want to sort
+int		range_is_sorted(t_stack *stack_a, t_stack *stack_b, int range, int a_or_b)
+{
+	if (range < 5)
+	{
+		if (a_or_b == A)
+		{
+			sort_less_five(stack_a, stack_b, range, A);
+			return (1);
+		}
+		else if (a_or_b == B)
+		{
+			sort_less_five(stack_a, stack_b, range, B);
+			return (1);
+		}
+	}
+	return (0);
+}
 
 void	pb_small_ra(t_stack *stack_a, t_stack *stack_b, t_pivcount *pvcnt, int range)
 {
@@ -71,28 +87,6 @@ void	pa_big_rb(t_stack *stack_a, t_stack *stack_b, t_pivcount *pvcnt, int range)
 	}
 }
 
-int		range_is_sorted(t_stack *stack_a, t_stack *stack_b, int range, int a_or_b)
-{
-/*
-	if the number of element (range) is less than 5,
-		do sort_less_five(stack_a, stack_b, range, A)
-	if sorted, return 1;
-*/
-	if (range < 5)
-	{
-		if (a_or_b == A)
-		{
-			sort_less_five(stack_a, stack_b, range, A);
-			return (1);
-		}
-		else if (a_or_b == B)
-		{
-			sort_less_five(stack_a, stack_b, range, B);
-			return (1);
-		}
-	}
-	return (0);
-}
 
 void	sort_a(t_stack *stack_a, t_stack *stack_b, int range)
 {
@@ -105,35 +99,29 @@ void	sort_a(t_stack *stack_a, t_stack *stack_b, int range)
 	init_op_count(&pvcnt);
 	get_pivot(stack_a->top, range, &pvcnt);
 	pb_small_ra(stack_a, stack_b, &pvcnt, range);
-
 	sort_a(stack_a, stack_b, pvcnt.ra);
 	sort_b(stack_a, stack_b, pvcnt.pb);
-
-	//merge push back to a
-
 }
 
 void	sort_b(t_stack *stack_a, t_stack *stack_b, int range)
 {
 	t_pivcount pvcnt;
+	int	temp;
 
 	if (range <= 1)
 		return ;
 	if (range_is_sorted(stack_a, stack_b, range, B))
+	{
+		temp = range;
+		while (temp > 0)
+		{
+			pa(stack_b, stack_a);
+			temp--;
+		}
 		return ;
+	}
 	get_pivot(stack_b->top, range, &pvcnt);
 	pa_big_rb(stack_a, stack_b, &pvcnt, range);
-
 	sort_a(stack_a, stack_b, pvcnt.pa);
 	sort_b(stack_a, stack_b, pvcnt.rb);
 }
-
-/*
-sort: half & sort left & sort right & merge
-
-Aを半分→半分→半分・・・にして
-小さくなったらソートする
-Bスタックからピボット選んで大きいやつをAにんプッシュする
-プッシュされた分のレンジをソートする
-ーーーのくりかえし
-*/
