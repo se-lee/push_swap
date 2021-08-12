@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_numbers.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:25:59 by selee             #+#    #+#             */
-/*   Updated: 2021/08/11 01:13:23 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/12 15:27:27 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,7 @@ void		get_pivot(t_node *node, int size, t_pivcount *pv)
 	// 	i++;
 	// }
 
-	pv->piv_big = nbr[size / 2];
-	pv->piv_small = nbr[size / 4];	
+	pv->pivot = nbr[size / 2];
 }
 
 /*
@@ -125,4 +124,3 @@ int	main(int argc, char **argv)
 	return (0);
 }
 */
-

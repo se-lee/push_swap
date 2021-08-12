@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   stack_prep.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:14 by selee             #+#    #+#             */
-/*   Updated: 2021/08/12 01:54:38 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/12 16:10:59 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	init_op_count(t_pivcount *count)
+{
+	count->pa = 0;
+	count->pb = 0;
+	count->ra = 0;
+	count->rb = 0;
+}
 
 void	init_stack(t_stack *stack_a, t_stack *stack_b)
 {

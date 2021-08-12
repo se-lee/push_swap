@@ -12,20 +12,10 @@ int	main(int argc, char **argv)
 	store_to_stack(argv, &stack_a);
 
 	print_list(&stack_a, 'a');
-	a_to_b_test(&stack_a, &stack_b, stack_a.node_count);
-	sort_less_five(&stack_a, &stack_b, stack_a.node_count, A);
-	sort_b_pa(&stack_a, &stack_b, stack_b.node_count);
+	a_to_b_sort(&stack_a, &stack_b, stack_a.node_count);
+	b_to_a_sort(&stack_a, &stack_b, stack_b.node_count);
 	print_list(&stack_a, 'a');
 	print_list(&stack_b, 'b');
 	
 	return (0);
 }
-
-	// 	if (stack_a.node_count == 3)
-	// 		sort_three_args(&stack_a);
-	// 	else
-	// 		sort_five(&stack_a, &stack_b);
-	// }
-	// printf("\nafter: \n");
-	// print_list(&stack_a, &stack_b);
-

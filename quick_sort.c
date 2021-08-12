@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:26:09 by selee             #+#    #+#             */
-/*   Updated: 2021/08/10 01:26:10 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/12 14:07:16 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void    quick_sort(int array[], size_t length)
 }
 
 /*
+
 int main()
 {
     size_t            i;
@@ -81,4 +82,5 @@ int main()
     printf("\n");
     return (0);
 }
+
 */

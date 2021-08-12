@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/12 04:35:36 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/12 15:57:21 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ typedef struct s_stack
 
 typedef struct s_pivcount
 {
-	int	piv_small;
-	int	piv_big;
+	int	pivot;
 	int	pa;
 	int	pb;
 	int	ra;
@@ -64,22 +63,25 @@ void	rra(t_stack *stack);
 void	rrb(t_stack *stack);
 void	rrr(t_stack *stack_a, t_stack *stack_b);
 
-/* sort */
-void	sort_two_a(t_stack *stack_a);
-void	sort_two_b(t_stack *stack_b);
+
+/* sort three */
 void	sort_two(t_stack *stack_a, t_stack *stack_b, int a_or_b);
 void	a_sort_three(t_stack *stack);
 void	b_sort_three(t_stack *stack_b);
 void	a_three_top_max(t_stack *stack);
 void	a_three_top_mid(t_stack *stack);
-void	sort_five(t_stack *stack_a, t_stack *stack_b);
-void	bubble_sort(int arr[], int size); //これ消す
-void    quick_sort(int array[], size_t length);
 
-/* small sort */
+/* sort small */
+void	sort_four(t_stack *stack_a, t_stack *stack_b);
 void	sort_less_five(t_stack *stack_a, t_stack *stack_b, int count, int a_or_b);
 void	sort_five(t_stack *stack_a, t_stack *stack_b);
 
+
+/* quick sort stack */
+void	pb_small_ra(t_stack *stack_a, t_stack *stack_b, t_pivcount *pvcnt, int range); //does rra
+void	pa_big_rb(t_stack *stack_a, t_stack *stack_b, t_pivcount *pvcnt, int range); // does rrb
+void	a_to_b_sort(t_stack *stack_a, t_stack *stack_b, int range);
+void	b_to_a_sort(t_stack *stack_a, t_stack *stack_b, int range);
 
 
 /* get numbers*/
@@ -87,19 +89,13 @@ int		get_min_nbr(t_stack *stack);
 int		get_max_nbr(t_stack *stack);
 int		get_mid_nbr(t_node *node, int size);
 int		get_avg_nbr(t_stack *stack);  //多分これも消す
-void		get_pivot(t_node *node, int size, t_pivcount *pv);
+void	get_pivot(t_node *node, int size, t_pivcount *pv);
 
 /* push_swap */
 void	push_swap(t_stack *stack_a, t_stack *stack_b);
 
-
-/* big */
-void	a_to_b(t_stack *stack_a, t_stack *stack_b, int range, int *cnt);
-void	push_small_to_b(t_stack *stack_a, t_stack *stack_b, t_pivcount *pvcnt);
-void	a_to_b_test(t_stack *stack_a, t_stack *stack_b, int range);
-void	sort_b_pa(t_stack *stack_a, t_stack *stack_b, int range);
-
 /* misc */
+void    quick_sort(int array[], size_t length);
 void	error_exit(void);
 void	init_op_count(t_pivcount *count);
 
@@ -113,7 +109,7 @@ void	display_stacks(t_stack *stack[2], char *message);
 
 
 /*
-ドリアンのクイックソート見直す。自分のものにする。
+ドリアンのクイックソート見直す。。復習復習
 エラーケースしっかりやる
 
 あああ
