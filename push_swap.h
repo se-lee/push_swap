@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/12 15:57:21 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/12 17:37:43 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ void	a_three_top_max(t_stack *stack);
 void	a_three_top_mid(t_stack *stack);
 
 /* sort small */
-void	sort_four(t_stack *stack_a, t_stack *stack_b);
+void	a_sort_four(t_stack *stack_a, t_stack *stack_b);
+void	b_sort_four(t_stack *stack_a, t_stack *stack_b);
 void	sort_less_five(t_stack *stack_a, t_stack *stack_b, int count, int a_or_b);
 void	sort_five(t_stack *stack_a, t_stack *stack_b);
 
@@ -80,8 +81,8 @@ void	sort_five(t_stack *stack_a, t_stack *stack_b);
 /* quick sort stack */
 void	pb_small_ra(t_stack *stack_a, t_stack *stack_b, t_pivcount *pvcnt, int range); //does rra
 void	pa_big_rb(t_stack *stack_a, t_stack *stack_b, t_pivcount *pvcnt, int range); // does rrb
-void	a_to_b_sort(t_stack *stack_a, t_stack *stack_b, int range);
-void	b_to_a_sort(t_stack *stack_a, t_stack *stack_b, int range);
+void	sort_a(t_stack *stack_a, t_stack *stack_b, int range);
+void	sort_b(t_stack *stack_a, t_stack *stack_b, int range);
 
 
 /* get numbers*/
@@ -101,7 +102,7 @@ void	init_op_count(t_pivcount *count);
 
 /*test functions - to be erased later*/
 void	pop_push_min(t_stack *stack1, t_stack *stack2);
-void	print_list(t_stack *stack_a, char flag);
+void	print_list(t_stack *stack, int a_or_b);
 void	select_sort_list(t_stack *stack1, t_stack *stack2);
 void	display_stacks(t_stack *stack[2], char *message);
 

@@ -102,3 +102,24 @@ int main(int argc, char **argv)
 	return (0);
 }
 
+
+int main(int argc, char **argv)
+{
+	t_stack	a;
+	t_stack	b;
+
+	if (argc < 2)
+		return 0;
+	init_stack(&a, &b);
+	store_to_stack(argv, &a);
+	print_list(&a, A);
+	print_list(&b, B);
+
+	sort_less_five(&a, &b, 4, B);
+
+	printf("after:\n");
+	print_list(&a, A);
+	print_list(&b, B);
+
+	return (0);
+}

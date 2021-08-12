@@ -14,12 +14,13 @@ reset
 */
 
 // int range is the part where i want to sort
+
 void	pb_small_ra(t_stack *stack_a, t_stack *stack_b, t_pivcount *pvcnt, int range)
 {
 	int		temp;
 
-	temp = range; //eg. node count
- printf("temp(range): %d    ", temp);
+	temp = range;
+ //printf("temp(range): %d    ", temp);
 
 	while (temp > 0)
 	{
@@ -70,75 +71,69 @@ void	pa_big_rb(t_stack *stack_a, t_stack *stack_b, t_pivcount *pvcnt, int range)
 	}
 }
 
+int		range_is_sorted(t_stack *stack_a, t_stack *stack_b, int range, int a_or_b)
+{
+/*
+	if the number of element (range) is less than 5,
+		do sort_less_five(stack_a, stack_b, range, A)
+	if sorted, return 1;
+*/
+	if (range < 5)
+	{
+		if (a_or_b == A)
+		{
+			sort_less_five(stack_a, stack_b, range, A);
+			return (1);
+		}
+		else if (a_or_b == B)
+		{
+			sort_less_five(stack_a, stack_b, range, B);
+			return (1);
+		}
+	}
+	return (0);
+}
 
-void	a_to_b_sort(t_stack *stack_a, t_stack *stack_b, int range)
+void	sort_a(t_stack *stack_a, t_stack *stack_b, int range)
 {
 	t_pivcount	pvcnt;
-	
+
+	if (range <= 1)
+		return ;
+	if (range_is_sorted(stack_a, stack_b, range, A))
+		return ;
 	init_op_count(&pvcnt);
-	get_pivot(stack_a->top, range, &pvcnt); //get pivot from the given range
-// printf("[a_piv] %d \n", pvcnt.pivot);
+	get_pivot(stack_a->top, range, &pvcnt);
 	pb_small_ra(stack_a, stack_b, &pvcnt, range);
-// sort a: a_sort_three(stack_a); // how do i know the range is three
+
+	sort_a(stack_a, stack_b, pvcnt.ra);
+	sort_b(stack_a, stack_b, pvcnt.pb);
+
+	//merge push back to a
 
 }
 
-void	b_to_a_sort(t_stack *stack_a, t_stack *stack_b, int range)
+void	sort_b(t_stack *stack_a, t_stack *stack_b, int range)
 {
 	t_pivcount pvcnt;
 
-	get_pivot(stack_b->top, stack_b->node_count, &pvcnt);
- printf("[b]piv: %d \n", pvcnt.pivot);
+	if (range <= 1)
+		return ;
+	if (range_is_sorted(stack_a, stack_b, range, B))
+		return ;
+	get_pivot(stack_b->top, range, &pvcnt);
 	pa_big_rb(stack_a, stack_b, &pvcnt, range);
-/* sort b in reverse order: b_sort_three(stack_b);  */
 
-
+	sort_a(stack_a, stack_b, pvcnt.pa);
+	sort_b(stack_a, stack_b, pvcnt.rb);
 }
 
-
 /*
+sort: half & sort left & sort right & merge
 
 Aを半分→半分→半分・・・にして
 小さくなったらソートする
 Bスタックからピボット選んで大きいやつをAにんプッシュする
 プッシュされた分のレンジをソートする
 ーーーのくりかえし
-sort: half & sort left & sort right & merge
-        
-
-
-＝＝＝＝＝
-
-引数50個あたえられたとします。
-
-void	sort_over6(t_dlst *a, t_dlst *b, t_ps *ps)
-{
-	long	size;
-    
-    // 半々にわけます。 A:26~50, B:1~25
-	half_set(a, b, ps);
-
-	while (ps->awant != ps->size)
-	{
-		b_settle_top(a, b, ps);
-
-        // Bの要素が4個以下になるまで、Bを半分にわけます。
-        // A:13~24 + 25~50              B:1~12 
-        // A:7~12 + 13~24 + 25~50       B:1~6 
-        // A:4~6 + 7~12 + 13~24 + 25~50 B:1~3 
-		while ((size = dlst_size(b)) > SORTSIZE)
-			b_quick_sort(a, b, ps, size);
-		if (size)
-			allsort(a, b, ps, size);
-
-        // Aは、3個、6個、12個、と部分でまとまった並びになっています。
-        // まとまりが4個以下ならソート順に確定。
-        // 5個以上なら、全部Bにうつします。
-		while ((size = search_a_size(a, ps)) && size <= SORTSIZE)
-			allsort(a, b, ps, size);
-		if (size)
-			a_quick_sort(a, b, ps, size);
-	}
-}
-
 */

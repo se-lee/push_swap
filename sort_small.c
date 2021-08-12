@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sort_small.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:26:03 by selee             #+#    #+#             */
-/*   Updated: 2021/08/12 01:38:27 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/12 17:40:15 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_four(t_stack *stack_a, t_stack *stack_b)
+void	a_sort_four(t_stack *stack_a, t_stack *stack_b)
 {
 	int	mid;
 	int	pb_count;
@@ -21,7 +21,7 @@ void	sort_four(t_stack *stack_a, t_stack *stack_b)
 	pb_count = 0;
 	while (stack_a)
 	{
-		if (stack_b->top->content < mid)
+		if (stack_a->top->content < mid)
 		{
 			pb(stack_a, stack_b);
 			pb_count++;
@@ -37,6 +37,33 @@ void	sort_four(t_stack *stack_a, t_stack *stack_b)
 		sa(stack_a);
 }
 
+// big -> small
+
+void	b_sort_four(t_stack *stack_a, t_stack *stack_b)
+{
+	int	mid;
+	int	pa_count;
+
+	mid = get_mid_nbr(stack_b->top, 4);
+	pa_count = 0;
+	while (stack_b)
+	{
+		if (stack_b->top->content < mid)
+		{
+			pa(stack_b, stack_a);
+			pa_count++;
+		}
+		else
+			rb(stack_b);
+		if (pa_count == 1)
+			break;
+	}
+	b_sort_three(stack_b);
+	pb(stack_a, stack_b);
+	if (stack_b->top->content < stack_b->top->next->content)
+		sb(stack_b);
+}
+
 void	sort_less_five(t_stack *stack_a, t_stack *stack_b, int count, int a_or_b)
 {
 	if (a_or_b == A)
@@ -48,7 +75,7 @@ void	sort_less_five(t_stack *stack_a, t_stack *stack_b, int count, int a_or_b)
 		else if (count == 3)
 			a_sort_three(stack_a);
 		else if (count == 4)
-			sort_four(stack_a, stack_b);
+			a_sort_four(stack_a, stack_b);
 	}
 	else if (a_or_b == B)
 	{
@@ -58,6 +85,8 @@ void	sort_less_five(t_stack *stack_a, t_stack *stack_b, int count, int a_or_b)
 			sort_two(stack_a, stack_b, B);
 		else if (count == 3)
 			b_sort_three(stack_b);
+		else if (count == 4)
+			b_sort_four(stack_a, stack_b);
 	}
 }
 
@@ -85,12 +114,3 @@ void	sort_five(t_stack *stack_a, t_stack *stack_b)
 	pa(stack_b, stack_a);
 	pa(stack_b, stack_a);
 }
-
-// void	b_sort_five(t_stack *stack_a, t_stack *stack_b, int size)
-// {
-// 	int	mid;
-// 	int	pa_count;
-
-// 	mid = get_mid_nbr(stack_b->top, 5);
-	
-// }

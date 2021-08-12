@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:14 by selee             #+#    #+#             */
-/*   Updated: 2021/08/12 16:10:59 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/12 17:37:40 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	init_stack(t_stack *stack_a, t_stack *stack_b)
 	stack_b->top = NULL;
 	stack_b->bottom = NULL;
 	stack_b->node_count = 0;
-
 }
 
 /* push (add on top) */
@@ -75,7 +74,7 @@ void	store_to_stack(char **argv, t_stack *stack)
 	}
 }
 
-void	print_list(t_stack *stack, char a_or_b)
+void	print_list(t_stack *stack, int a_or_b)
 {
 	t_node	*node;
 
