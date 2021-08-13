@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/13 15:43:27 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/13 17:14:04 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	rrr(t_stack *a, t_stack *b);
 /* sort three */
 void	sort_two(t_stack *a, t_stack *b, int a_b);
 void	a_sort_three(t_stack *a);
-void	b_sort_three(t_stack *a, t_stack *b);
+void	b_sort_three(t_stack *b);
 void	a_three_top_max(t_stack *a);
 void	a_three_top_mid(t_stack *a);
 
@@ -75,11 +75,12 @@ void	a_sort_four(t_stack *a, t_stack *b);
 void	b_sort_four(t_stack *a, t_stack *b);
 void	sort_less_five(t_stack *a, t_stack *b, int count, int a_b);
 void	sort_five(t_stack *a, t_stack *b);
+void	small_pa_back(t_stack *a, t_stack *b, int count);
 
 /* quick sort stack */
 int		range_is_sorted(t_stack *a, t_stack *stack_b, int range, int a_b);
-void	pb_small_ra(t_stack *a, t_stack *b, t_pivcount *pvcnt, int range);
-void	pa_big_rb(t_stack *a, t_stack *b, t_pivcount *pvcnt, int range);
+void	pb_small_ra(t_stack *a, t_stack *b, t_pivcount *pvcnt);
+void	pa_big_rb(t_stack *a, t_stack *b, t_pivcount *pvcnt);
 void	sort_a(t_stack *a, t_stack *b, int range);
 void	sort_b(t_stack *a, t_stack *b, int range);
 
@@ -98,8 +99,7 @@ void	error_exit(void);
 void	init_op_count(t_pivcount *count);
 
 /*test functions - to be erased later*/
-void	pop_push_min(t_stack *stack1, t_stack *stack2);
-void	print_list(t_stack *stack, int a_b);
+void	print_list(t_stack *stack, char a_b);
 
 #endif
 

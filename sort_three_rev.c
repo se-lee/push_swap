@@ -36,7 +36,7 @@ void	b_three_top_max(t_stack *stack_b)
 	}
 }
 
-void	b_sort_three(t_stack *a, t_stack *b)
+void	b_sort_three(t_stack *b)
 {
 	int	min;
 	int	mid;
@@ -53,7 +53,39 @@ void	b_sort_three(t_stack *a, t_stack *b)
 		b_three_top_mid(b);
 	else if (b->top->content == max)
 		b_three_top_max(b);
-	pa(b, a);
-	pa(b, a);
-	pa(b, a);
+}
+
+void	b_sort_four(t_stack *a, t_stack *b)
+{
+	int	max;
+	int	pa_count;
+
+	max = get_max_nbr(b);
+	pa_count = 0;
+	while (b)
+	{
+		if (b->top->content == max)
+		{
+			pa(b, a);
+			pa_count++;
+		}
+		else
+			rb(b);
+		if (pa_count == 1)
+			break ;
+	}
+	b_sort_three(b);
+	pb(a, b);
+}
+
+void	small_pa_back(t_stack *a, t_stack *b, int count)
+{
+	int	i;
+
+	i = count;
+	while (i > 0)
+	{
+		pa(b, a);
+		i--;
+	}
 }

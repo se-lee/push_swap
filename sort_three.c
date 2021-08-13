@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:26:27 by selee             #+#    #+#             */
-/*   Updated: 2021/08/13 15:44:32 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/13 16:16:46 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ void	sort_two(t_stack *a, t_stack *b, int a_or_b)
 	{
 		if (b->top->content < b->top->next->content)
 			sb(b);
-		pa(b, a);
-		pa(b, a);
 	}
 }
 

@@ -16,10 +16,6 @@ int	main(int argc, char **argv)
 		sort_five(&a, &b);
 	else 
 		sort_a(&a, &b, a.node_count);
-
-	// b_sort_three(&b);
-
-	// sort_b(&stack_a, &stack_b, stack_b.node_count);
 	print_list(&a, 'a');
 	print_list(&b, 'b');
 	

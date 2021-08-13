@@ -1,39 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_a.c                                           :+:      :+:    :+:   */
+/*   sort_a copy.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 15:36:28 by selee             #+#    #+#             */
-/*   Updated: 2021/08/13 17:23:51 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/13 16:47:48 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		range_is_sorted(t_stack *a, t_stack *b, int range, int a_b)
+void	pb_small_ra2(t_stack *a, t_stack *b, t_pivcount *pvcnt, int range)
 {
-	if (range < 5)
-	{
-		if (a_b == A)
-		{
-			sort_less_five(a, b, range, A);
-			return (1);
-		}
-		else if (a_b == B)
-		{
-			sort_less_five(a, b, range, B);
-			return (1);
-		}
-	}
-	return (0);
-}
-
-void	pb_small_ra(t_stack *a, t_stack *b, t_pivcount *pvcnt)
-{
-	int		temp;
-
 	if (a->top->content <= pvcnt->pivot)
 	{
 		pb(a, b);
@@ -44,23 +24,11 @@ void	pb_small_ra(t_stack *a, t_stack *b, t_pivcount *pvcnt)
 		ra(a);
 		pvcnt->ra++;
 	}
-	temp = pvcnt->ra;
-	while (temp > 0)
-	{
-		rra(a);
-		temp--;
-	}
 }
 
-void	reverse_ra(t_stack *a, t_pivcount *pvcnt)
-{
-	
-}
-
-void	sort_a(t_stack *a, t_stack *b, int range)
+void	sort_a2(t_stack *a, t_stack *b, int range)
 {
 	t_pivcount	pvcnt;
-	int	temp;
 
 	if (range <= 1)
 		return ;
@@ -68,12 +36,7 @@ void	sort_a(t_stack *a, t_stack *b, int range)
 		return ;
 	init_op_count(&pvcnt);
 	get_pivot(a->top, range, &pvcnt);
-	temp = range;
-	while (temp > 0)
-	{
-		pb_small_ra(a, b, &pvcnt);
-		temp--;
-	}
+	pb_small_ra(a, b, &pvcnt, range);
 	sort_a(a, b, pvcnt.ra);
 	sort_b(a, b, pvcnt.pb);
 }

@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:26:03 by selee             #+#    #+#             */
-/*   Updated: 2021/08/13 15:46:18 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/13 16:26:51 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,28 +37,6 @@ void	a_sort_four(t_stack *a, t_stack *b)
 		sa(a);
 }
 
-void	b_sort_four(t_stack *a, t_stack *b)
-{
-	int	max;
-	int	pa_count;
-
-	max = get_max_nbr(b);
-	pa_count = 0;
-	while (b)
-	{
-		if (b->top->content == max)
-		{
-			pa(b, a);
-			pa_count++;
-		}
-		else
-			rb(b);
-		if (pa_count == 1)
-			break ;
-	}
-	b_sort_three(a, b);
-	pb(a, b);
-}
 
 void	sort_less_five(t_stack *a, t_stack *b, int count, int a_b)
 {
@@ -80,9 +58,10 @@ void	sort_less_five(t_stack *a, t_stack *b, int count, int a_b)
 		else if (count == 2)
 			sort_two(a, b, B);
 		else if (count == 3)
-			b_sort_three(a, b);
+			b_sort_three(b);
 		else if (count == 4)
 			b_sort_four(a, b);
+		small_pa_back(a, b, count);
 	}
 }
 
@@ -92,6 +71,7 @@ void	sort_five(t_stack *a, t_stack *b)
 	int	pb_count;
 
 	mid = get_mid_nbr(a->top, a->node_count);
+//printf("mid: %d\n", mid);
 	pb_count = 0;
 	while (a)
 	{
@@ -107,6 +87,5 @@ void	sort_five(t_stack *a, t_stack *b)
 	}
 	a_sort_three(a);
 	sort_two(a, b, B);
-	pa(b, a);
-	pa(b, a);
+	small_pa_back(a, b, 2);
 }
