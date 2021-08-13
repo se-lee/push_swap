@@ -6,31 +6,31 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 12:04:56 by selee             #+#    #+#             */
-/*   Updated: 2021/08/13 12:07:01 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/13 13:01:48 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		range_is_sorted(t_stack *stack_a, t_stack *stack_b, int range, int a_or_b)
+int		range_is_sorted(t_stack *a, t_stack *b, int range, int a_b)
 {
 	if (range < 5)
 	{
-		if (a_or_b == A)
+		if (a_b == A)
 		{
-			sort_less_five(stack_a, stack_b, range, A);
+			sort_less_five(a, b, range, A);
 			return (1);
 		}
-		else if (a_or_b == B)
+		else if (a_b == B)
 		{
-			sort_less_five(stack_a, stack_b, range, B);
+			sort_less_five(a, b, range, B);
 			return (1);
 		}
 	}
 	return (0);
 }
 
-void	pb_small_ra(t_stack *stack_a, t_stack *stack_b, t_pivcount *pvcnt, int range)
+void	pb_small_ra(t_stack *a, t_stack *b, t_pivcount *pvcnt, int range)
 {
 	int		temp;
 
@@ -39,14 +39,14 @@ void	pb_small_ra(t_stack *stack_a, t_stack *stack_b, t_pivcount *pvcnt, int rang
 
 	while (temp > 0)
 	{
-		if (stack_a->top->content <= pvcnt->pivot)
+		if (a->top->content <= pvcnt->pivot)
 		{
-			pb(stack_a, stack_b);
-			pvcnt->pb++; //pb count will be the sorting range in stack_b
+			pb(a, b);
+			pvcnt->pb++; //pb count will be the sorting range in b
 		}
-		else if (stack_a->top->content > pvcnt->pivot)
+		else if (a->top->content > pvcnt->pivot)
 		{
-			ra(stack_a);
+			ra(a);
 			pvcnt->ra++;
 		}
 		temp--;
@@ -54,26 +54,26 @@ void	pb_small_ra(t_stack *stack_a, t_stack *stack_b, t_pivcount *pvcnt, int rang
 	temp = pvcnt->ra;
 	while (temp > 0)
 	{
-		rra(stack_a);
+		rra(a);
 		temp--;
 	}
 }
 
-void	pa_big_rb(t_stack *stack_a, t_stack *stack_b, t_pivcount *pvcnt, int range)
+void	pa_big_rb(t_stack *a, t_stack *b, t_pivcount *pvcnt, int range)
 {
 	int	temp;
 
 	temp = range;
 	while (temp > 0)
 	{
-		if (stack_b->top->content > pvcnt->pivot)
+		if (b->top->content > pvcnt->pivot)
 		{
-			pa(stack_b, stack_a);
+			pa(b, a);
 			pvcnt->pa++;
 		}
 		else
 		{
-			rb(stack_b);
+			rb(b);
 			pvcnt->rb++;
 		}
 		temp--;
@@ -81,45 +81,45 @@ void	pa_big_rb(t_stack *stack_a, t_stack *stack_b, t_pivcount *pvcnt, int range)
 	temp = pvcnt->rb;
 	while (temp > 0)
 	{
-		rrb(stack_b);
+		rrb(b);
 		temp--;
 	}
 }
 
-void	sort_a(t_stack *stack_a, t_stack *stack_b, int range)
+void	sort_a(t_stack *a, t_stack *b, int range)
 {
 	t_pivcount	pvcnt;
 
 	if (range <= 1)
 		return ;
-	if (range_is_sorted(stack_a, stack_b, range, A))
+	if (range_is_sorted(a, b, range, A))
 		return ;
 	init_op_count(&pvcnt);
-	get_pivot(stack_a->top, range, &pvcnt);
-	pb_small_ra(stack_a, stack_b, &pvcnt, range);
-	sort_a(stack_a, stack_b, pvcnt.ra);
-	sort_b(stack_a, stack_b, pvcnt.pb);
+	get_pivot(a->top, range, &pvcnt);
+	pb_small_ra(a, b, &pvcnt, range);
+	sort_a(a, b, pvcnt.ra);
+	sort_b(a, b, pvcnt.pb);
 }
 
-void	sort_b(t_stack *stack_a, t_stack *stack_b, int range)
+void	sort_b(t_stack *a, t_stack *b, int range)
 {
 	t_pivcount pvcnt;
 	int	temp;
 
 	if (range <= 1)
 		return ;
-	if (range_is_sorted(stack_a, stack_b, range, B))
+	if (range_is_sorted(a, b, range, B))
 	{
 		temp = range;
 		while (temp > 0)
 		{
-			pa(stack_b, stack_a);
+			pa(b, a);
 			temp--;
 		}
 		return ;
 	}
-	get_pivot(stack_b->top, range, &pvcnt);
-	pa_big_rb(stack_a, stack_b, &pvcnt, range);
-	sort_a(stack_a, stack_b, pvcnt.pa);
-	sort_b(stack_a, stack_b, pvcnt.rb);
+	get_pivot(b->top, range, &pvcnt);
+	pa_big_rb(a, b, &pvcnt, range);
+	sort_a(a, b, pvcnt.pa);
+	sort_b(a, b, pvcnt.rb);
 }

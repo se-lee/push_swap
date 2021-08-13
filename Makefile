@@ -9,7 +9,6 @@ SRCS	=	checks.c\
 			sort_three.c\
 			sort_three_rev.c\
 			sort_small.c\
-			bubble_sort.c\
 			quick_sort.c\
 			quick_sort_stack.c\
 			main.c\

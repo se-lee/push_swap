@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:25:59 by selee             #+#    #+#             */
-/*   Updated: 2021/08/13 12:12:03 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/13 12:56:11 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	get_max_nbr(t_stack *stack)
 int	get_mid_nbr(t_node *node, int size)
 {
 	int	i;
-	int	nbr[];
+	int	nbr[size];
 
 	i = 0;
 	while (i < size)
@@ -69,7 +69,7 @@ int	get_mid_nbr(t_node *node, int size)
 void	get_pivot(t_node *node, int size, t_pivcount *pv)
 {
 	int	i;
-	int	nbr[];
+	int	nbr[size];
 
 	i = 0;
 	while (i < size)

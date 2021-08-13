@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/13 12:43:58 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/13 13:31:04 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_pivcount
 
 /* checks */
 int		check_sorted(t_stack *stack);
+int		check_rev_sorted(t_stack *stack);
 int		check_non_int(char **argv);
 int		check_no_arg(int argc);
 int		check_duplicate(t_node *top);
@@ -76,6 +77,7 @@ void	sort_less_five(t_stack *a, t_stack *b, int count, int a_b);
 void	sort_five(t_stack *a, t_stack *b);
 
 /* quick sort stack */
+int		range_is_sorted(t_stack *a, t_stack *stack_b, int range, int a_b);
 void	pb_small_ra(t_stack *a, t_stack *b, t_pivcount *pvcnt, int range);
 void	pa_big_rb(t_stack *a, t_stack *b, t_pivcount *pvcnt, int range);
 void	sort_a(t_stack *a, t_stack *b, int range);

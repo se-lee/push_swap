@@ -48,7 +48,7 @@ void	b_sort_three(t_stack *stack_b)
 	mid = get_mid_nbr(stack_b->top, 3);
 	max = get_max_nbr(stack_b);
 
-	if (check_sorted(stack_b) == 0)
+	if (check_rev_sorted(stack_b) == 0)
 		return ;
 	if (stack_b->top->content == min)
 		b_three_top_min(stack_b);

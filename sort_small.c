@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:26:03 by selee             #+#    #+#             */
-/*   Updated: 2021/08/13 12:17:56 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/13 13:42:11 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ void	a_sort_four(t_stack *stack_a, t_stack *stack_b)
 
 void	b_sort_four(t_stack *stack_a, t_stack *stack_b)
 {
-	int	mid;
+	int	max;
 	int	pa_count;
 
-	mid = get_mid_nbr(stack_b->top, 4);
+	max = get_max_nbr(stack_b);
 	pa_count = 0;
 	while (stack_b)
 	{
-		if (stack_b->top->content < mid)
+		if (stack_b->top->content == max)
 		{
 			pa(stack_b, stack_a);
 			pa_count++;
@@ -58,8 +58,6 @@ void	b_sort_four(t_stack *stack_a, t_stack *stack_b)
 	}
 	b_sort_three(stack_b);
 	pb(stack_a, stack_b);
-	if (stack_b->top->content < stack_b->top->next->content)
-		sb(stack_b);
 }
 
 void	sort_less_five(t_stack *stack_a, t_stack *stack_b, int count, int a_b)

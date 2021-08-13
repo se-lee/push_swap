@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:33:03 by selee             #+#    #+#             */
-/*   Updated: 2021/08/13 12:09:00 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/13 13:30:45 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,21 @@ int	check_sorted(t_stack *stack)
 	}
 	return (0);
 }
+
+int	check_rev_sorted(t_stack *stack)
+{
+	t_node *cursor;
+
+	cursor = stack->top;
+	while (cursor->next != NULL)
+	{
+		if (cursor->content < cursor->next->content)
+			return (-1);
+		cursor = cursor->next;
+	}
+	return (0);
+}
+
 
 /*
 int main(int argc, char **argv)
