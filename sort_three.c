@@ -6,23 +6,25 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:26:27 by selee             #+#    #+#             */
-/*   Updated: 2021/08/13 12:05:12 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/13 15:44:32 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_two(t_stack *stack_a, t_stack *stack_b, int a_or_b)
+void	sort_two(t_stack *a, t_stack *b, int a_or_b)
 {
 	if (a_or_b == A)
 	{
-		if (stack_a->top->content > stack_a->top->next->content)
-			sa(stack_a);
+		if (a->top->content > a->top->next->content)
+			sa(a);
 	}
 	else if (a_or_b == B)
 	{
-		if (stack_b->top->content < stack_b->top->next->content)
-			sb(stack_b);
+		if (b->top->content < b->top->next->content)
+			sb(b);
+		pa(b, a);
+		pa(b, a);
 	}
 }
 

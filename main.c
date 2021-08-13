@@ -20,8 +20,8 @@ int	main(int argc, char **argv)
 	// b_sort_three(&b);
 
 	// sort_b(&stack_a, &stack_b, stack_b.node_count);
-	// print_list(&a, 'a');
-	// print_list(&b, 'b');
+	print_list(&a, 'a');
+	print_list(&b, 'b');
 	
 	return (0);
 }

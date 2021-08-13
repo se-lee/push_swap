@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quick_sort_stack.c                                 :+:      :+:    :+:   */
+/*   sort_a.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/13 12:04:56 by selee             #+#    #+#             */
-/*   Updated: 2021/08/13 14:08:25 by selee            ###   ########lyon.fr   */
+/*   Created: 2021/08/13 15:36:28 by selee             #+#    #+#             */
+/*   Updated: 2021/08/13 15:39:44 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,36 +57,13 @@ void	pb_small_ra(t_stack *a, t_stack *b, t_pivcount *pvcnt, int range)
 	}
 }
 
-void	pa_big_rb(t_stack *a, t_stack *b, t_pivcount *pvcnt, int range)
-{
-	int	temp;
 
-	temp = range;
-	while (temp > 0)
-	{
-		if (b->top->content > pvcnt->pivot)
-		{
-			pa(b, a);
-			pvcnt->pa++;
-		}
-		else
-		{
-			rb(b);
-			pvcnt->rb++;
-		}
-		temp--;
-	}
-	temp = pvcnt->rb;
-	while (temp > 0)
-	{
-		rrb(b);
-		temp--;
-	}
-}
+
 
 void	sort_a(t_stack *a, t_stack *b, int range)
 {
 	t_pivcount	pvcnt;
+	int			temp;
 
 	if (range <= 1)
 		return ;
@@ -94,30 +71,13 @@ void	sort_a(t_stack *a, t_stack *b, int range)
 		return ;
 	init_op_count(&pvcnt);
 	get_pivot(a->top, range, &pvcnt);
-	pb_small_ra(a, b, &pvcnt, range);
-	sort_a(a, b, pvcnt.ra);
-	sort_b(a, b, pvcnt.pb);
-}
-
-void	sort_b(t_stack *a, t_stack *b, int range)
-{
-	t_pivcount pvcnt;
-	int	temp;
-
-	if (range <= 1)
-		return ;
-	if (range_is_sorted(a, b, range, B))
+	temp = range;
+	while (temp > 0)
 	{
-		temp = range;
-		while (temp > 0)
-		{
-			pa(b, a);
-			temp--;
-		}
-		return ;
+		pb_small_ra(a, b, &pvcnt, range);
+		temp--;
 	}
-	get_pivot(b->top, range, &pvcnt);
-	pa_big_rb(a, b, &pvcnt, range);
-	sort_a(a, b, pvcnt.pa);
+	sort_a(a, b, pvcnt.ra);
 	sort_b(a, b, pvcnt.rb);
+	sort_b(a, b, pvcnt.pb - pvcnt.rb);
 }

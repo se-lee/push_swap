@@ -36,21 +36,24 @@ void	b_three_top_max(t_stack *stack_b)
 	}
 }
 
-void	b_sort_three(t_stack *stack_b)
+void	b_sort_three(t_stack *a, t_stack *b)
 {
 	int	min;
 	int	mid;
 	int	max;
 
-	min = get_min_nbr(stack_b);
-	mid = get_mid_nbr(stack_b->top, 3);
-	max = get_max_nbr(stack_b);
-	if (check_rev_sorted(stack_b) == 0)
+	min = get_min_nbr(b);
+	mid = get_mid_nbr(b->top, 3);
+	max = get_max_nbr(b);
+	if (check_rev_sorted(b) == 0)
 		return ;
-	if (stack_b->top->content == min)
-		b_three_top_min(stack_b);
-	else if (stack_b->top->content == mid)
-		b_three_top_mid(stack_b);
-	else if (stack_b->top->content == max)
-		b_three_top_max(stack_b);
+	if (b->top->content == min)
+		b_three_top_min(b);
+	else if (b->top->content == mid)
+		b_three_top_mid(b);
+	else if (b->top->content == max)
+		b_three_top_max(b);
+	pa(b, a);
+	pa(b, a);
+	pa(b, a);
 }

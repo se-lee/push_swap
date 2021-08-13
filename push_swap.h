@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/13 13:31:04 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/13 15:43:27 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	rrr(t_stack *a, t_stack *b);
 /* sort three */
 void	sort_two(t_stack *a, t_stack *b, int a_b);
 void	a_sort_three(t_stack *a);
-void	b_sort_three(t_stack *b);
+void	b_sort_three(t_stack *a, t_stack *b);
 void	a_three_top_max(t_stack *a);
 void	a_three_top_mid(t_stack *a);
 

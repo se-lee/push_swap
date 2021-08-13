@@ -6,107 +6,107 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:26:03 by selee             #+#    #+#             */
-/*   Updated: 2021/08/13 13:42:11 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/13 15:46:18 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	a_sort_four(t_stack *stack_a, t_stack *stack_b)
+void	a_sort_four(t_stack *a, t_stack *b)
 {
 	int	mid;
 	int	pb_count;
 
-	mid = get_mid_nbr(stack_a->top, 4);
+	mid = get_mid_nbr(a->top, 4);
 	pb_count = 0;
-	while (stack_a)
+	while (a)
 	{
-		if (stack_a->top->content < mid)
+		if (a->top->content < mid)
 		{
-			pb(stack_a, stack_b);
+			pb(a, b);
 			pb_count++;
 		}
 		else
-			ra(stack_a);
+			ra(a);
 		if (pb_count == 1)
 			break ;
 	}
-	a_sort_three(stack_a);
-	pa(stack_b, stack_a);
-	if (stack_a->top->content > stack_a->top->next->content)
-		sa(stack_a);
+	a_sort_three(a);
+	pa(b, a);
+	if (a->top->content > a->top->next->content)
+		sa(a);
 }
 
-void	b_sort_four(t_stack *stack_a, t_stack *stack_b)
+void	b_sort_four(t_stack *a, t_stack *b)
 {
 	int	max;
 	int	pa_count;
 
-	max = get_max_nbr(stack_b);
+	max = get_max_nbr(b);
 	pa_count = 0;
-	while (stack_b)
+	while (b)
 	{
-		if (stack_b->top->content == max)
+		if (b->top->content == max)
 		{
-			pa(stack_b, stack_a);
+			pa(b, a);
 			pa_count++;
 		}
 		else
-			rb(stack_b);
+			rb(b);
 		if (pa_count == 1)
 			break ;
 	}
-	b_sort_three(stack_b);
-	pb(stack_a, stack_b);
+	b_sort_three(a, b);
+	pb(a, b);
 }
 
-void	sort_less_five(t_stack *stack_a, t_stack *stack_b, int count, int a_b)
+void	sort_less_five(t_stack *a, t_stack *b, int count, int a_b)
 {
 	if (a_b == A)
 	{
 		if (count == 1)
 			return ;
 		else if (count == 2)
-			sort_two(stack_a, stack_b, A);
+			sort_two(a, b, A);
 		else if (count == 3)
-			a_sort_three(stack_a);
+			a_sort_three(a);
 		else if (count == 4)
-			a_sort_four(stack_a, stack_b);
+			a_sort_four(a, b);
 	}
 	else if (a_b == B)
 	{
 		if (count == 1)
 			return ;
 		else if (count == 2)
-			sort_two(stack_a, stack_b, B);
+			sort_two(a, b, B);
 		else if (count == 3)
-			b_sort_three(stack_b);
+			b_sort_three(a, b);
 		else if (count == 4)
-			b_sort_four(stack_a, stack_b);
+			b_sort_four(a, b);
 	}
 }
 
-void	sort_five(t_stack *stack_a, t_stack *stack_b)
+void	sort_five(t_stack *a, t_stack *b)
 {
 	int	mid;
 	int	pb_count;
 
-	mid = get_mid_nbr(stack_a->top, stack_a->node_count);
+	mid = get_mid_nbr(a->top, a->node_count);
 	pb_count = 0;
-	while (stack_a)
+	while (a)
 	{
-		if (stack_a->top->content < mid)
+		if (a->top->content < mid)
 		{
-			pb(stack_a, stack_b);
+			pb(a, b);
 			pb_count++;
 		}
 		else
-			ra(stack_a);
+			ra(a);
 		if (pb_count == 2)
 			break ;
 	}
-	a_sort_three(stack_a);
-	sort_two(stack_a, stack_b, B);
-	pa(stack_b, stack_a);
-	pa(stack_b, stack_a);
+	a_sort_three(a);
+	sort_two(a, b, B);
+	pa(b, a);
+	pa(b, a);
 }

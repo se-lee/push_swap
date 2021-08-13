@@ -10,7 +10,8 @@ SRCS	=	checks.c\
 			sort_three_rev.c\
 			sort_small.c\
 			quick_sort.c\
-			quick_sort_stack.c\
+			sort_a.c\
+			sort_b.c\
 			main.c\
 
 OBJS	= $(SRCS:.c=.o)
