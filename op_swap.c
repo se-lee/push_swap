@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   op_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:59 by selee             #+#    #+#             */
-/*   Updated: 2021/08/09 04:46:42 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/13 12:14:37 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	sa(t_stack *stack)
 	{
 		stack->bottom = stack->top;
 		stack->top->prev = stack->top->next;
-		stack->top->next = stack->top->next->next; //should be NULL;
+		stack->top->next = stack->top->next->next;
 		stack->top->prev->next = stack->top;
 		stack->top = stack->top->prev;
 		stack->top->prev = NULL;
@@ -54,7 +54,7 @@ void	sb(t_stack *stack)
 	{
 		stack->bottom = stack->top;
 		stack->top->prev = stack->top->next;
-		stack->top->next = stack->top->next->next; //should be NULL;
+		stack->top->next = stack->top->next->next;
 		stack->top->prev->next = stack->top;
 		stack->top = stack->top->prev;
 		stack->top->prev = NULL;

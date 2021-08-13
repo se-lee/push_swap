@@ -6,15 +6,15 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:25:59 by selee             #+#    #+#             */
-/*   Updated: 2021/08/12 15:27:27 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/13 12:12:03 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		get_min_nbr(t_stack *stack)
+int	get_min_nbr(t_stack *stack)
 {
-	int	min;
+	int		min;
 	t_node	*temp;
 
 	min = stack->top->content;
@@ -26,15 +26,15 @@ int		get_min_nbr(t_stack *stack)
 		if (temp->next)
 			temp = temp->next;
 		else
-			break;
+			break ;
 	}
 	return (min);
 }
 
-int		get_max_nbr(t_stack *stack)
+int	get_max_nbr(t_stack *stack)
 {
-	int	max;
-	t_node *temp;
+	int		max;
+	t_node	*temp;
 
 	max = stack->top->content;
 	temp = stack->top;
@@ -45,30 +45,15 @@ int		get_max_nbr(t_stack *stack)
 		if (temp->next)
 			temp = temp->next;
 		else
-			break;
+			break ;
 	}
 	return (max);
 }
 
-/*---- これいらんかもね -----*/
-int		get_avg_nbr(t_stack *stack)
-{
-	int	avg;
-	int	min;
-	int	max;
-
-	min = get_min_nbr(stack);
-	max = get_max_nbr(stack);
-	avg = (min + max) / 2;
-	return (avg);
-}
-/*---- これいらんかもね -----*/
-
-
-int		get_mid_nbr(t_node *node, int size)
+int	get_mid_nbr(t_node *node, int size)
 {
 	int	i;
-	int	nbr[size];
+	int	nbr[];
 
 	i = 0;
 	while (i < size)
@@ -81,10 +66,10 @@ int		get_mid_nbr(t_node *node, int size)
 	return (nbr[size / 2]);
 }
 
-void		get_pivot(t_node *node, int size, t_pivcount *pv)
+void	get_pivot(t_node *node, int size, t_pivcount *pv)
 {
 	int	i;
-	int	nbr[size];
+	int	nbr[];
 
 	i = 0;
 	while (i < size)
@@ -94,14 +79,6 @@ void		get_pivot(t_node *node, int size, t_pivcount *pv)
 		i++;
 	}
 	quick_sort(nbr, size);
-
-	// i = 0;
-	// while (i < size)
-	// {
-	// 	printf("%d  ", nbr[i]);
-	// 	i++;
-	// }
-
 	pv->pivot = nbr[size / 2];
 }
 

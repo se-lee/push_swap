@@ -1,17 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   quick_sort_stack.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/13 12:04:56 by selee             #+#    #+#             */
+/*   Updated: 2021/08/13 12:07:01 by selee            ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-
-/*
-pb all smaller&equal numbers than pivot
-sort a (and forget everthing under) small->big
-sort b big->small
-
-once two stacks are sorted, do pa
-try not to touch other parts
-* i need to know from where to where (= the range of the part i want to take care of) 
-reset
--> count the number of ra then do rra
--> count the number of rb, then do rrb
-*/
 
 int		range_is_sorted(t_stack *stack_a, t_stack *stack_b, int range, int a_or_b)
 {
@@ -86,7 +85,6 @@ void	pa_big_rb(t_stack *stack_a, t_stack *stack_b, t_pivcount *pvcnt, int range)
 		temp--;
 	}
 }
-
 
 void	sort_a(t_stack *stack_a, t_stack *stack_b, int range)
 {

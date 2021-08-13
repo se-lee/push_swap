@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   op_push.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/13 12:07:29 by selee             #+#    #+#             */
+/*   Updated: 2021/08/13 12:12:36 by selee            ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	push_last_node(t_stack *source, t_stack *dest)
 {
-	if(dest->top == NULL)
+	if (dest->top == NULL)
 	{
 		dest->top = source->top;
 		dest->bottom = dest->top;
@@ -72,4 +84,3 @@ void	pb(t_stack *stack_a, t_stack *stack_b)
 	}
 	ft_putendl_fd("pb", 1);
 }
-

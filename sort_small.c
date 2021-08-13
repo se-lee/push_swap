@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:26:03 by selee             #+#    #+#             */
-/*   Updated: 2021/08/12 17:40:15 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/13 12:17:56 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,13 @@ void	a_sort_four(t_stack *stack_a, t_stack *stack_b)
 		else
 			ra(stack_a);
 		if (pb_count == 1)
-			break;
+			break ;
 	}
 	a_sort_three(stack_a);
 	pa(stack_b, stack_a);
 	if (stack_a->top->content > stack_a->top->next->content)
 		sa(stack_a);
 }
-
-// big -> small
 
 void	b_sort_four(t_stack *stack_a, t_stack *stack_b)
 {
@@ -56,7 +54,7 @@ void	b_sort_four(t_stack *stack_a, t_stack *stack_b)
 		else
 			rb(stack_b);
 		if (pa_count == 1)
-			break;
+			break ;
 	}
 	b_sort_three(stack_b);
 	pb(stack_a, stack_b);
@@ -64,9 +62,9 @@ void	b_sort_four(t_stack *stack_a, t_stack *stack_b)
 		sb(stack_b);
 }
 
-void	sort_less_five(t_stack *stack_a, t_stack *stack_b, int count, int a_or_b)
+void	sort_less_five(t_stack *stack_a, t_stack *stack_b, int count, int a_b)
 {
-	if (a_or_b == A)
+	if (a_b == A)
 	{
 		if (count == 1)
 			return ;
@@ -77,7 +75,7 @@ void	sort_less_five(t_stack *stack_a, t_stack *stack_b, int count, int a_or_b)
 		else if (count == 4)
 			a_sort_four(stack_a, stack_b);
 	}
-	else if (a_or_b == B)
+	else if (a_b == B)
 	{
 		if (count == 1)
 			return ;
@@ -107,7 +105,7 @@ void	sort_five(t_stack *stack_a, t_stack *stack_b)
 		else
 			ra(stack_a);
 		if (pb_count == 2)
-			break;	
+			break ;
 	}
 	a_sort_three(stack_a);
 	sort_two(stack_a, stack_b, B);

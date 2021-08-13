@@ -1,5 +1,16 @@
-#include "push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   op_rotate.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/13 12:13:34 by selee             #+#    #+#             */
+/*   Updated: 2021/08/13 12:13:58 by selee            ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "push_swap.h"
 
 // void	rotate_stack(t_stack *stack, int flag)
 // {
@@ -22,7 +33,7 @@
 // 		ft_putendl_fd("rb", 1);
 // }
 
-void ra(t_stack *stack)
+void	ra(t_stack *stack)
 {
 	stack->top->prev = stack->bottom;
 	stack->bottom->next = stack->top;
@@ -33,7 +44,7 @@ void ra(t_stack *stack)
 	ft_putendl_fd("ra", 1);
 }
 
-void rb(t_stack *stack)
+void	rb(t_stack *stack)
 {
 	stack->top->prev = stack->bottom;
 	stack->bottom->next = stack->top;

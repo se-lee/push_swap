@@ -3,25 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:33:03 by selee             #+#    #+#             */
-/*   Updated: 2021/08/08 04:27:38 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/13 12:09:00 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//maybe i dont need this function. 
-// int	check_no_arg(int argc)
-// {
-// 	if (argc <= 1)
-// 		return (-1);
-// 	else
-// 		return (0);
-// }
-
-// consider '+' and '-'
 int	check_non_int(char **argv)
 {
 	int	i;
@@ -43,7 +33,6 @@ int	check_non_int(char **argv)
 	}
 	return (0);
 }
-
 
 // once all arguments are digits, store as linked list
 
@@ -72,8 +61,7 @@ int	check_duplicate(char **argv)
 
 int	check_duplicate(t_node *top)
 {
-//	int	i;
-	int	value;
+	int		value;
 	t_node	*cursor;
 
 	while (top->next != NULL)
@@ -90,7 +78,6 @@ int	check_duplicate(t_node *top)
 	}
 	return (0);
 }
-
 
 	// while (a->next)
 	// {
@@ -110,9 +97,9 @@ int	check_duplicate(t_node *top)
 	// while (a->prev)
 	// 	a = a->prev;
 
-int check_sorted(t_stack *stack)
+int	check_sorted(t_stack *stack)
 {
-	t_node *cursor;
+	t_node	*cursor;
 
 	cursor = stack->top;
 	while (cursor->next != NULL)
