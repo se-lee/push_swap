@@ -6,13 +6,13 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 18:10:15 by selee             #+#    #+#             */
-/*   Updated: 2020/12/14 10:38:45 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/13 12:47:25 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_node **lst, t_node *new) //**lst is the first element
+void	ft_lstadd_back(t_node **lst, t_node *new)
 {
 	t_node	*last_element;
 
