@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 12:04:56 by selee             #+#    #+#             */
-/*   Updated: 2021/08/13 13:01:48 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/13 14:08:25 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,12 @@ void	pb_small_ra(t_stack *a, t_stack *b, t_pivcount *pvcnt, int range)
 	int		temp;
 
 	temp = range;
- //printf("temp(range): %d    ", temp);
-
 	while (temp > 0)
 	{
 		if (a->top->content <= pvcnt->pivot)
 		{
 			pb(a, b);
-			pvcnt->pb++; //pb count will be the sorting range in b
+			pvcnt->pb++;
 		}
 		else if (a->top->content > pvcnt->pivot)
 		{
