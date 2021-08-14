@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:25:59 by selee             #+#    #+#             */
-/*   Updated: 2021/08/13 17:10:50 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/14 17:29:11 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,28 @@ int	get_mid_nbr(t_node *node, int size)
 	return (nbr[i]);
 }
 
+
+int		get_pivot(t_node *node, int range)
+{
+	int	i;
+	int	nbr[range];
+
+	i = 0;
+	while (i < range)
+	{
+		nbr[i] = node->content;
+		node = node->next;
+		i++;
+	}
+	quick_sort(nbr, range);
+	i = (range + 1) / 2 - 1;
+	return (nbr[i]);
+}
+
+
+
+
+/*
 void	get_pivot(t_node *node, int size, t_pivcount *pv)
 {
 	int	i;
@@ -84,7 +106,7 @@ void	get_pivot(t_node *node, int size, t_pivcount *pv)
 	pv->pivot = nbr[i];
 }
 
-/*
+
 int	main(int argc, char **argv)
 {
 	t_stack	a;

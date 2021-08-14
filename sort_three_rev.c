@@ -78,7 +78,7 @@ void	b_sort_four(t_stack *a, t_stack *b)
 	pb(a, b);
 }
 
-void	small_pa_back(t_stack *a, t_stack *b, int count)
+void	push_back_a(t_stack *a, t_stack *b, int count)
 {
 	int	i;
 

@@ -10,8 +10,7 @@ SRCS	=	checks.c\
 			sort_three_rev.c\
 			sort_small.c\
 			quick_sort.c\
-			sort_a.c\
-			sort_b.c\
+			aaaa.c\
 			push_swap.c\
 			main.c\
 
@@ -20,7 +19,7 @@ NAME	= push_swap
 LIBFT	= libft
 LIBFT_FILE	= $(LIBFT)/libft.a
 CC		= gcc
-CFLAGS	= -Wall -Werror -Wextra
+CFLAGS	= -Wall -Werror -Wextra -g
 RM		= rm -rf
 
 all:	init $(NAME)

@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:26:27 by selee             #+#    #+#             */
-/*   Updated: 2021/08/14 12:35:04 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/14 18:53:51 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,19 @@ void	sort_two(t_stack *a, t_stack *b, int a_or_b)
 			sb(b);
 	}
 }
+
+void	sort_two_stack_a(t_stack *a)
+{
+	if (a->top->content > a->top->next->content)
+		sa(a);
+}
+
+void	sort_two_reverse_stack_b(t_stack *b)
+{
+	if (b->top->content < b->top->next->content)
+		sb(b);
+}
+
 
 void	a_three_top_min(t_stack *stack_a)
 {
