@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:33:03 by selee             #+#    #+#             */
-/*   Updated: 2021/08/14 13:00:59 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/14 13:05:40 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 Errors include for example: some arguments aren’t integers, some arguments are
 bigger than an integer, and/or there are duplicates.
+
 */
 
 void	check_non_int(char **argv) //display error

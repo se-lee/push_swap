@@ -6,21 +6,19 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:27:07 by selee             #+#    #+#             */
-/*   Updated: 2021/08/14 12:30:04 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/14 13:49:23 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void	push_swap(t_stack *stack_a, t_stack *stack_b)
-/* {
-	if a->node_count is less than 5
-		do 	sort_less_five
-	else if a->node_count is sort_five
-		do sort_five
+void	push_swap(t_stack *a, t_stack *b)
+{
+	if (a->node_count < 5)
+		sort_less_five(a, b, a->node_count, A);
+	else if (a->node_count == 5)
+		sort_five(a, b);
 	else
-		do sort_a
+		sort_a(a, b, a->node_count);
  } 
- */
-
-
+ 

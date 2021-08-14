@@ -12,6 +12,7 @@ SRCS	=	checks.c\
 			quick_sort.c\
 			sort_a.c\
 			sort_b.c\
+			push_swap.c\
 			main.c\
 
 OBJS	= $(SRCS:.c=.o)

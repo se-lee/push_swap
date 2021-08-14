@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/14 12:57:46 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/14 13:49:32 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,3 @@ void	init_op_count(t_pivcount *count);
 void	print_list(t_stack *stack, char a_b);
 
 #endif
-
-/*
-エラーケースしっかりやる
-*/

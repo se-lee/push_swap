@@ -12,18 +12,15 @@ int	main(int argc, char **argv)
 	init_stack(&a, &b);
 	store_to_stack(argv, &a);
 	check_duplicate(a.top);
-// check if sorted - where do i free?
+// check if sorted - do i free here before return 0?
 	if (stack_is_sorted(&a))
 		return (0);
-	if (a.node_count < 5)
-		sort_less_five(&a, &b, a.node_count, A);
-	else if (a.node_count == 5)
-		sort_five(&a, &b);
-	else 
-		sort_a(&a, &b, a.node_count);
-// put all above in a function push_swap
+	push_swap(&a, &b);
+
+/* -------> erase below <-------*/	
 	print_list(&a, 'a');
 	print_list(&b, 'b');
-	
+/* -------> erase erase <-------*/		
+
 	return (0);
 }
