@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:26:27 by selee             #+#    #+#             */
-/*   Updated: 2021/08/13 16:16:46 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/14 12:35:04 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,6 @@ void	a_sort_three(t_stack *stack_a)
 	min = get_min_nbr(stack_a);
 	mid = get_mid_nbr(stack_a->top, 3);
 	max = get_max_nbr(stack_a);
-	if (check_sorted(stack_a) == 0)
-		return ;
 	if (stack_a->top->content == min)
 		a_three_top_min(stack_a);
 	else if (stack_a->top->content == mid)

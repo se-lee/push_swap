@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 15:36:28 by selee             #+#    #+#             */
-/*   Updated: 2021/08/13 17:23:51 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/14 12:17:39 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,6 @@ void	pb_small_ra(t_stack *a, t_stack *b, t_pivcount *pvcnt)
 		rra(a);
 		temp--;
 	}
-}
-
-void	reverse_ra(t_stack *a, t_pivcount *pvcnt)
-{
-	
 }
 
 void	sort_a(t_stack *a, t_stack *b, int range)

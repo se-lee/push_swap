@@ -6,13 +6,20 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:33:03 by selee             #+#    #+#             */
-/*   Updated: 2021/08/13 13:30:45 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/14 13:00:59 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_non_int(char **argv)
+/*
+• In case of error, you must display Error followed by a ’\n’ on the standard error.
+
+Errors include for example: some arguments aren’t integers, some arguments are
+bigger than an integer, and/or there are duplicates.
+*/
+
+void	check_non_int(char **argv) //display error
 {
 	int	i;
 	int	j;
@@ -25,41 +32,26 @@ int	check_non_int(char **argv)
 			j++;
 		while (argv[i][j])
 		{
-			if (ft_isdigit(argv[i][j]) != 1)
-				return (-1);
+			if (!ft_isdigit(argv[i][j]))
+			{
+				ft_putendl_fd("Error", 2);
+				exit(0);
+			}
 			j++;
 		}
 		i++;
 	}
-	return (0);
 }
-
-// once all arguments are digits, store as linked list
 
 /*
-int	check_duplicate(char **argv)
-{
-	int	i;
-	int	j;
+--- need to check min/max int; display error
 
-	i = 1;
+int max: +2147483647
+int min: -2147483648
 
-	while (argv[i] != NULL)
-	{
-		j = i + 1;
-		while (argv[j] != NULL)
-		{
-			if (ft_strcmp(argv[i], argv[j]) == 0)
-				return (-1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
 */
 
-int	check_duplicate(t_node *top)
+int	check_duplicate(t_node *top) //display error
 {
 	int		value;
 	t_node	*cursor;
@@ -71,33 +63,20 @@ int	check_duplicate(t_node *top)
 		while (cursor->next != NULL)
 		{
 			if (cursor->content == value)
-				return (-1);
-			cursor = cursor->next;
+			{
+				ft_putendl_fd("Error", 2); // fd 2 is stderr
+				exit(0);
+			}
+			if (cursor->next)
+				cursor = cursor->next;
 		}
 		top = top->next;
 	}
-	return (0);
+	return (1);
 }
 
-	// while (a->next)
-	// {
-	// 	temp = a->next;
-	// 	cur_value = a->value;
-	// 	while (temp)
-	// 	{
-	// 		if (temp->value == cur_value)
-	// 			print_error();
-	// 		if (temp->next)
-	// 			temp = temp->next;
-	// 		else
-	// 			break;
-	// 	}
-	// 	a = a->next;
-	// }
-	// while (a->prev)
-	// 	a = a->prev;
-
-int	check_sorted(t_stack *stack)
+//if already sorted, do nothing (no error message)
+int	stack_is_sorted(t_stack *stack) // no error message
 {
 	t_node	*cursor;
 
@@ -105,13 +84,13 @@ int	check_sorted(t_stack *stack)
 	while (cursor->next != NULL)
 	{
 		if (cursor->content > cursor->next->content)
-			return (-1);
+			return (0);
 		cursor = cursor->next;
 	}
-	return (0);
+	return (1);
 }
 
-int	check_rev_sorted(t_stack *stack)
+int	is_sorted_reverse(t_stack *stack)
 {
 	t_node *cursor;
 
@@ -119,41 +98,8 @@ int	check_rev_sorted(t_stack *stack)
 	while (cursor->next != NULL)
 	{
 		if (cursor->content < cursor->next->content)
-			return (-1);
+			return (0);
 		cursor = cursor->next;
 	}
-	return (0);
+	return (1);
 }
-
-
-/*
-int main(int argc, char **argv)
-{
-	t_stack	a;
-	int no_arg;
-	int non_int;
-	int dup;
-	int	sorted;
-	int	i;
-
-	i = 0;
-	while(argv[i] != NULL)
-	{
-		printf("argv[%d]%s\n", i, argv[i]);
-		i++;
-	}
-	non_int= check_non_int(argv);
-	init_stack(&a);
-	store_to_stack(argv, &a);
-//	no_arg = check_no_arg(argc);
-	dup = check_duplicate(a.top);
-	sorted = check_sorted(&a);
-	print_list(&a);
-	printf("\nsorted: %d\n", sorted);
-	printf("non_int: %d\n", non_int);
-	printf("dup: %d\n", dup);
-
-	return (0);
-}
-
-*/

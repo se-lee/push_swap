@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 15:36:14 by selee             #+#    #+#             */
-/*   Updated: 2021/08/13 17:17:24 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/14 12:17:56 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,12 @@ void	pa_big_rb(t_stack *a, t_stack *b, t_pivcount *pvcnt)
 		pvcnt->rb++;
 	}
 	temp = pvcnt->rb;
-}
-
-void	reverse_rb(t_stack *b, t_pivcount *pvcnt)
-{
-	int	
-
-
-}
 	while (temp > 0)
 	{
 		rrb(b);
 		temp--;
 	}
+}
 
 void	sort_b(t_stack *a, t_stack *b, int range)
 {
