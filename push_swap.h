@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/14 18:53:58 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/14 20:06:15 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		stack_is_sorted(t_stack *stack);
 int		is_sorted_reverse(t_stack *stack); //"stack_~~~" - be consistent
 void	check_non_int(char **argv);
 int		check_no_arg(int argc);
-int		check_duplicate(t_node *top);
+void		check_duplicate(t_node *top);
 
 /* stack_prep */
 void	init_stack(t_stack *a, t_stack *b); //"stack~ " to be consistent (prefix)

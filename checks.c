@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:33:03 by selee             #+#    #+#             */
-/*   Updated: 2021/08/14 13:05:40 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/14 20:09:05 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int min: -2147483648
 
 */
 
-int	check_duplicate(t_node *top) //display error
+void	check_duplicate(t_node *top) //display error
 {
 	int		value;
 	t_node	*cursor;
@@ -61,7 +61,7 @@ int	check_duplicate(t_node *top) //display error
 	{
 		cursor = top->next;
 		value = top->content;
-		while (cursor->next != NULL)
+		while (cursor)
 		{
 			if (cursor->content == value)
 			{
@@ -70,10 +70,11 @@ int	check_duplicate(t_node *top) //display error
 			}
 			if (cursor->next)
 				cursor = cursor->next;
+			else
+				break;
 		}
 		top = top->next;
 	}
-	return (1);
 }
 
 //if already sorted, do nothing (no error message)

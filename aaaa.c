@@ -1,8 +1,6 @@
 #include "push_swap.h"
 
-
 /*
-
 the purpose is to divide the number set (stack a) into two groups within a range, 
 one group will be bigger half
 the other smaller half
@@ -22,8 +20,9 @@ t_pivcount	partition_a_in_range(t_stack *a, t_stack *b, int range)
 	t_pivcount	count;
 
 	pivot = get_pivot(a->top, range);
+printf("pivot a: %d  ", pivot);
 	temp = range;
-	while (temp--)
+	while (range--)
 	{
 		if (a->top->content <= pivot)
 		{
@@ -54,6 +53,7 @@ t_pivcount	partition_b_in_range(t_stack *a, t_stack *b, int range)
 	t_pivcount count;
 
 	pivot = get_pivot(b->top, range);
+printf("pivot b: %d \n", pivot);
 	temp = range;
 	while (temp--)
 	{
@@ -105,7 +105,9 @@ void	quick_sort_a(t_stack *a, t_stack *b, int range)
 		return ;
 	if (sort_range(a, range))
 		return ;
+	init_op_count(&count);
 	count = partition_a_in_range(a, b, range);
+printf("range: %d  ", range);
 	quick_sort_a(a, b, count.ra);
 	quick_sort_b(a, b, count.pb);
 	while (count.pb--)
@@ -123,4 +125,5 @@ void	quick_sort_b(t_stack *a, t_stack *b, int range)
 	count = partition_b_in_range(a, b, range);
 	quick_sort_a(a, b, count.pa);
 	quick_sort_b(a, b, count.rb);
+
 }

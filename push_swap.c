@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:27:07 by selee             #+#    #+#             */
-/*   Updated: 2021/08/14 18:59:30 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/14 20:16:17 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 void	push_swap(t_stack *a, t_stack *b)
 {
+printf("node count: %d ", a->node_count);
+
 	if (a->node_count < 5)
 		sort_less_five(a, b, a->node_count, A);
 	else if (a->node_count == 5)
 		sort_five(a, b);
 	else
 		quick_sort_a(a, b, a->node_count);
+ 
  } 
  

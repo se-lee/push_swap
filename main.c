@@ -17,10 +17,11 @@ int	main(int argc, char **argv)
 		return (0);
 	push_swap(&a, &b);
 
-/* -------> erase below <-------*/	
+// /* -------> erase below <-------*/	
 	print_list(&a, 'a');
 	print_list(&b, 'b');
-/* -------> erase erase <-------*/		
+// /* -------> erase erase <-------*/		
+
 
 	return (0);
 }
