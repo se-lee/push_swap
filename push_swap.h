@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/15 15:30:18 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/15 16:57:36 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ int		stack_is_sorted(t_stack *stack);
 int		stack_is_reverse_sorted(t_stack *stack);
 
 /* stack_utils */
-void	stack_init(t_stack *stack);
+//void	stack_init(t_stack *stack);
+t_stack stack_init(void);
 void	stack_add_node_back(t_stack *stack, t_node *new_node);
 void	stack_store_value(char **argv, t_stack *stack);
 void	stack_free(t_stack *stack);
@@ -83,7 +84,8 @@ void	sort_three_reverse_b(t_stack *b);
 /* sort small */
 void	sort_four_a(t_stack *a, t_stack *b);
 void	sort_four_reverse_b(t_stack *a, t_stack *b);
-void	sort_less_five(t_stack *a, t_stack *b, int count, int a_b);
+void	sort_less_five(t_stack *a, t_stack *b, int count);
+//void	sort_less_five(t_stack *a, t_stack *b, int count, int a_b);
 void	sort_five(t_stack *a, t_stack *b);
 void	push_back_a(t_stack *a, t_stack *b, int count); // maybe no
 

@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:14 by selee             #+#    #+#             */
-/*   Updated: 2021/08/15 14:43:18 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/15 16:57:20 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,26 @@ void	init_op_count(t_pivcount *count)
 	count->rb_count = 0;
 }
 
+t_stack stack_init(void)
+{
+	t_stack	stack;
+
+	stack = (t_stack)malloc(sizeof(t_stack));
+	if (!stack)
+		return (NULL);
+	stack.top = NULL;
+	stack.bottom = NULL;
+	stack.node_count = 0;
+}
+
+/*
 void	stack_init(t_stack *stack)
 {
 	stack->top = NULL;
 	stack->bottom = NULL;
 	stack->node_count = 0;
 }
+*/
 
 void	stack_add_node_back(t_stack *stack, t_node *new_node)
 {
@@ -52,7 +66,7 @@ void	stack_store_value(char **argv, t_stack *stack)
 	i = 1;
 	while (argv[i] != NULL)
 	{
-		stack_add_node_back(stack, ft_lstnew(ft_atoi(argv[i]))); //each node is malloc-ed
+		stack_add_node_back(stack, ft_lstnew(ft_atoi(argv[i])));
 		i++;
 	}
 }
@@ -69,7 +83,6 @@ void	stack_free(t_stack *stack)
 		i++;
 	}
 }
-
 
 void	print_list(t_stack *stack, char a_b)
 {

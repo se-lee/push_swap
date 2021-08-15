@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:26:03 by selee             #+#    #+#             */
-/*   Updated: 2021/08/15 15:17:33 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/15 16:15:45 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,33 +37,44 @@ void	sort_four_a(t_stack *a, t_stack *b)
 		op_swap_a(a);
 }
 
-
-void	sort_less_five(t_stack *a, t_stack *b, int count, int a_b)
+void	sort_less_five(t_stack *a, t_stack *b, int count)
 {
-	if (a_b == A)
-	{
-		if (count == 1)
-			return ;
-		else if (count == 2)
-			sort_two_a(a);
-		else if (count == 3)
-			sort_three_a(a);
-		else if (count == 4)
-			sort_four_a(a, b);
-	}
-	else if (a_b == B)
-	{
-		if (count == 1)
-			return ;
-		else if (count == 2)
-			sort_two_reverse_b(b);
-		else if (count == 3)
-			sort_three_reverse_b(b);
-		else if (count == 4)
-			sort_four_reverse_b(a, b);
-//		push_back_a(a, b, count);
-	}
+	if (count == 1)
+		return ;
+	else if (count == 2)
+		sort_two_a(a);
+	else if (count == 3)
+		sort_three_a(a);
+	else if (count == 4)
+		sort_four_a(a, b);
 }
+
+// void	sort_less_five(t_stack *a, t_stack *b, int count, int a_b)
+// {
+// 	if (a_b == A)
+// 	{
+// 		if (count == 1)
+// 			return ;
+// 		else if (count == 2)
+// 			sort_two_a(a);
+// 		else if (count == 3)
+// 			sort_three_a(a);
+// 		else if (count == 4)
+// 			sort_four_a(a, b);
+// 	}
+// 	else if (a_b == B)
+// 	{
+// 		if (count == 1)
+// 			return ;
+// 		else if (count == 2)
+// 			sort_two_reverse_b(b);
+// 		else if (count == 3)
+// 			sort_three_reverse_b(b);
+// 		else if (count == 4)
+// 			sort_four_reverse_b(a, b);
+// //		push_back_a(a, b, count);
+// 	}
+// }
 
 void	sort_five(t_stack *a, t_stack *b)
 {

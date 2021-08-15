@@ -1,13 +1,13 @@
 HEADER	=	push_swap.h
 SRCS	=	checks.c\
 			stack_utils.c\
-			get_numbers.c\
+			find_numbers.c\
 			op_swap.c\
 			op_rotate.c\
 			op_rev_rotate.c\
 			op_push.c\
-			sort_three.c\
-			sort_three_rev.c\
+			sort_upto_three.c\
+			sort_upto_three_rev.c\
 			sort_small.c\
 			quick_sort.c\
 			aaaa.c\
