@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   op_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 12:13:34 by selee             #+#    #+#             */
-/*   Updated: 2021/08/13 12:13:58 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/15 12:34:10 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 // 		ft_putendl_fd("rb", 1);
 // }
 
-void	ra(t_stack *stack)
+void	op_rotate_a(t_stack *stack)
 {
 	stack->top->prev = stack->bottom;
 	stack->bottom->next = stack->top;
@@ -44,7 +44,7 @@ void	ra(t_stack *stack)
 	ft_putendl_fd("ra", 1);
 }
 
-void	rb(t_stack *stack)
+void	op_rotate_b(t_stack *stack)
 {
 	stack->top->prev = stack->bottom;
 	stack->bottom->next = stack->top;
@@ -55,9 +55,9 @@ void	rb(t_stack *stack)
 	ft_putendl_fd("rb", 1);
 }
 
-void	rr(t_stack *stack_a, t_stack *stack_b)
+void	op_rotate_all(t_stack *stack_a, t_stack *stack_b)
 {
-	ra(stack_a);
-	rb(stack_b);
+	op_rotate_a(stack_a);
+	op_rotate_b(stack_b);
 	ft_putendl_fd("rr", 1);
 }

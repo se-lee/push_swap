@@ -7,21 +7,23 @@ int	main(int argc, char **argv)
 
 	if (argc <= 1)
 		return (0);
-	check_non_int(argv);
+	if (!arg_is_int(argv))
+		print_error_exit();
 // check max/min int
-	init_stack(&a, &b);
-	store_to_stack(argv, &a);
-	check_duplicate(a.top);
-// check if sorted - do i free here before return 0?
+	stack_init(&a);
+	stack_store_value(argv, &a);
+	if (stack_has_duplicate(a.top))
+		print_error_exit();
 	if (stack_is_sorted(&a))
 		return (0);
+	stack_init(&b);
+
 	push_swap(&a, &b);
 
 // /* -------> erase below <-------*/	
 	print_list(&a, 'a');
 	print_list(&b, 'b');
 // /* -------> erase erase <-------*/		
-
 
 	return (0);
 }

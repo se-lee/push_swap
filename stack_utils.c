@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_prep.c                                       :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:14 by selee             #+#    #+#             */
-/*   Updated: 2021/08/13 16:06:04 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/15 14:43:18 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,20 @@
 
 void	init_op_count(t_pivcount *count)
 {
-	count->pa = 0;
-	count->pb = 0;
-	count->ra = 0;
-	count->rb = 0;
+	count->pa_count = 0;
+	count->pb_count = 0;
+	count->ra_count = 0;
+	count->rb_count = 0;
 }
 
-void	init_stack(t_stack *stack_a, t_stack *stack_b)
+void	stack_init(t_stack *stack)
 {
-	stack_a->top = NULL;
-	stack_a->bottom = NULL;
-	stack_a->node_count = 0;
-	stack_b->top = NULL;
-	stack_b->bottom = NULL;
-	stack_b->node_count = 0;
+	stack->top = NULL;
+	stack->bottom = NULL;
+	stack->node_count = 0;
 }
 
-void	add_to_stack_back(t_stack *stack, t_node *new_node)
+void	stack_add_node_back(t_stack *stack, t_node *new_node)
 {
 	if (stack->top == NULL)
 	{
@@ -48,17 +45,31 @@ void	add_to_stack_back(t_stack *stack, t_node *new_node)
 	}
 }
 
-void	store_to_stack(char **argv, t_stack *stack)
+void	stack_store_value(char **argv, t_stack *stack)
 {
 	int	i;
 
 	i = 1;
 	while (argv[i] != NULL)
 	{
-		add_to_stack_back(stack, ft_lstnew(ft_atoi(argv[i])));
+		stack_add_node_back(stack, ft_lstnew(ft_atoi(argv[i]))); //each node is malloc-ed
 		i++;
 	}
 }
+
+void	stack_free(t_stack *stack)
+{
+	int	i;
+
+	i = 0;
+	while (i < stack->node_count)
+	{
+		free(stack->top);
+		stack->top = stack->top->next;
+		i++;
+	}
+}
+
 
 void	print_list(t_stack *stack, char a_b)
 {

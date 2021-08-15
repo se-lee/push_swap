@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/14 20:06:15 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/15 15:18:37 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,52 +32,59 @@ typedef struct s_stack
 typedef struct s_pivcount
 {
 	int	pivot;
-	int	pa;
-	int	pb;
-	int	ra;
-	int	rb;
+	int	pa_count;
+	int	pb_count;
+	int	ra_count;
+	int	rb_count;
 }				t_pivcount;
 
 /* checks */
+int		arg_is_int(char **argv);
+int		stack_has_duplicate(t_node *top);
 int		stack_is_sorted(t_stack *stack);
-int		is_sorted_reverse(t_stack *stack); //"stack_~~~" - be consistent
-void	check_non_int(char **argv);
-int		check_no_arg(int argc);
-void		check_duplicate(t_node *top);
+int		stack_is_reverse_sorted(t_stack *stack);
 
-/* stack_prep */
-void	init_stack(t_stack *a, t_stack *b); //"stack~ " to be consistent (prefix)
-void	add_to_stack_back(t_stack *stack, t_node *new_node);
-void	store_to_stack(char **argv, t_stack *stack);
+/* stack_utils */
+void	stack_init(t_stack *stack);
+void	stack_add_node_back(t_stack *stack, t_node *new_node);
+void	stack_store_value(char **argv, t_stack *stack);
+void	stack_free(t_stack *stack);
+void	print_list(t_stack *stack, char a_b);
 
-/* operations */
-void	sa(t_stack *a);
-void	sb(t_stack *b);
-void	ss(t_stack *a, t_stack *b);
-void	pa(t_stack *b, t_stack *a);
-void	pb(t_stack *a, t_stack *b);
-void	ra(t_stack *a);
-void	rb(t_stack *b);
-void	rr(t_stack *a, t_stack *b);
-void	rra(t_stack *a);
-void	rrb(t_stack *b);
-void	rrr(t_stack *a, t_stack *b);
+/* operation functions (op_) */
+void	op_swap_a(t_stack *a);
+void	op_swap_b(t_stack *b);
+void	op_swap_all(t_stack *a, t_stack *b);
+void	op_push_to_a(t_stack *b, t_stack *a);
+void	op_push_to_b(t_stack *a, t_stack *b);
+void	op_rotate_a(t_stack *a);
+void	op_rotate_b(t_stack *b);
+void	op_rotate_all(t_stack *a, t_stack *b);
+void	op_reverse_rotate_a(t_stack *a);
+void	op_reverse_rotate_b(t_stack *b);
+void	op_reverse_rotate_all(t_stack *a, t_stack *b);
+
+/* get numbers*/
+int		find_min_value_in_range(t_node *node, int range);
+int		find_mid_value_in_range(t_node *node, int range);
+int		find_max_value_in_range(t_node *node, int range);
+
+//int		find_pivot(t_node *node, int range);
+//void	get_pivot(t_node *node, int size, t_pivcount *pv);
 
 /* sort three */
 void	sort_two(t_stack *a, t_stack *b, int a_b); //be more specific
-void	sort_two_stack_a(t_stack *a);
-void	sort_two_reverse_stack_b(t_stack *b);
-void	a_sort_three(t_stack *a); //a or b_ doesnt mean anything. describe more precisely; 
-void	b_sort_three(t_stack *b); 
-void	a_three_top_max(t_stack *a);
-void	a_three_top_mid(t_stack *a);
+void	sort_two_a(t_stack *a);
+void	sort_two_reverse_b(t_stack *b);
+void	sort_three_a(t_stack *a);
+void	sort_three_reverse_b(t_stack *b);
 
 /* sort small */
-void	a_sort_four(t_stack *a, t_stack *b);
-void	b_sort_four(t_stack *a, t_stack *b);
+void	sort_four_a(t_stack *a, t_stack *b);
+void	sort_four_reverse_b(t_stack *a, t_stack *b);
 void	sort_less_five(t_stack *a, t_stack *b, int count, int a_b);
 void	sort_five(t_stack *a, t_stack *b);
-void	push_back_a(t_stack *a, t_stack *b, int count);
+void	push_back_a(t_stack *a, t_stack *b, int count); // maybe no
 
 /* quick sort stack */
 int		range_is_sorted(t_stack *a, t_stack *stack_b, int range, int a_b);
@@ -88,22 +95,14 @@ void	pa_big_rb(t_stack *a, t_stack *b, t_pivcount *pvcnt);
 void	quick_sort_a(t_stack *a, t_stack *b, int range);
 void	quick_sort_b(t_stack *a, t_stack *b, int range);
 
-
-/* get numbers*/
-int		get_min_nbr(t_stack *stack);
-int		get_max_nbr(t_stack *stack);
-int		get_mid_nbr(t_node *node, int size);
-int		get_pivot(t_node *node, int range);
-//void	get_pivot(t_node *node, int size, t_pivcount *pv);
-
 /* push_swap */
 void	push_swap(t_stack *a, t_stack *b);
 
 /* misc */
 void	quick_sort(int array[], size_t length);
 void	init_op_count(t_pivcount *count);
+void	print_error_exit(void);
 
 /*test functions - to be erased later*/
-void	print_list(t_stack *stack, char a_b);
 
 #endif

@@ -4,48 +4,48 @@ void	b_three_top_min(t_stack *stack_b)
 {
 	int	max;
 
-	max = get_max_nbr(stack_b);
+	max = find_max_value_in_range(stack_b->top, 3);
 	if (stack_b->top->next->content == max)
-		rb(stack_b);
+		op_rotate_b(stack_b);
 	else if (stack_b->top->next->content != max)
 	{
-		rb(stack_b);
-		sb(stack_b);
+		op_rotate_b(stack_b);
+		op_swap_b(stack_b);
 	}		
 }
 
 void	b_three_top_mid(t_stack *stack_b)
 {
 	if (stack_b->top->content < stack_b->top->next->content)
-		sb(stack_b);
+		op_swap_b(stack_b);
 	else if (stack_b->top->content > stack_b->top->next->content)
-		rrb(stack_b);
+		op_reverse_rotate_b(stack_b);
 }
 
 void	b_three_top_max(t_stack *stack_b)
 {
 	int	mid;
 
-	mid = get_mid_nbr(stack_b->top, 3);
+	mid = find_mid_value_in_range(stack_b->top, 3);
 	if (stack_b->top->next->content == mid)
 		return ;
 	else if (stack_b->top->next->content != mid)
 	{
-		rrb(stack_b);
-		sb(stack_b);
+		op_reverse_rotate_b(stack_b);
+		op_swap_b(stack_b);
 	}
 }
 
-void	b_sort_three(t_stack *b)
+void	sort_three_reverse_b(t_stack *b)
 {
 	int	min;
 	int	mid;
 	int	max;
 
-	min = get_min_nbr(b);
-	mid = get_mid_nbr(b->top, 3);
-	max = get_max_nbr(b);
-	if (is_sorted_reverse(b))
+	min = find_min_value_in_range(b->top, 3);
+	mid = find_mid_value_in_range(b->top, 3);
+	max = find_max_value_in_range(b->top, 3);
+	if (stack_is_reverse_sorted(b))
 		return ;
 	if (b->top->content == min)
 		b_three_top_min(b);
@@ -55,27 +55,27 @@ void	b_sort_three(t_stack *b)
 		b_three_top_max(b);
 }
 
-void	b_sort_four(t_stack *a, t_stack *b)
+void	sort_four_reverse_b(t_stack *a, t_stack *b)
 {
 	int	max;
 	int	pa_count;
 
-	max = get_max_nbr(b);
+	max = find_max_value_in_range(b->top, 4);
 	pa_count = 0;
 	while (b)
 	{
 		if (b->top->content == max)
 		{
-			pa(b, a);
+			op_push_to_a(b, a);
 			pa_count++;
 		}
 		else
-			rb(b);
+			op_rotate_b(b);
 		if (pa_count == 1)
 			break ;
 	}
-	b_sort_three(b);
-	pb(a, b);
+	sort_three_reverse_b(b);
+	op_push_to_b(a, b);
 }
 
 void	push_back_a(t_stack *a, t_stack *b, int count)
@@ -85,7 +85,7 @@ void	push_back_a(t_stack *a, t_stack *b, int count)
 	i = count;
 	while (i > 0)
 	{
-		pa(b, a);
+		op_push_to_a(b, a);
 		i--;
 	}
 }

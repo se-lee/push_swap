@@ -3,23 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   get_numbers.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:25:59 by selee             #+#    #+#             */
-/*   Updated: 2021/08/14 20:09:38 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/15 15:11:17 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_min_nbr(t_stack *stack)
+int	find_min_value_in_range(t_node *node, int range)
 {
-	int		min;
+	int	i;
+	int	min;
 	t_node	*temp;
 
-	min = stack->top->content;
-	temp = stack->top;
-	while (stack)
+	i = 0;
+	min = node->content;
+	temp = node;
+	while (i < range)
 	{
 		if (temp->content < min)
 			min = temp->content;
@@ -27,30 +29,34 @@ int	get_min_nbr(t_stack *stack)
 			temp = temp->next;
 		else
 			break ;
+		i++;
 	}
 	return (min);
 }
 
-int	get_max_nbr(t_stack *stack)
+int	find_max_value_in_range(t_node *node, int range)
 {
-	int		max;
-	t_node	*temp;
+	int	i;
+	int	max;
+	t_node *temp;
 
-	max = stack->top->content;
-	temp = stack->top;
-	while (stack)
+	i = 0;
+	max = node->content;
+	temp = node;
+	while (i < range)
 	{
 		if (temp->content > max)
 			max = temp->content;
 		if (temp->next)
 			temp = temp->next;
 		else
-			break ;
+			break;
+		i++;
 	}
 	return (max);
 }
 
-int	get_mid_nbr(t_node *node, int size)
+int	find_mid_value_in_range(t_node *node, int size)
 {
 	int	i;
 	int	nbr[size];
@@ -66,59 +72,19 @@ int	get_mid_nbr(t_node *node, int size)
 	i = (size + 1) / 2 - 1;
 	return (nbr[i]);
 }
-
-int		get_pivot(t_node *node, int range)
-{
-	int	i;
-	int	nbr[range];
-
-	i = 0;
-	while (i < range)
-	{
-		nbr[i] = node->content;
-		node = node->next;
-		i++;
-	}
-	quick_sort(nbr, range);
-	i = (range + 1) / 2 - 1;
-printf("get_pivot: %d ", nbr[i]);
-	return (nbr[i]);
-}
-
 
 /*
-void	get_pivot(t_node *node, int size, t_pivcount *pv)
-{
-	int	i;
-	int	nbr[size];
-
-	i = 0;
-	while (i < size)
-	{
-		nbr[i] = node->content;
-		node = node->next;
-		i++;
-	}
-	quick_sort(nbr, size);
-	i = (size + 1) / 2 - 1;
-	pv->pivot = nbr[i];
-}
-
-
 int	main(int argc, char **argv)
 {
 	t_stack	a;
-	t_stack	b;
-	t_pivot pv;
+//	t_stack	b;
 
-	init_stack(&a, &b);
-	store_to_stack(argv, &a);
-	
-	pv = get_pivot(a.top, a.node_count);
-//	print_list(&a, &b);
-	
-	printf("\npv_big:%d  ", pv.piv_big);
-	printf("pv_small:%d  \n", pv.piv_small);
+	if (argc < 1)
+		return 0;
+	stack_init(&a);
+	stack_store_value(argv, &a);
+
+	printf("min: %d  ", find_min_value_in_range(a.top, 5));
 
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_a copy.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 15:36:28 by selee             #+#    #+#             */
-/*   Updated: 2021/08/13 16:47:48 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/15 12:38:40 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ void	pb_small_ra2(t_stack *a, t_stack *b, t_pivcount *pvcnt, int range)
 {
 	if (a->top->content <= pvcnt->pivot)
 	{
-		pb(a, b);
-		pvcnt->pb++;
+		op_push_to_b(a, b);
+		pvcnt->pb_count++;
 	}
 	else if (a->top->content > pvcnt->pivot)
 	{
-		ra(a);
-		pvcnt->ra++;
+		op_rotate_a(a);
+		pvcnt->ra_count++;
 	}
 }
 
@@ -35,8 +35,8 @@ void	sort_a2(t_stack *a, t_stack *b, int range)
 	if (range_is_sorted(a, b, range, A))
 		return ;
 	init_op_count(&pvcnt);
-	get_pivot(a->top, range, &pvcnt);
+	find_pivot(a->top, range, &pvcnt);
 	pb_small_ra(a, b, &pvcnt, range);
-	sort_a(a, b, pvcnt.ra);
-	sort_b(a, b, pvcnt.pb);
+	sort_a(a, b, pvcnt.ra_count);
+	sort_b(a, b, pvcnt.pb_count);
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   op_rev_rotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 12:13:06 by selee             #+#    #+#             */
-/*   Updated: 2021/08/13 12:13:10 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/15 12:34:58 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_stack *stack)
+void	op_reverse_rotate_a(t_stack *stack)
 {
 	stack->bottom->next = stack->top;
 	stack->top->prev = stack->bottom;
@@ -23,7 +23,7 @@ void	rra(t_stack *stack)
 	ft_putendl_fd("rra", 1);
 }
 
-void	rrb(t_stack *stack)
+void	op_reverse_rotate_b(t_stack *stack)
 {
 	stack->bottom->next = stack->top;
 	stack->top->prev = stack->bottom;
@@ -34,9 +34,9 @@ void	rrb(t_stack *stack)
 	ft_putendl_fd("rrb", 1);
 }
 
-void	rrr(t_stack *stack_a, t_stack *stack_b)
+void	op_reverse_rotate_all(t_stack *stack_a, t_stack *stack_b)
 {
-	rra(stack_a);
-	rrb(stack_b);
+	op_reverse_rotate_a(stack_a);
+	op_reverse_rotate_b(stack_b);
 	ft_putendl_fd("rrr", 1);
 }

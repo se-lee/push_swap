@@ -6,18 +6,18 @@ int main(int argc, char **argv)
 	t_stack	a;
 	t_stack	b;
 
-	init_stack(&a);
-	init_stack(&b);
-	store_to_stack(argv, &a);
+	stack_init(&a);
+	stack_init(&b);
+	stack_store_value(argv, &a);
 
 print_list(&a);
 print_list(&b);
 
-	pb(&a, &b);
-	pb(&a, &b);
+	op_push_to_b(&a, &b);
+	op_push_to_b(&a, &b);
 	
-	pa(&b, &a);
-	pa(&b, &a);
+	op_push_to_a(&b, &a);
+	op_push_to_a(&b, &a);
 
 print_list(&a);
 print_list(&b);
@@ -32,21 +32,21 @@ int main(int argc, char **argv)
 	t_stack	stack_a;
 	t_stack stack_b;
 
-	init_stack(&stack_a);
-	init_stack(&stack_b);
+	stack_init(&stack_a);
+	stack_init(&stack_b);
 
-	store_to_stack(argv, &stack_a);
+	stack_store_value(argv, &stack_a);
 	printf("before:\n");
 	print_list(&stack_a);
-	pb(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
+	op_push_to_b(&stack_a, &stack_b);
+	op_push_to_b(&stack_a, &stack_b);
+	op_push_to_b(&stack_a, &stack_b);
 	print_list(&stack_b);
 
 printf("b_top: %d  ", stack_b.top->content);
 printf("b_bottom: %d  \n", stack_b.bottom->content);
 
-	sb(&stack_b);
+	op_swap_b(&stack_b);
 	printf("after:\n");
 	print_list(&stack_a);
 	printf("a-top-prev: %p\n", stack_a.top->prev);
@@ -54,7 +54,7 @@ printf("b_bottom: %d  \n", stack_b.bottom->content);
 	printf("a_count: %d\n", stack_a.node_count);
 	printf("b_count: %d\n", stack_b.node_count);
 
-	sa(&stack_a);
+	op_swap_a(&stack_a);
 	print_list(&stack_a);
 	print_list(&stack_b);
 
@@ -87,9 +87,9 @@ int main(int argc, char **argv)
 	t_stack	b;
 	int	mid;
 
-	init_stack(&a);
-	init_stack(&b);
-	store_to_stack(argv, &a);
+	stack_init(&a);
+	stack_init(&b);
+	stack_store_value(argv, &a);
 	print_list(&a);
 	print_list(&b);
 
@@ -110,8 +110,8 @@ int main(int argc, char **argv)
 
 	if (argc < 2)
 		return 0;
-	init_stack(&a, &b);
-	store_to_stack(argv, &a);
+	stack_init(&a, &b);
+	stack_store_value(argv, &a);
 	print_list(&a, A);
 	print_list(&b, B);
 

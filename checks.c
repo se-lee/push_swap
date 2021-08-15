@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:33:03 by selee             #+#    #+#             */
-/*   Updated: 2021/08/14 20:09:05 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/15 12:04:48 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ bigger than an integer, and/or there are duplicates.
 
 */
 
-void	check_non_int(char **argv) //display error
+int		arg_is_int(char **argv)
 {
 	int	i;
 	int	j;
@@ -34,14 +34,12 @@ void	check_non_int(char **argv) //display error
 		while (argv[i][j])
 		{
 			if (!ft_isdigit(argv[i][j]))
-			{
-				ft_putendl_fd("Error", 2);
-				exit(0);
-			}
+				return (0);
 			j++;
 		}
 		i++;
 	}
+	return (1);
 }
 
 /*
@@ -52,9 +50,9 @@ int min: -2147483648
 
 */
 
-void	check_duplicate(t_node *top) //display error
+int		stack_has_duplicate(t_node *top)
 {
-	int		value;
+	int	value;
 	t_node	*cursor;
 
 	while (top->next != NULL)
@@ -64,10 +62,7 @@ void	check_duplicate(t_node *top) //display error
 		while (cursor)
 		{
 			if (cursor->content == value)
-			{
-				ft_putendl_fd("Error", 2); // fd 2 is stderr
-				exit(0);
-			}
+				return (1);
 			if (cursor->next)
 				cursor = cursor->next;
 			else
@@ -75,10 +70,11 @@ void	check_duplicate(t_node *top) //display error
 		}
 		top = top->next;
 	}
+	return (0);
 }
 
 //if already sorted, do nothing (no error message)
-int	stack_is_sorted(t_stack *stack) // no error message
+int	stack_is_sorted(t_stack *stack)
 {
 	t_node	*cursor;
 
@@ -92,7 +88,7 @@ int	stack_is_sorted(t_stack *stack) // no error message
 	return (1);
 }
 
-int	is_sorted_reverse(t_stack *stack)
+int	stack_is_reverse_sorted(t_stack *stack)
 {
 	t_node *cursor;
 

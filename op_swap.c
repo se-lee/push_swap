@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   op_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:59 by selee             #+#    #+#             */
-/*   Updated: 2021/08/13 12:14:37 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/15 12:20:07 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack *stack)
+void	op_swap_a(t_stack *stack)
 {
 	if (stack->node_count < 2)
 		return ;
@@ -37,7 +37,7 @@ void	sa(t_stack *stack)
 	ft_putendl_fd("sa", 1);
 }
 
-void	sb(t_stack *stack)
+void	op_swap_b(t_stack *stack)
 {
 	if (stack->node_count < 2)
 		return ;
@@ -62,9 +62,9 @@ void	sb(t_stack *stack)
 	ft_putendl_fd("sb", 1);
 }
 
-void	ss(t_stack *stack_a, t_stack *stack_b)
+void	op_swap_all(t_stack *stack_a, t_stack *stack_b)
 {
-	sa(stack_a);
-	sb(stack_b);
+	op_swap_a(stack_a);
+	op_swap_b(stack_b);
 	ft_putendl_fd("ss", 1);
 }

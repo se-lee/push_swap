@@ -1,6 +1,6 @@
 HEADER	=	push_swap.h
 SRCS	=	checks.c\
-			stack_prep.c\
+			stack_utils.c\
 			get_numbers.c\
 			op_swap.c\
 			op_rotate.c\
@@ -11,6 +11,7 @@ SRCS	=	checks.c\
 			sort_small.c\
 			quick_sort.c\
 			aaaa.c\
+			push_swap_utils.c\
 			push_swap.c\
 			main.c\
 
