@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:33:03 by selee             #+#    #+#             */
-/*   Updated: 2021/08/15 12:04:48 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/15 15:26:13 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,15 @@ int min: -2147483648
 
 */
 
-int		stack_has_duplicate(t_node *top)
+int		stack_has_duplicate(t_stack *stack)
 {
 	int	value;
 	t_node	*cursor;
 
-	while (top->next != NULL)
+	while (stack)
 	{
-		cursor = top->next;
-		value = top->content;
+		cursor = stack->top->next;
+		value = stack->top->content;
 		while (cursor)
 		{
 			if (cursor->content == value)
@@ -68,7 +68,7 @@ int		stack_has_duplicate(t_node *top)
 			else
 				break;
 		}
-		top = top->next;
+		stack->top = stack->top->next;
 	}
 	return (0);
 }

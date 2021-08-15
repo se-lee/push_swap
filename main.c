@@ -12,7 +12,7 @@ int	main(int argc, char **argv)
 // check max/min int
 	stack_init(&a);
 	stack_store_value(argv, &a);
-	if (stack_has_duplicate(a.top))
+	if (stack_has_duplicate(&a))
 		print_error_exit();
 	if (stack_is_sorted(&a))
 		return (0);

@@ -1,5 +1,11 @@
 #include "push_swap.h"
 
+void	sort_two_reverse_b(t_stack *b)
+{
+	if (b->top->content < b->top->next->content)
+		op_swap_b(b);
+}
+
 void	b_three_top_min(t_stack *stack_b)
 {
 	int	max;

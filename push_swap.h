@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/15 15:18:37 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/15 15:30:18 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_pivcount
 
 /* checks */
 int		arg_is_int(char **argv);
-int		stack_has_duplicate(t_node *top);
+int		stack_has_duplicate(t_stack *stack);
 int		stack_is_sorted(t_stack *stack);
 int		stack_is_reverse_sorted(t_stack *stack);
 
@@ -72,11 +72,12 @@ int		find_max_value_in_range(t_node *node, int range);
 //int		find_pivot(t_node *node, int range);
 //void	get_pivot(t_node *node, int size, t_pivcount *pv);
 
-/* sort three */
-void	sort_two(t_stack *a, t_stack *b, int a_b); //be more specific
+/* sort upto three */
 void	sort_two_a(t_stack *a);
-void	sort_two_reverse_b(t_stack *b);
 void	sort_three_a(t_stack *a);
+
+/* sort upto three reverse */
+void	sort_two_reverse_b(t_stack *b);
 void	sort_three_reverse_b(t_stack *b);
 
 /* sort small */
