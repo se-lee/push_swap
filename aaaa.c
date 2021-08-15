@@ -44,7 +44,6 @@ t_pivcount	partition_a_in_range(t_stack *a, t_stack *b, int range)
 
 	pivot = find_mid_value_in_range(a->top, range);
 	init_op_count(&count);
-
 	temp = range;
 	while (temp--)
 	{
@@ -59,15 +58,15 @@ t_pivcount	partition_a_in_range(t_stack *a, t_stack *b, int range)
 			count.ra_count++;
 		}
 	}
-printf("[pivot a]: %d \n", pivot);
-printf("[A_range]]: %d \n", range);
-printf("[ra count]: %d \n\n", count.ra_count);
+// printf("[pivot a]: %d \n", pivot);
+// printf("[A_range]]: %d \n", range);
+// printf("[ra count]: %d \n\n", count.ra_count);
 	temp = count.ra_count;
 	while (temp--)
 		op_reverse_rotate_a(a);
-	printf("--part.A--\n");
-	print_list(a, 'a');
-	print_list(b, 'b');
+// printf("--part.A--\n");
+// print_list(a, 'a');
+// print_list(b, 'b');
 	return (count);
 }
 
@@ -99,15 +98,15 @@ t_pivcount	partition_b_in_range(t_stack *a, t_stack *b, int range)
 			count.rb_count++;
 		}
 	}
-printf("[pivot b]: %d \n", pivot);
-printf("[B_range]]: %d \n", range);
-printf("[rb count]: %d \n\n", count.rb_count);
+// printf("[pivot b]: %d \n", pivot);
+// printf("[B_range]]: %d \n", range);
+// printf("[rb count]: %d \n\n", count.rb_count);
 	temp = count.rb_count;
 	while (temp--)
 		op_reverse_rotate_b(b);
-	printf("--part.B--\n");
-	print_list(a, 'a');
-	print_list(b, 'b');	
+// printf("--part.B--\n");
+// print_list(a, 'a');
+// print_list(b, 'b');	
 	return (count);
 }
 

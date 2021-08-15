@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:26:03 by selee             #+#    #+#             */
-/*   Updated: 2021/08/15 16:15:45 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/15 23:57:05 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ void	sort_five(t_stack *a, t_stack *b)
 	int	pb_count;
 
 	mid = find_mid_value_in_range(a->top, a->node_count);
-//printf("mid: %d\n", mid);
 	pb_count = 0;
 	while (a)
 	{

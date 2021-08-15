@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:26:27 by selee             #+#    #+#             */
-/*   Updated: 2021/08/15 15:30:25 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/16 00:10:07 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,31 +18,34 @@ void	sort_two_a(t_stack *a)
 		op_swap_a(a);
 }
 
-void	sort_three_top_is_min(t_stack *stack_a)
+void	sort_three_top_is_min(t_stack *a)
 {
-	op_reverse_rotate_a(stack_a);
-	op_swap_a(stack_a);
+	if (!stack_is_sorted(a))
+	{
+		op_reverse_rotate_a(a);
+		op_swap_a(a);
+	}
 }
 
-void	sort_three_top_is_mid(t_stack *stack_a)
+void	sort_three_top_is_mid(t_stack *a)
 {
-	if (stack_a->top->next->content < stack_a->top->content)
-		op_swap_a(stack_a);
-	else if (stack_a->top->next->content > stack_a->top->content)
-		op_reverse_rotate_a(stack_a);
+	if (a->top->next->content < a->top->content)
+		op_swap_a(a);
+	else if (a->top->next->content > a->top->content)
+		op_reverse_rotate_a(a);
 }
 
-void	sort_three_top_is_max(t_stack *stack_a)
+void	sort_three_top_is_max(t_stack *a)
 {
 	int	min;
 
-	min = find_min_value_in_range(stack_a->top, 3);
-	if (stack_a->top->next->content == min)
-		op_rotate_a(stack_a);
-	else if (stack_a->top->next->content != min)
+	min = find_min_value_in_range(a->top, 3);
+	if (a->top->next->content == min)
+		op_rotate_a(a);
+	else if (a->top->next->content != min)
 	{
-		op_rotate_a(stack_a);
-		op_swap_a(stack_a);
+		op_rotate_a(a);
+		op_swap_a(a);
 	}
 }
 
