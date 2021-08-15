@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/15 17:00:28 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/15 20:39:19 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,18 @@
 # include <stddef.h>
 # include "libft/libft.h"
 
+/* erase A and B */
 # define A 1
 # define B 2
+
+# define INT_MAX 2147483647
+# define INT_MIN 2147483648
+
+/*
+int max: +2147483647
+int min: -2147483648
+*/
+
 
 typedef struct s_stack
 {
@@ -39,14 +49,17 @@ typedef struct s_pivcount
 }				t_pivcount;
 
 /* checks */
-int		arg_is_int(char **argv);
+//int		arg_is_int(char **argv);
+int		arg_is_int(char *argv);
+int		arg_over_int_max_min(char *argv);
+int		arg_has_error(char **argv);
 int		stack_has_duplicate(t_stack *stack);
 int		stack_is_sorted(t_stack *stack);
 int		stack_is_reverse_sorted(t_stack *stack);
 
 /* stack_utils */
-//void	stack_init(t_stack *stack);
-t_stack *stack_init(void);
+void	stack_init(t_stack *stack);
+//t_stack *stack_init(void);
 void	stack_add_node_back(t_stack *stack, t_node *new_node);
 void	stack_store_value(char **argv, t_stack *stack);
 void	stack_free(t_stack *stack);
