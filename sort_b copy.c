@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 15:36:14 by selee             #+#    #+#             */
-/*   Updated: 2021/08/15 12:38:38 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/15 23:38:02 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	sort_b(t_stack *a, t_stack *b, int range)
 
 	if (range <= 1)
 		return ;
-	if (range_is_sorted(a, b, range, B))
+	if (sort_range(a, b, range, B))
 		return ;
 	find_pivot(b->top, range, &pvcnt);
 	pa_big_rb(a, b, &pvcnt, range);

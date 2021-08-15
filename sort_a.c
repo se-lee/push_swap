@@ -6,13 +6,13 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 15:36:28 by selee             #+#    #+#             */
-/*   Updated: 2021/08/15 12:38:40 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/15 23:38:00 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		range_is_sorted(t_stack *a, t_stack *b, int range, int a_b)
+int		sort_range(t_stack *a, t_stack *b, int range, int a_b)
 {
 	if (range < 5)
 	{
@@ -56,7 +56,7 @@ void	sort_a(t_stack *a, t_stack *b, int range)
 
 	if (range <= 1)
 		return ;
-	if (range_is_sorted(a, b, range, A))
+	if (sort_range(a, b, range, A))
 		return ;
 	init_op_count(&pvcnt);
 	find_pivot(a->top, range, &pvcnt);
