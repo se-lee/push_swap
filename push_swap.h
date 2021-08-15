@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/15 16:57:36 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/15 17:00:28 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		stack_is_reverse_sorted(t_stack *stack);
 
 /* stack_utils */
 //void	stack_init(t_stack *stack);
-t_stack stack_init(void);
+t_stack *stack_init(void);
 void	stack_add_node_back(t_stack *stack, t_node *new_node);
 void	stack_store_value(char **argv, t_stack *stack);
 void	stack_free(t_stack *stack);

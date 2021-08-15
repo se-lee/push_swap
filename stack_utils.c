@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:14 by selee             #+#    #+#             */
-/*   Updated: 2021/08/15 16:57:20 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/15 17:00:58 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,18 @@ void	init_op_count(t_pivcount *count)
 	count->rb_count = 0;
 }
 
-t_stack stack_init(void)
+t_stack *stack_init(void)
 {
-	t_stack	stack;
+	t_stack	*stack;
 
-	stack = (t_stack)malloc(sizeof(t_stack));
+	stack = (t_stack *)malloc(sizeof(t_stack));
 	if (!stack)
 		return (NULL);
-	stack.top = NULL;
-	stack.bottom = NULL;
-	stack.node_count = 0;
+	stack->top = NULL;
+	stack->bottom = NULL;
+	stack->node_count = 0;
+
+	return (stack);
 }
 
 /*

@@ -2,8 +2,8 @@
 
 int	main(int argc, char **argv)
 {
-	t_stack a;
-	t_stack b;
+	t_stack *a;
+	t_stack *b;
 	int	i;
 
 	i = 0;
@@ -19,17 +19,17 @@ int	main(int argc, char **argv)
 
 	if (!arg_is_int(argv))
 		print_error_exit();
-	stack_init(&a);
-	stack_store_value(argv, &a);
-	if (stack_has_duplicate(&a))
+	a = stack_init();
+	stack_store_value(argv, a);
+	if (stack_has_duplicate(a))
 		print_error_exit();
-	stack_init(&b);
+	b = stack_init();
 
 //	push_swap(&a, &b);
 
 // /* -------> erase below <-------*/	
-	print_list(&a, 'a');
-	print_list(&b, 'b');
+	print_list(a, 'a');
+	print_list(b, 'b');
 // /* -------> erase erase <-------*/		
 
 	return (0);
