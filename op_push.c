@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 12:07:29 by selee             #+#    #+#             */
-/*   Updated: 2021/08/15 12:21:15 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/15 21:15:31 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	push_last_node(t_stack *source, t_stack *dest)
 
 void	op_push_to_a(t_stack *stack_b, t_stack *stack_a)
 {
+	if (stack_b->top == NULL)
+		return ;
 	if (stack_b->node_count == 1)
 		push_last_node(stack_b, stack_a);
 	else
@@ -59,6 +61,8 @@ void	op_push_to_a(t_stack *stack_b, t_stack *stack_a)
 
 void	op_push_to_b(t_stack *stack_a, t_stack *stack_b)
 {
+	if (stack_a->top == NULL)
+		return ;
 	if (stack_a->node_count == 1)
 		push_last_node(stack_a, stack_b);
 	else
