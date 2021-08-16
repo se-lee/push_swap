@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 00:00:21 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 00:22:07 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,17 +117,15 @@ void	sort_two_reverse_b(t_push_swap *ps);
 void 	sort_b_3(t_push_swap *ps);
 
 /* quick sort stack a */
-int		sort_range(t_push_swap *ps, int range);
 t_op_count	partition_a_in_range(t_push_swap *ps, int range);
 void	quick_sort_a(t_push_swap *ps, int range);
 
 /* quick sort stack b */
-int		sort_range_reverse(t_push_swap *ps, int range);
 t_op_count	partition_b_in_range(t_push_swap *ps, int range);
 void	quick_sort_b(t_push_swap *ps, int range);
 
 /* push_swap */
-void	push_swap(t_push_swap *ps);
+void	push_swap_solve(t_push_swap *ps);
 
 /* push swap utils */
 void	init_op_count(t_op_count *count);

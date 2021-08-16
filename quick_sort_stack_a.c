@@ -6,21 +6,11 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 23:47:39 by selee             #+#    #+#             */
-/*   Updated: 2021/08/16 23:48:34 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 00:14:58 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int		sort_range(t_push_swap *ps, int range)
-{
-	if (range < 3)
-	{
-		sort_less_five_a(ps, range);
-		return 1;
-	}
-	return 0;
-}
 
 t_op_count	partition_a_in_range(t_push_swap *ps, int range)
 {
@@ -63,7 +53,7 @@ void	quick_sort_a(t_push_swap *ps, int range)
 	if (range == 2)
 		return (sort_two_a(ps));
 	if (range == 3)
-		return (sort_a_3(p));
+		return (sort_a_3(ps));
 	count = partition_a_in_range(ps, range);
 	quick_sort_a(ps, count.ra_count);
 	quick_sort_b(ps, count.pb_count);

@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:14 by selee             #+#    #+#             */
-/*   Updated: 2021/08/16 23:43:10 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 00:18:10 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	stack_free(t_stack *stack)
 		stack->top = stack->top->next;
 		i++;
 	}
-	free(stack);
 }
 
 void	stack_free_all(t_stack *a, t_stack *b)

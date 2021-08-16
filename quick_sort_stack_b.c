@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 23:47:56 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 00:09:19 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 00:21:52 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,6 @@ void	sort_two_reverse_b(t_push_swap *ps)
 {
 	if (ps->b.top->content < ps->b.top->next->content)
 		op_swap_b(ps);
-}
-
-int		sort_range_reverse(t_push_swap *ps, int range)
-{
-	if (range == 2)
-	{
-		sort_two_reverse_b(ps);
-		return 1;
-	}
-	else if (range == 3)
-	{
-		sort_three_reverse_b(ps);
-		return 1;
-	}
-	return 0;
 }
 
 t_op_count	partition_b_in_range(t_push_swap *ps, int range)
@@ -68,7 +53,7 @@ void	quick_sort_b(t_push_swap *ps, int range)
 {
 	t_op_count	count;
 
-	if (range <= 1 || stack_is_reverse_sorted(ps))
+	if (range <= 1 || stack_is_reverse_sorted(&ps->b))
 		return ;
 	if (range == 2)
 		return (sort_two_reverse_b(ps));
