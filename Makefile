@@ -1,6 +1,7 @@
 HEADER	=	push_swap.h
 SRCS	=	arg_check.c\
 			find_numbers.c\
+			main.c\
 			op_push.c\
 			op_rev_rotate.c\
 			op_rotate.c\
@@ -13,14 +14,8 @@ SRCS	=	arg_check.c\
 			quick_sort.c\
 			sort_three_a.c\
 			sort_three_rev_b.c\
-
 			stack_check.c\
 			stack_utils.c\
-			sort_upto_three.c\
-			sort_upto_three_rev.c\
-			sort_upto_five.c\
-			aaaa.c\
-			main.c\
 
 OBJS	= $(SRCS:.c=.o)
 NAME	= push_swap

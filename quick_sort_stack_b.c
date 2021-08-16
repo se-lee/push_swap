@@ -6,11 +6,17 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 23:47:56 by selee             #+#    #+#             */
-/*   Updated: 2021/08/16 23:48:37 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 00:09:19 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_two_reverse_b(t_push_swap *ps)
+{
+	if (ps->b.top->content < ps->b.top->next->content)
+		op_swap_b(ps);
+}
 
 int		sort_range_reverse(t_push_swap *ps, int range)
 {
