@@ -20,6 +20,7 @@ int	main(int argc, char **argv)
 debug(print_list, a, 'a');
 	// if (stack_has_duplicate(a))
 	// 	print_error_exit();
+//	sort_less_five_rev_b(a, b, b->node_count);
 	push_swap(a, b);
 /* -------> erase below <-------*/	
 debug(print_list, a, 'a');

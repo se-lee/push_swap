@@ -4,7 +4,7 @@ int		sort_range(t_stack *a, t_stack *b, int range)
 {
 	if (range < 3)
 	{
-		sort_less_five(a, b, range);
+		sort_less_five_a(a, b, range);
 		return 1;
 	}
 	return 0;

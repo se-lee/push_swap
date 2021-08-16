@@ -115,7 +115,7 @@ int main(int argc, char **argv)
 	print_list(&a, A);
 	print_list(&b, B);
 
-	sort_less_five(&a, &b, 4, B);
+	sort_less_five_a(&a, &b, 4, B);
 
 	printf("after:\n");
 	print_list(&a, A);

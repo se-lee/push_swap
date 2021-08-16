@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_a.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 15:36:28 by selee             #+#    #+#             */
-/*   Updated: 2021/08/16 10:36:49 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/16 16:39:56 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int		sort_range(t_stack *a, t_stack *b, int range, int a_b)
 	if (range < 5)
 	{
 		if (a_b == A)
-			sort_less_five(a, b, range, A);
+			sort_less_five_a(a, b, range, A);
 		else if (a_b == B)
-			sort_less_five(a, b, range, B);
+			sort_less_five_a(a, b, range, B);
 		return (1);
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/16 15:07:45 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/16 16:42:07 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,8 @@ void	sort_three_reverse_b(t_stack *b);
 /* sort small */
 void	sort_four_a(t_stack *a, t_stack *b);
 void	sort_four_reverse_b(t_stack *a, t_stack *b);
-void	sort_less_five(t_stack *a, t_stack *b, int count);
-//void	sort_less_five(t_stack *a, t_stack *b, int count, int a_b);
+void	sort_less_five_a(t_stack *a, t_stack *b, int count);
+void	sort_less_five_rev_b(t_stack *a, t_stack *b, int count);
 void	sort_five(t_stack *a, t_stack *b);
 void	push_back_a(t_stack *a, t_stack *b, int count); // maybe no
 
@@ -127,7 +127,5 @@ void	push_swap(t_stack *a, t_stack *b);
 void	quick_sort(int array[], size_t length);
 void	init_op_count(t_op_count *count);
 void	print_error_exit(void);
-
-/*test functions - to be erased later*/
 
 #endif
