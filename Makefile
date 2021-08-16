@@ -16,6 +16,7 @@ SRCS	=	arg_check.c\
 			aaaa.c\
 			push_swap_utils.c\
 			push_swap.c\
+			program.c\
 			main.c\
 
 OBJS	= $(SRCS:.c=.o)

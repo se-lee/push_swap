@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/16 21:12:53 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/16 22:14:01 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,22 @@
 # define INT_MAX 2147483647
 # define INT_MIN 2147483648
 
-/*
-int max: +2147483647
-int min: -2147483648
-*/
+typedef enum {
+	pa, pb,
+	ra, rb, rr,
+	sa, sb, ss,
+	rra, rrb, rrr,
+} t_instruction;
+
+typedef struct s_program_node {
+	t_instruction instruction;
+	struct s_program_node *next;
+} t_program_node;
+
+typedef struct  {
+	t_program_node *first;
+	t_program_node *last;
+} t_program;
 
 typedef struct s_stack
 {
@@ -40,6 +52,12 @@ typedef struct s_stack
 	int		node_count;
 }				t_stack;
 
+typedef struct {
+	t_stack a;
+	t_stack b;
+	t_program program;
+} t_push_swap;
+
 typedef struct s_op_count
 {
 	int	pa_count;
@@ -47,6 +65,13 @@ typedef struct s_op_count
 	int	ra_count;
 	int	rb_count;
 }				t_op_count;
+
+/* program */
+void	program_init(t_program *program);
+void	program_add_instruction(t_program *program, t_instruction instruction);
+void	program_optimize(t_program *program);
+void	program_run(t_program *program);
+void	program_free(t_program *program);
 
 /* arg check */
 int		arg_is_int(char *argv);
