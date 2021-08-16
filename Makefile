@@ -12,6 +12,7 @@ SRCS	=	arg_check.c\
 			sort_upto_five.c\
 			quick_sort.c\
 			aaaa.c\
+			bbbb.c\
 			push_swap_utils.c\
 			push_swap.c\
 			main.c\

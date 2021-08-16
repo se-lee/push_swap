@@ -107,8 +107,12 @@ void	quick_sort_a(t_stack *a, t_stack *b, int range)
 {
 	t_op_count count;
 
-	if (range <= 1 || stack_is_sorted(a)  || sort_range(a, b, range))
+	if (range <= 1 || stack_is_sorted(a))
 		return ;
+	if (range == 2)
+		return (sort_two_a(a));
+	if (range == 3)
+		return (sort_a_3(a));
 	count = partition_a_in_range(a, b, range);
 	quick_sort_a(a, b, count.ra_count);
 	quick_sort_b(a, b, count.pb_count);
@@ -122,10 +126,12 @@ void	quick_sort_b(t_stack *a, t_stack *b, int range)
 {
 	t_op_count	count;
 
-	if (range <= 1
-		|| stack_is_reverse_sorted(b)
-		|| sort_range_reverse(b, range))
+	if (range <= 1 || stack_is_reverse_sorted(b))
 		return ;
+	if (range == 2)
+		return (sort_two_reverse_b(b));
+	if (range == 3)
+		return (sort_b_3(b));
 	count = partition_b_in_range(a, b, range);
 	quick_sort_b(a, b, count.rb_count);
 	quick_sort_a(a, b, count.pa_count);

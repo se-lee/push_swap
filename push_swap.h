@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/16 16:42:07 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/16 20:52:06 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ int		find_max_value_in_range(t_node *node, int range);
 /* sort upto three */
 void	sort_two_a(t_stack *a);
 void	sort_three_a(t_stack *a);
+void 	sort_a_3(t_stack *a);
+void 	sort_b_3(t_stack *b);
 
 /* sort upto three reverse */
 void	sort_two_reverse_b(t_stack *b);
