@@ -2,91 +2,91 @@
 
 #include "push_swap.h"
 
-static void sort_b_3_alone(t_stack *b)
+static void sort_b_3_alone(t_push_swap *ps)
 {
 	int first; 
 	int second;
 	int third;
 	
-	first = b->top->content;
-	second = b->top->next->content;
-	third = b->bottom->content;
+	first = ps->b.top->content;
+	second = ps->b.top->next->content;
+	third = ps->b.bottom->content;
 	if (first > second)
 	{
 		if (first < third)
-			op_reverse_rotate_b(b);
+			op_reverse_rotate_b(ps);
 		else if (third > second)
 		{
-			op_reverse_rotate_b(b);
-			op_swap_b(b);
+			op_reverse_rotate_b(ps);
+			op_swap_b(ps);
 		}
 	}
 	else
 	{
 		if (first > third)
-			op_swap_b(b);
+			op_swap_b(ps);
 		else if (second > third)
-			op_rotate_b(b);
+			op_rotate_b(ps);
 		else
 		{
-			op_swap_b(b);
-			op_reverse_rotate_b(b);
+			op_swap_b(ps);
+			op_reverse_rotate_b(ps);
 		}
 	}
 }
 
-static void	sort_b_3_not_alone(t_stack *b)
+static void	sort_b_3_not_alone(t_push_swap *ps)
 {
 	int first; 
 	int second;
 	int third;
 	
-	first = b->top->content;
-	second = b->top->next->content;
-	third = b->top->next->next->content;
+	first = ps->b.top->content;
+	second = ps->b.top->next->content;
+	third = ps->b.top->next->next->content;
 
 	if (first > second)
 	{
 		if (first < third)
 		{
-			op_rotate_b(b);
-			op_swap_b(b);
-			op_reverse_rotate_b(b);
-			op_swap_b(b);
+			op_rotate_b(ps);
+			op_swap_b(ps);
+			op_reverse_rotate_b(ps);
+			op_swap_b(ps);
 		}
 		else if (third > second)
 		{
-			op_rotate_b(b);
-			op_swap_b(b);
-			op_reverse_rotate_b(b);
+			op_rotate_b(ps);
+			op_swap_b(ps);
+			op_reverse_rotate_b(ps);
 		}
 	}
 	else
 	{
 		if (first > third)
-			op_swap_b(b);
+			op_swap_b(ps);
 		else if (second > third)
 		{
-			op_swap_b(b);
-			op_rotate_b(b);
-			op_swap_b(b);
-			op_reverse_rotate_b(b);
+			op_swap_b(ps);
+			op_rotate_b(ps);
+			op_swap_b(ps);
+			op_reverse_rotate_b(ps);
 		}
 		else
 		{
-			op_swap_b(b);
-			op_rotate_b(b);
-			op_swap_b(b);
-			op_reverse_rotate_b(b);
-			op_swap_b(b);
+			op_swap_b(ps);
+			op_rotate_b(ps);
+			op_swap_b(ps);
+			op_reverse_rotate_b(ps);
+			op_swap_b(ps);
 		}
 	}
 }
 
-void sort_b_3(t_stack *b)
+void sort_b_3(t_push_swap *ps)
 {
-	if (b->node_count == 3)
-		sort_b_3_alone(b);
+	if (ps->b.node_count == 3)
+		sort_b_3_alone(ps);
 	else
-		sort_b_3_not_alone(b);
+		sort_b_3_not_alone(ps);
 }

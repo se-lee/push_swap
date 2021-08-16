@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 12:07:29 by selee             #+#    #+#             */
-/*   Updated: 2021/08/16 14:21:26 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/16 23:13:58 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,62 +29,62 @@ void	push_last_node(t_stack *source, t_stack *dest)
 	source->bottom = NULL;
 }
 
-void	op_push_to_a(t_stack *stack_b, t_stack *stack_a)
+void	op_push_to_a(t_push_swap *ps)
 {
-	if (stack_b->top == NULL)
+	if (ps->b.top == NULL)
 		return ;
-	if (stack_b->node_count == 1)
-		push_last_node(stack_b, stack_a);
+	if (ps->b.node_count == 1)
+		push_last_node(&ps->b, &ps->a);
 	else
 	{
-		if (stack_a->top == NULL)
+		if (ps->a.top == NULL)
 		{
-			stack_a->top = stack_b->top;
-			stack_a->bottom = stack_a->top;
-			stack_b->top = stack_b->top->next;
-			stack_b->top->prev = NULL;
-			stack_a->top->next = NULL;
+			ps->a.top = ps->b.top;
+			ps->a.bottom = ps->a.top;
+			ps->b.top = ps->b.top->next;
+			ps->b.top->prev = NULL;
+			ps->a.top->next = NULL;
 		}
 		else
 		{
-			stack_a->top->prev = stack_b->top;
-			stack_b->top = stack_b->top->next;
-			stack_a->top->prev->next = stack_a->top;
-			stack_a->top = stack_a->top->prev;
-			stack_b->top->prev = NULL;
+			ps->a.top->prev = ps->b.top;
+			ps->b.top = ps->b.top->next;
+			ps->a.top->prev->next = ps->a.top;
+			ps->a.top = ps->a.top->prev;
+			ps->b.top->prev = NULL;
 		}
 	}
-	stack_b->node_count--;
-	stack_a->node_count++;
-	ft_putendl_fd("pa", 1);
+	ps->b.node_count--;
+	ps->a.node_count++;
+	program_add_instruction(&ps->program, pa);
 }
 
-void	op_push_to_b(t_stack *stack_a, t_stack *stack_b)
+void	op_push_to_b(t_push_swap *ps)
 {
-	if (stack_a->top == NULL)
+	if (ps->a.top == NULL)
 		return ;
-	if (stack_a->node_count == 1)
-		push_last_node(stack_a, stack_b);
+	if (ps->a.node_count == 1)
+		push_last_node(&ps->a, &ps->b);
 	else
 	{
-		if (stack_b->top == NULL)
+		if (ps->b.top == NULL)
 		{
-			stack_b->top = stack_a->top;
-			stack_b->bottom = stack_b->top;
-			stack_a->top = stack_a->top->next;
-			stack_a->top->prev = NULL;
-			stack_b->top->next = NULL;
+			ps->b.top = ps->a.top;
+			ps->b.bottom = ps->b.top;
+			ps->a.top = ps->a.top->next;
+			ps->a.top->prev = NULL;
+			ps->b.top->next = NULL;
 		}
 		else
 		{
-			stack_b->top->prev = stack_a->top;
-			stack_a->top = stack_a->top->next;
-			stack_b->top->prev->next = stack_b->top;
-			stack_b->top = stack_b->top->prev;
-			stack_a->top->prev = NULL;
+			ps->b.top->prev = ps->a.top;
+			ps->a.top = ps->a.top->next;
+			ps->b.top->prev->next = ps->b.top;
+			ps->b.top = ps->b.top->prev;
+			ps->a.top->prev = NULL;
 		}
 	}
-	stack_a->node_count--;
-	stack_b->node_count++;
-	ft_putendl_fd("pb", 1);
+	ps->a.node_count--;
+	ps->b.node_count++;
+	program_add_instruction(&ps->program, pb);
 }

@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:25:59 by selee             #+#    #+#             */
-/*   Updated: 2021/08/16 15:36:07 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/16 23:45:52 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,20 +72,3 @@ int	find_mid_value_in_range(t_node *node, int size)
 	i = (size + 1) / 2 - 1;
 	return (nbr[size / 2]);
 }
-
-/*
-int	main(int argc, char **argv)
-{
-	t_stack	a;
-//	t_stack	b;
-
-	if (argc < 1)
-		return 0;
-	stack_init(&a);
-	stack_store_value(argv, &a);
-
-	printf("min: %d  ", find_min_value_in_range(a.top, 5));
-
-	return (0);
-}
-*/

@@ -6,14 +6,14 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:27:07 by selee             #+#    #+#             */
-/*   Updated: 2021/08/16 16:48:14 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/16 23:23:01 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_swap(t_stack *a, t_stack *b)
+void	push_swap(t_push_swap *ps)
 {
-	quick_sort_a(a, b, a->node_count);
+	quick_sort_a(ps, ps->a.node_count);
 }
  

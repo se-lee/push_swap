@@ -72,7 +72,6 @@ void	program_optimize(t_program *program)
 	program_remove_useless(program);
 }
 
-
 void	program_run(t_program *program)
 {
 	t_program_node	*cursor;

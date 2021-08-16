@@ -3,22 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   arg_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:33:03 by selee             #+#    #+#             */
-/*   Updated: 2021/08/15 20:47:15 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/16 23:38:44 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*
-• In case of error, you must display Error followed by a ’\n’ on the standard error.
-
-Errors include for example: some arguments aren’t integers, some arguments are
-bigger than an integer, and/or there are duplicates.
-
-*/
 
 int		arg_is_int(char *argv)
 {

@@ -3,40 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   op_rev_rotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 12:13:06 by selee             #+#    #+#             */
-/*   Updated: 2021/08/15 12:34:58 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/16 23:21:19 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	op_reverse_rotate_a(t_stack *stack)
+void	op_reverse_rotate_a_no_edit(t_push_swap *ps)
 {
-	stack->bottom->next = stack->top;
-	stack->top->prev = stack->bottom;
-	stack->top = stack->bottom;
-	stack->bottom = stack->top->prev;
-	stack->bottom->next = NULL;
-	stack->top->prev = NULL;
-	ft_putendl_fd("rra", 1);
+	ps->a.bottom->next = ps->a.top;
+	ps->a.top->prev = ps->a.bottom;
+	ps->a.top = ps->a.bottom;
+	ps->a.bottom = ps->a.top->prev;
+	ps->a.bottom->next = NULL;
+	ps->a.top->prev = NULL;
 }
 
-void	op_reverse_rotate_b(t_stack *stack)
+void	op_reverse_rotate_a(t_push_swap *ps)
 {
-	stack->bottom->next = stack->top;
-	stack->top->prev = stack->bottom;
-	stack->top = stack->bottom;
-	stack->bottom = stack->top->prev;
-	stack->bottom->next = NULL;
-	stack->top->prev = NULL;
-	ft_putendl_fd("rrb", 1);
+	op_reverse_rotate_a_no_edit(ps);
+	program_add_instruction(&ps->program, rra);
 }
 
-void	op_reverse_rotate_all(t_stack *stack_a, t_stack *stack_b)
+void	op_reverse_rotate_b_no_edit(t_push_swap *ps)
 {
-	op_reverse_rotate_a(stack_a);
-	op_reverse_rotate_b(stack_b);
-	ft_putendl_fd("rrr", 1);
+	ps->b.bottom->next = ps->b.top;
+	ps->b.top->prev = ps->b.bottom;
+	ps->b.top = ps->b.bottom;
+	ps->b.bottom = ps->b.top->prev;
+	ps->b.bottom->next = NULL;
+	ps->b.top->prev = NULL;
+}
+
+void	op_reverse_rotate_b(t_push_swap *ps)
+{
+	op_reverse_rotate_b_no_edit(ps);
+	program_add_instruction(&ps->program, rrb);
+}
+
+void	op_reverse_rotate_all(t_push_swap *ps)
+{
+	op_reverse_rotate_a_no_edit(ps);
+	op_reverse_rotate_b_no_edit(ps);
+	program_add_instruction(&ps->program, rrr);
 }

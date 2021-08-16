@@ -3,45 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:14 by selee             #+#    #+#             */
-/*   Updated: 2021/08/16 10:35:53 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/16 23:43:10 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	init_op_count(t_op_count *count)
-{
-	count->pa_count = 0;
-	count->pb_count = 0;
-	count->ra_count = 0;
-	count->rb_count = 0;
-}
-
-t_stack *stack_init(void)
-{
-	t_stack	*stack;
-
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	if (!stack)
-		return (NULL);
-	stack->top = NULL;
-	stack->bottom = NULL;
-	stack->node_count = 0;
-
-	return (stack);
-}
-
-/*
 void	stack_init(t_stack *stack)
 {
 	stack->top = NULL;
 	stack->bottom = NULL;
 	stack->node_count = 0;
 }
-*/
 
 void	stack_add_node_back(t_stack *stack, t_node *new_node)
 {
@@ -91,20 +67,4 @@ void	stack_free_all(t_stack *a, t_stack *b)
 {
 	stack_free(a);
 	stack_free(b);
-}
-
-void	print_list(t_stack *stack, char a_b)
-{
-	t_node	*node;
-
-	node = stack->top;
-	printf("---------------------------\n\n");
-	while (node)
-	{
-		printf("%d  \n", node->content);
-		node = node->next;
-	}
-	printf("---%c---\n", a_b);
-	printf("---------------------------\n");
-
 }

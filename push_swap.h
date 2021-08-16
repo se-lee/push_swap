@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/16 22:14:01 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/16 23:50:32 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,70 +84,56 @@ int		stack_is_sorted(t_stack *stack);
 int		stack_is_reverse_sorted(t_stack *stack);
 
 /* stack_utils */
-//void	stack_init(t_stack *stack);
-t_stack *stack_init(void);
+void	stack_init(t_stack *stack);
 void	stack_add_node_back(t_stack *stack, t_node *new_node);
 void	stack_store_value(char **argv, t_stack *stack);
 void	stack_free(t_stack *stack);
 void	stack_free_all(t_stack *a, t_stack *b);
-void	print_list(t_stack *stack, char a_b);
 
 /* operation functions (op_) */
-void	op_swap_a(t_stack *a);
-void	op_swap_b(t_stack *b);
-void	op_swap_all(t_stack *a, t_stack *b);
-void	op_push_to_a(t_stack *b, t_stack *a);
-void	op_push_to_b(t_stack *a, t_stack *b);
-void	op_rotate_a(t_stack *a);
-void	op_rotate_b(t_stack *b);
-void	op_rotate_all(t_stack *a, t_stack *b);
-void	op_reverse_rotate_a(t_stack *a);
-void	op_reverse_rotate_b(t_stack *b);
-void	op_reverse_rotate_all(t_stack *a, t_stack *b);
+void	op_swap_a(t_push_swap *ps);
+void	op_swap_b(t_push_swap *ps);
+void	op_swap_all(t_push_swap *ps);
+void	op_push_to_a(t_push_swap *ps);
+void	op_push_to_b(t_push_swap *ps);
+void	op_rotate_a(t_push_swap *ps);
+void	op_rotate_b(t_push_swap *ps);
+void	op_rotate_all(t_push_swap *ps);
+void	op_reverse_rotate_a(t_push_swap *ps);
+void	op_reverse_rotate_b(t_push_swap *ps);
+void	op_reverse_rotate_all(t_push_swap *ps);
 
-/* get numbers*/
+/* find numbers*/
 int		find_min_value_in_range(t_node *node, int range);
 int		find_mid_value_in_range(t_node *node, int range);
 int		find_max_value_in_range(t_node *node, int range);
 
-//int		find_pivot(t_node *node, int range);
-//void	get_pivot(t_node *node, int size, t_pivcount *pv);
-
 /* sort upto three */
-void	sort_two_a(t_stack *a);
-void	sort_three_a(t_stack *a);
-void 	sort_a_3(t_stack *a);
-void 	sort_b_3(t_stack *b);
+void	sort_two_a(t_push_swap *ps);
+void	sort_three_a(t_push_swap *ps);
+void 	sort_a_3(t_push_swap *ps);
+void 	sort_b_3(t_push_swap *ps);
 
 /* sort upto three reverse */
-void	sort_two_reverse_b(t_stack *b);
-void	sort_three_reverse_b(t_stack *b);
+void	sort_two_reverse_b(t_push_swap *ps);
+void	sort_three_reverse_b(t_push_swap *ps);
 
-/* sort small */
-void	sort_four_a(t_stack *a, t_stack *b);
-void	sort_four_reverse_b(t_stack *a, t_stack *b);
-void	sort_less_five_a(t_stack *a, t_stack *b, int count);
-void	sort_less_five_rev_b(t_stack *a, t_stack *b, int count);
-void	sort_five(t_stack *a, t_stack *b);
-void	push_back_a(t_stack *a, t_stack *b, int count); // maybe no
+/* quick sort stack a */
+int		sort_range(t_push_swap *ps, int range);
+t_op_count	partition_a_in_range(t_push_swap *ps, int range);
+void	quick_sort_a(t_push_swap *ps, int range);
 
-/* quick sort stack */
-int		range_is_sorted(t_stack *a, t_stack *stack_b, int range, int a_b);
-// void	pb_small_ra(t_stack *a, t_stack *b, t_pivcount *pvcnt);
-// void	pa_big_rb(t_stack *a, t_stack *b, t_pivcount *pvcnt);
-// void	sort_a(t_stack *a, t_stack *b, int range);
-// void	sort_b(t_stack *a, t_stack *b, int range); //think about using unsigned
-void	quick_sort_a(t_stack *a, t_stack *b, int range);
-void	quick_sort_b(t_stack *a, t_stack *b, int range);
-int		sort_range(t_stack *a, t_stack *b, int range);
-int		sort_range_reverse(t_stack *b, int range);
+/* quick sort stack b */
+int		sort_range_reverse(t_push_swap *ps, int range);
+t_op_count	partition_b_in_range(t_push_swap *ps, int range);
+void	quick_sort_b(t_push_swap *ps, int range);
 
 /* push_swap */
-void	push_swap(t_stack *a, t_stack *b);
+void	push_swap(t_push_swap *ps);
 
-/* misc */
-void	quick_sort(int array[], size_t length);
+/* push swap utils */
 void	init_op_count(t_op_count *count);
 void	print_error_exit(void);
+void	quick_sort(int array[], size_t length);
 
 #endif
