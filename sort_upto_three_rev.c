@@ -6,39 +6,39 @@ void	sort_two_reverse_b(t_stack *b)
 		op_swap_b(b);
 }
 
-void	b_three_top_min(t_stack *stack_b)
+void	b_three_top_min(t_stack *b)
 {
 	int	max;
 
-	max = find_max_value_in_range(stack_b->top, 3);
-	if (stack_b->top->next->content == max)
-		op_rotate_b(stack_b);
-	else if (stack_b->top->next->content != max)
+	max = find_max_value_in_range(b->top, 3);
+	if (b->top->next->content == max)
+		op_rotate_b(b);
+	else if (b->top->next->content != max)
 	{
-		op_rotate_b(stack_b);
-		op_swap_b(stack_b);
+		op_rotate_b(b);
+		op_swap_b(b);
 	}		
 }
 
-void	b_three_top_mid(t_stack *stack_b)
+void	b_three_top_mid(t_stack *b)
 {
-	if (stack_b->top->content < stack_b->top->next->content)
-		op_swap_b(stack_b);
-	else if (stack_b->top->content > stack_b->top->next->content)
-		op_reverse_rotate_b(stack_b);
+	if (b->top->content < b->top->next->content)
+		op_swap_b(b);
+	else if (b->top->content > b->top->next->content)
+		op_reverse_rotate_b(b);
 }
 
-void	b_three_top_max(t_stack *stack_b)
+void	b_three_top_max(t_stack *b)
 {
 	int	mid;
 
-	mid = find_mid_value_in_range(stack_b->top, 3);
-	if (stack_b->top->next->content == mid)
+	mid = find_mid_value_in_range(b->top, 3);
+	if (b->top->next->content == mid)
 		return ;
-	else if (stack_b->top->next->content != mid)
+	else if (b->top->next->content != mid)
 	{
-		op_reverse_rotate_b(stack_b);
-		op_swap_b(stack_b);
+		op_reverse_rotate_b(b);
+		op_swap_b(b);
 	}
 }
 

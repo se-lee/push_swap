@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:14 by selee             #+#    #+#             */
-/*   Updated: 2021/08/15 20:58:51 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/16 10:24:57 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,12 @@ void	stack_free(t_stack *stack)
 		i++;
 	}
 	free(stack);
+}
+
+void	stack_free_all(t_stack *a, t_stack *b)
+{
+	stack_free(a);
+	stack_free(b);
 }
 
 void	print_list(t_stack *stack, char a_b)

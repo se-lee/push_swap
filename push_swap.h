@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/15 23:39:12 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/16 10:25:21 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ t_stack *stack_init(void);
 void	stack_add_node_back(t_stack *stack, t_node *new_node);
 void	stack_store_value(char **argv, t_stack *stack);
 void	stack_free(t_stack *stack);
+void	stack_free_all(t_stack *a, t_stack *b);
 void	print_list(t_stack *stack, char a_b);
 
 /* operation functions (op_) */
@@ -111,6 +112,8 @@ void	pa_big_rb(t_stack *a, t_stack *b, t_pivcount *pvcnt);
 // void	sort_b(t_stack *a, t_stack *b, int range); //think about using unsigned
 void	quick_sort_a(t_stack *a, t_stack *b, int range);
 void	quick_sort_b(t_stack *a, t_stack *b, int range);
+void	sort_range(t_stack *a, t_stack *b, int range);
+void	sort_range_reverse(t_stack *b, int range);
 
 /* push_swap */
 void	push_swap(t_stack *a, t_stack *b);

@@ -10,30 +10,18 @@ the other smaller half
  "partition_a_in_range"
 */
 
-int		sort_range(t_stack *a, int range)
+void		sort_range(t_stack *a, t_stack *b, int range)
 {
-	if (range < 4)
-	{
-		if (range == 2)
-			sort_two_a(a);
-		else if (range == 3)
-			sort_three_a(a);
-		return (1);
-	}
-	return (0);
+	if (range < 5)
+		sort_less_five(a, b, range);
 }
 
-int		sort_range_reverse(t_stack *b, int range)
+void		sort_range_reverse(t_stack *b, int range)
 {
-	if (range < 4)
-	{
-		if (range == 2)
-			sort_two_reverse_b(b);
-		else if (range == 3)
-			sort_three_reverse_b(b);
-		return (1);
-	}
-	return (0);
+	if (range == 2)
+		sort_two_reverse_b(b);
+	else if (range == 3)
+		sort_three_reverse_b(b);
 }
 
 t_pivcount	partition_a_in_range(t_stack *a, t_stack *b, int range)
@@ -58,15 +46,15 @@ t_pivcount	partition_a_in_range(t_stack *a, t_stack *b, int range)
 			count.ra_count++;
 		}
 	}
-// printf("[pivot a]: %d \n", pivot);
-// printf("[A_range]]: %d \n", range);
-// printf("[ra count]: %d \n\n", count.ra_count);
+printf("[pivot a]: %d \n", pivot);
+printf("[A_range]]: %d \n", range);
+printf("[ra count]: %d \n\n", count.ra_count);
 	temp = count.ra_count;
 	while (temp--)
 		op_reverse_rotate_a(a);
-// printf("--part.A--\n");
-// print_list(a, 'a');
-// print_list(b, 'b');
+printf("--part.A--\n");
+print_list(a, 'a');
+print_list(b, 'b');
 	return (count);
 }
 
@@ -83,7 +71,6 @@ t_pivcount	partition_b_in_range(t_stack *a, t_stack *b, int range)
 
 	pivot = find_mid_value_in_range(b->top, range);
 	init_op_count(&count);
-
 	temp = range;
 	while (temp--)
 	{
@@ -98,43 +85,44 @@ t_pivcount	partition_b_in_range(t_stack *a, t_stack *b, int range)
 			count.rb_count++;
 		}
 	}
-// printf("[pivot b]: %d \n", pivot);
-// printf("[B_range]]: %d \n", range);
-// printf("[rb count]: %d \n\n", count.rb_count);
+printf("[pivot b]: %d \n", pivot);
+printf("[B_range]]: %d \n", range);
+printf("[rb count]: %d \n\n", count.rb_count);
 	temp = count.rb_count;
 	while (temp--)
 		op_reverse_rotate_b(b);
-// printf("--part.B--\n");
-// print_list(a, 'a');
-// print_list(b, 'b');	
+printf("--part.B--\n");
+print_list(a, 'a');
+print_list(b, 'b');	
 	return (count);
 }
-
 
 void	quick_sort_a(t_stack *a, t_stack *b, int range)
 {
 	t_pivcount count;
 
-	if (range <= 1)
+	if (range <= 1 || stack_is_sorted(a))
 		return ;
-	if (sort_range(a, range))
-		return ;
+	sort_range(a, b, range);
 	count = partition_a_in_range(a, b, range);
 	quick_sort_a(a, b, count.ra_count);
-	quick_sort_b(a, b, count.pb_count);
+	quick_sort_b(a, b, b->node_count);
+printf("[pb_count(merge)]: %d \n", count.pb_count);
+print_list(b, 'b');
 	while (count.pb_count--)
 		op_push_to_a(b, a);
+printf("[A-range]: %d\n", range);
 }
 
 void	quick_sort_b(t_stack *a, t_stack *b, int range)
 {
 	t_pivcount	count;
 
-	if (range <= 1)
+	if (range <= 1 || stack_is_reverse_sorted(b))
 		return ;
-	if (sort_range_reverse(b, range))
-		return ;
+	sort_range_reverse(b, range);
 	count = partition_b_in_range(a, b, range);
 	quick_sort_a(a, b, count.pa_count);
 	quick_sort_b(a, b, count.rb_count);
+printf("[B-range]: %d\n", range);
 }
