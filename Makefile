@@ -1,22 +1,25 @@
 HEADER	=	push_swap.h
 SRCS	=	arg_check.c\
-			stack_check.c\
-			stack_utils.c\
 			find_numbers.c\
-			op_swap.c\
-			op_rotate.c\
-			op_rev_rotate.c\
 			op_push.c\
+			op_rev_rotate.c\
+			op_rotate.c\
+			op_swap.c\
+			program.c\
+			push_swap_utils.c\
+			push_swap.c\
+			quick_sort_stack_a.c\
+			quick_sort_stack_b.c\
+			quick_sort.c\
 			sort_three_a.c\
 			sort_three_rev_b.c\
+
+			stack_check.c\
+			stack_utils.c\
 			sort_upto_three.c\
 			sort_upto_three_rev.c\
 			sort_upto_five.c\
-			quick_sort.c\
 			aaaa.c\
-			push_swap_utils.c\
-			push_swap.c\
-			program.c\
 			main.c\
 
 OBJS	= $(SRCS:.c=.o)

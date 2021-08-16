@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/16 23:50:32 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 00:00:21 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,15 +108,13 @@ int		find_min_value_in_range(t_node *node, int range);
 int		find_mid_value_in_range(t_node *node, int range);
 int		find_max_value_in_range(t_node *node, int range);
 
-/* sort upto three */
+/* sort three a */
 void	sort_two_a(t_push_swap *ps);
-void	sort_three_a(t_push_swap *ps);
 void 	sort_a_3(t_push_swap *ps);
-void 	sort_b_3(t_push_swap *ps);
 
-/* sort upto three reverse */
+/* sort three reverse */
 void	sort_two_reverse_b(t_push_swap *ps);
-void	sort_three_reverse_b(t_push_swap *ps);
+void 	sort_b_3(t_push_swap *ps);
 
 /* quick sort stack a */
 int		sort_range(t_push_swap *ps, int range);

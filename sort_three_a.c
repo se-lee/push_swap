@@ -6,11 +6,17 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 21:10:19 by selee             #+#    #+#             */
-/*   Updated: 2021/08/16 23:35:32 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/16 23:58:36 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_two_a(t_push_swap *ps)
+{
+	if (ps->a.top->content > ps->a.top->next->content)
+		op_swap_a(ps);
+}
 
 static void sort_a_3_alone(t_push_swap *ps)
 {
