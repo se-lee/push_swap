@@ -6,13 +6,13 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:14 by selee             #+#    #+#             */
-/*   Updated: 2021/08/16 10:24:57 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/16 10:35:53 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	init_op_count(t_pivcount *count)
+void	init_op_count(t_op_count *count)
 {
 	count->pa_count = 0;
 	count->pb_count = 0;

@@ -6,13 +6,13 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 15:36:28 by selee             #+#    #+#             */
-/*   Updated: 2021/08/15 23:38:03 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/16 10:36:49 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pb_small_ra2(t_stack *a, t_stack *b, t_pivcount *pvcnt, int range)
+void	pb_small_ra2(t_stack *a, t_stack *b, t_op_count *pvcnt, int range)
 {
 	if (a->top->content <= pvcnt->pivot)
 	{
@@ -28,7 +28,7 @@ void	pb_small_ra2(t_stack *a, t_stack *b, t_pivcount *pvcnt, int range)
 
 void	sort_a2(t_stack *a, t_stack *b, int range)
 {
-	t_pivcount	pvcnt;
+	t_op_count	pvcnt;
 
 	if (range <= 1)
 		return ;

@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 15:36:28 by selee             #+#    #+#             */
-/*   Updated: 2021/08/15 23:38:00 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/16 10:36:49 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		sort_range(t_stack *a, t_stack *b, int range, int a_b)
 }
 
 // push rotate and reverse
-void	pb_small_ra(t_stack *a, t_stack *b, t_pivcount *pvcnt) // revise name and what it does
+void	pb_small_ra(t_stack *a, t_stack *b, t_op_count *pvcnt) // revise name and what it does
 {
 	int		temp;
 
@@ -51,7 +51,7 @@ void	pb_small_ra(t_stack *a, t_stack *b, t_pivcount *pvcnt) // revise name and w
 
 void	sort_a(t_stack *a, t_stack *b, int range)
 {
-	t_pivcount	pvcnt;
+	t_op_count	pvcnt;
 	int	temp;
 
 	if (range <= 1)

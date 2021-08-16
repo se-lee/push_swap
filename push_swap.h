@@ -6,7 +6,7 @@
 /*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/16 10:25:21 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/16 12:22:48 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,13 @@ typedef struct s_stack
 	int		node_count;
 }				t_stack;
 
-typedef struct s_pivcount
+typedef struct s_op_count
 {
-	int	pivot;
 	int	pa_count;
 	int	pb_count;
 	int	ra_count;
 	int	rb_count;
-}				t_pivcount;
+}				t_op_count;
 
 /* arg check */
 int		arg_is_int(char *argv);
@@ -106,8 +105,8 @@ void	push_back_a(t_stack *a, t_stack *b, int count); // maybe no
 
 /* quick sort stack */
 int		range_is_sorted(t_stack *a, t_stack *stack_b, int range, int a_b);
-void	pb_small_ra(t_stack *a, t_stack *b, t_pivcount *pvcnt);
-void	pa_big_rb(t_stack *a, t_stack *b, t_pivcount *pvcnt);
+// void	pb_small_ra(t_stack *a, t_stack *b, t_pivcount *pvcnt);
+// void	pa_big_rb(t_stack *a, t_stack *b, t_pivcount *pvcnt);
 // void	sort_a(t_stack *a, t_stack *b, int range);
 // void	sort_b(t_stack *a, t_stack *b, int range); //think about using unsigned
 void	quick_sort_a(t_stack *a, t_stack *b, int range);
@@ -120,7 +119,7 @@ void	push_swap(t_stack *a, t_stack *b);
 
 /* misc */
 void	quick_sort(int array[], size_t length);
-void	init_op_count(t_pivcount *count);
+void	init_op_count(t_op_count *count);
 void	print_error_exit(void);
 
 /*test functions - to be erased later*/

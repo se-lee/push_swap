@@ -1,15 +1,5 @@
 #include "push_swap.h"
 
-/*
-the purpose is to divide the number set (stack a) into two groups within a range, 
-one group will be bigger half
-the other smaller half
-"filter out half of the values, so that the large numbers "
-"split A in half within range"
-- push rotate reverse count-operation move-small-numbers
- "partition_a_in_range"
-*/
-
 void		sort_range(t_stack *a, t_stack *b, int range)
 {
 	if (range < 5)
@@ -24,11 +14,11 @@ void		sort_range_reverse(t_stack *b, int range)
 		sort_three_reverse_b(b);
 }
 
-t_pivcount	partition_a_in_range(t_stack *a, t_stack *b, int range)
+t_op_count	partition_a_in_range(t_stack *a, t_stack *b, int range)
 {
 	int	pivot;
 	int	temp;
-	t_pivcount	count;
+	t_op_count	count;
 
 	pivot = find_mid_value_in_range(a->top, range);
 	init_op_count(&count);
@@ -63,11 +53,11 @@ divide set of numbers (b) into half
 bigger numbers move to A, smaller numbers stay in b
 */
 
-t_pivcount	partition_b_in_range(t_stack *a, t_stack *b, int range)
+t_op_count	partition_b_in_range(t_stack *a, t_stack *b, int range)
 {
 	int	pivot;
 	int	temp;
-	t_pivcount count;
+	t_op_count count;
 
 	pivot = find_mid_value_in_range(b->top, range);
 	init_op_count(&count);
@@ -91,15 +81,12 @@ printf("[rb count]: %d \n\n", count.rb_count);
 	temp = count.rb_count;
 	while (temp--)
 		op_reverse_rotate_b(b);
-printf("--part.B--\n");
-print_list(a, 'a');
-print_list(b, 'b');	
 	return (count);
 }
 
 void	quick_sort_a(t_stack *a, t_stack *b, int range)
 {
-	t_pivcount count;
+	t_op_count count;
 
 	if (range <= 1 || stack_is_sorted(a))
 		return ;
@@ -111,12 +98,11 @@ printf("[pb_count(merge)]: %d \n", count.pb_count);
 print_list(b, 'b');
 	while (count.pb_count--)
 		op_push_to_a(b, a);
-printf("[A-range]: %d\n", range);
 }
 
 void	quick_sort_b(t_stack *a, t_stack *b, int range)
 {
-	t_pivcount	count;
+	t_op_count	count;
 
 	if (range <= 1 || stack_is_reverse_sorted(b))
 		return ;
@@ -124,5 +110,4 @@ void	quick_sort_b(t_stack *a, t_stack *b, int range)
 	count = partition_b_in_range(a, b, range);
 	quick_sort_a(a, b, count.pa_count);
 	quick_sort_b(a, b, count.rb_count);
-printf("[B-range]: %d\n", range);
 }
