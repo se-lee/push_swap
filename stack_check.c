@@ -2,23 +2,20 @@
 
 int		stack_has_duplicate(t_stack *stack)
 {
-	int	value;
 	t_node	*cursor;
+	t_node	*cursor_2;
 
-	while (stack)
+	cursor = stack->top;
+	while (cursor)
 	{
-		cursor = stack->top->next;
-		value = stack->top->content;
-		while (cursor)
+		cursor_2 = cursor->next;
+		while (cursor_2)
 		{
-			if (cursor->content == value)
+			if (cursor_2->content == cursor->content)
 				return (1);
-			if (cursor->next)
-				cursor = cursor->next;
-			else
-				break;
+			cursor_2 = cursor_2->next;
 		}
-		stack->top = stack->top->next;
+		cursor = cursor->next;
 	}
 	return (0);
 }

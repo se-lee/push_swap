@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/16 20:52:06 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/16 21:12:53 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,6 @@
 # include <stddef.h>
 # include "libft/libft.h"
 
-/* erase A and B */
-# define A 1
-# define B 2
-
 # define INT_MAX 2147483647
 # define INT_MIN 2147483648
 
@@ -36,7 +32,6 @@
 int max: +2147483647
 int min: -2147483648
 */
-
 
 typedef struct s_stack
 {
