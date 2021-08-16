@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_numbers.c                                      :+:      :+:    :+:   */
+/*   find_numbers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:25:59 by selee             #+#    #+#             */
-/*   Updated: 2021/08/15 15:11:17 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/16 15:36:07 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	find_mid_value_in_range(t_node *node, int size)
 	}
 	quick_sort(nbr, size);
 	i = (size + 1) / 2 - 1;
-	return (nbr[i]);
+	return (nbr[size / 2]);
 }
 
 /*

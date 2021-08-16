@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   op_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 12:07:29 by selee             #+#    #+#             */
-/*   Updated: 2021/08/15 21:15:31 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/16 14:21:26 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ void	op_push_to_a(t_stack *stack_b, t_stack *stack_a)
 			stack_a->top = stack_a->top->prev;
 			stack_b->top->prev = NULL;
 		}
-		stack_b->node_count--;
-		stack_a->node_count++;
 	}
+	stack_b->node_count--;
+	stack_a->node_count++;
 	ft_putendl_fd("pa", 1);
 }
 
@@ -83,8 +83,8 @@ void	op_push_to_b(t_stack *stack_a, t_stack *stack_b)
 			stack_b->top = stack_b->top->prev;
 			stack_a->top->prev = NULL;
 		}
-		stack_a->node_count--;
-		stack_b->node_count++;
 	}
+	stack_a->node_count--;
+	stack_b->node_count++;
 	ft_putendl_fd("pb", 1);
 }

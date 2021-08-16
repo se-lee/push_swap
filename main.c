@@ -17,13 +17,13 @@ int	main(int argc, char **argv)
 		stack_free_all(a, b);
 		return (0);
 	}
-print_list(a, 'a');
+debug(print_list, a, 'a');
 	// if (stack_has_duplicate(a))
 	// 	print_error_exit();
 	push_swap(a, b);
 /* -------> erase below <-------*/	
-print_list(a, 'a');
-print_list(b, 'b');
+debug(print_list, a, 'a');
+debug(print_list, b, 'b');
 /* -------> erase erase <-------*/		
 	stack_free_all(a, b);
 	return (0);

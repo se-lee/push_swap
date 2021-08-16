@@ -3,15 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/16 12:22:48 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/16 15:07:45 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+#if DEBUG
+#define debug(f, ...) f(__VA_ARGS__)
+#else
+#define debug(f, ...)
+#endif
 
 # include <unistd.h>
 # include <stdio.h>
@@ -111,8 +117,8 @@ int		range_is_sorted(t_stack *a, t_stack *stack_b, int range, int a_b);
 // void	sort_b(t_stack *a, t_stack *b, int range); //think about using unsigned
 void	quick_sort_a(t_stack *a, t_stack *b, int range);
 void	quick_sort_b(t_stack *a, t_stack *b, int range);
-void	sort_range(t_stack *a, t_stack *b, int range);
-void	sort_range_reverse(t_stack *b, int range);
+int		sort_range(t_stack *a, t_stack *b, int range);
+int		sort_range_reverse(t_stack *b, int range);
 
 /* push_swap */
 void	push_swap(t_stack *a, t_stack *b);

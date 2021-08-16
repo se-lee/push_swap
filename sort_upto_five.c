@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_small.c                                       :+:      :+:    :+:   */
+/*   sort_upto_five.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:26:03 by selee             #+#    #+#             */
-/*   Updated: 2021/08/15 23:57:05 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/16 16:09:01 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,15 @@ void	sort_four_a(t_stack *a, t_stack *b)
 
 void	sort_less_five(t_stack *a, t_stack *b, int count)
 {
+	(void)b;
 	if (count == 1)
 		return ;
 	else if (count == 2)
 		sort_two_a(a);
 	else if (count == 3)
 		sort_three_a(a);
-	else if (count == 4)
-		sort_four_a(a, b);
+	// else if (count == 4)
+	//	sort_four_a(a, b);
 }
 
 // void	sort_less_five(t_stack *a, t_stack *b, int count, int a_b)

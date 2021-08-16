@@ -42,7 +42,7 @@ int	stack_is_reverse_sorted(t_stack *stack)
 	t_node *cursor;
 
 	cursor = stack->top;
-	while (cursor->next != NULL)
+	while (cursor != NULL && cursor->next != NULL)
 	{
 		if (cursor->content < cursor->next->content)
 			return (0);

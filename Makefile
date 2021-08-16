@@ -21,7 +21,7 @@ NAME	= push_swap
 LIBFT	= libft
 LIBFT_FILE	= $(LIBFT)/libft.a
 CC		= gcc
-CFLAGS	= -Wall -Werror -Wextra -g
+CFLAGS	= -Wall -Werror -Wextra -g # -D DEBUG
 RM		= rm -rf
 
 all:	init $(NAME)

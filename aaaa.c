@@ -1,17 +1,28 @@
 #include "push_swap.h"
 
-void		sort_range(t_stack *a, t_stack *b, int range)
+int		sort_range(t_stack *a, t_stack *b, int range)
 {
-	if (range < 5)
+	if (range < 3)
+	{
 		sort_less_five(a, b, range);
+		return 1;
+	}
+	return 0;
 }
 
-void		sort_range_reverse(t_stack *b, int range)
+int		sort_range_reverse(t_stack *b, int range)
 {
 	if (range == 2)
+	{
 		sort_two_reverse_b(b);
+		return 1;
+	}
 	else if (range == 3)
+	{
 		sort_three_reverse_b(b);
+		return 1;
+	}
+	return 0;
 }
 
 t_op_count	partition_a_in_range(t_stack *a, t_stack *b, int range)
@@ -36,15 +47,18 @@ t_op_count	partition_a_in_range(t_stack *a, t_stack *b, int range)
 			count.ra_count++;
 		}
 	}
-printf("[pivot a]: %d \n", pivot);
-printf("[A_range]]: %d \n", range);
-printf("[ra count]: %d \n\n", count.ra_count);
-	temp = count.ra_count;
-	while (temp--)
-		op_reverse_rotate_a(a);
-printf("--part.A--\n");
-print_list(a, 'a');
-print_list(b, 'b');
+debug(printf, "[pivot a]: %d \n", pivot);
+debug(printf, "[A_range]]: %d \n", range);
+debug(printf, "[ra count]: %d \n\n", count.ra_count);
+	if (count.ra_count != a->node_count)
+	{
+		temp = count.ra_count;
+		while (temp--)
+			op_reverse_rotate_a(a);
+	}
+debug(printf, "--part.A--\n");
+debug(print_list, a, 'a');
+debug(print_list, b, 'b');
 	return (count);
 }
 
@@ -52,6 +66,8 @@ print_list(b, 'b');
 divide set of numbers (b) into half
 bigger numbers move to A, smaller numbers stay in b
 */
+
+#include <assert.h>
 
 t_op_count	partition_b_in_range(t_stack *a, t_stack *b, int range)
 {
@@ -64,7 +80,7 @@ t_op_count	partition_b_in_range(t_stack *a, t_stack *b, int range)
 	temp = range;
 	while (temp--)
 	{
-		if (b->top->content > pivot)
+		if (b->top->content >= pivot)
 		{
 			op_push_to_a(b, a);
 			count.pa_count++;
@@ -75,12 +91,15 @@ t_op_count	partition_b_in_range(t_stack *a, t_stack *b, int range)
 			count.rb_count++;
 		}
 	}
-printf("[pivot b]: %d \n", pivot);
-printf("[B_range]]: %d \n", range);
-printf("[rb count]: %d \n\n", count.rb_count);
-	temp = count.rb_count;
-	while (temp--)
-		op_reverse_rotate_b(b);
+debug(printf, "[pivot b]: %d \n", pivot);
+debug(printf, "[B_range]]: %d \n", range);
+debug(printf, "[rb count]: %d \n\n", count.rb_count);
+	if (count.rb_count != b->node_count)
+	{
+		temp = count.rb_count;
+		while (temp--)
+			op_reverse_rotate_b(b);
+	}
 	return (count);
 }
 
@@ -88,14 +107,13 @@ void	quick_sort_a(t_stack *a, t_stack *b, int range)
 {
 	t_op_count count;
 
-	if (range <= 1 || stack_is_sorted(a))
+	if (range <= 1 || stack_is_sorted(a)  || sort_range(a, b, range))
 		return ;
-	sort_range(a, b, range);
 	count = partition_a_in_range(a, b, range);
 	quick_sort_a(a, b, count.ra_count);
-	quick_sort_b(a, b, b->node_count);
-printf("[pb_count(merge)]: %d \n", count.pb_count);
-print_list(b, 'b');
+	quick_sort_b(a, b, count.pb_count);
+debug(printf, "[pb_count(merge)]: %d \n", count.pb_count);
+debug(print_list, b, 'b');
 	while (count.pb_count--)
 		op_push_to_a(b, a);
 }
@@ -104,10 +122,13 @@ void	quick_sort_b(t_stack *a, t_stack *b, int range)
 {
 	t_op_count	count;
 
-	if (range <= 1 || stack_is_reverse_sorted(b))
+	if (range <= 1
+		|| stack_is_reverse_sorted(b)
+		|| sort_range_reverse(b, range))
 		return ;
-	sort_range_reverse(b, range);
 	count = partition_b_in_range(a, b, range);
-	quick_sort_a(a, b, count.pa_count);
 	quick_sort_b(a, b, count.rb_count);
+	quick_sort_a(a, b, count.pa_count);
+	while (count.pa_count--)
+		op_push_to_b(a, b);
 }

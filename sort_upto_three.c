@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_upto_three.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:26:27 by selee             #+#    #+#             */
-/*   Updated: 2021/08/16 00:10:07 by seoyounglee      ###   ########lyon.fr   */
+/*   Updated: 2021/08/16 16:11:43 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void	sort_three_a(t_stack *a)
 	min = find_min_value_in_range(a->top, 3);
 	mid = find_mid_value_in_range(a->top, 3);
 	max = find_max_value_in_range(a->top, 3);
+	if (stack_is_sorted(a))
+		return ;
 	if (a->top->content == min)
 		sort_three_top_is_min(a);
 	else if (a->top->content == mid)
