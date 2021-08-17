@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 12:13:06 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 03:04:39 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 16:14:56 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	op_reverse_rotate_a_no_edit(t_push_swap *ps)
 	ps->a.top->prev = ps->a.bottom;
 	ps->a.top = ps->a.bottom;
 	ps->a.bottom = ps->a.top->prev;
-	ps->a.bottom->next = NULL;
+	if (ps->a.bottom != NULL)
+		ps->a.bottom->next = NULL;
 	ps->a.top->prev = NULL;
 }
 
@@ -34,7 +35,8 @@ void	op_reverse_rotate_b_no_edit(t_push_swap *ps)
 	ps->b.top->prev = ps->b.bottom;
 	ps->b.top = ps->b.bottom;
 	ps->b.bottom = ps->b.top->prev;
-	ps->b.bottom->next = NULL;
+	if (ps->b.bottom != NULL)
+		ps->b.bottom->next = NULL;
 	ps->b.top->prev = NULL;
 }
 
