@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 04:11:24 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 16:47:30 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 17:16:46 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,6 @@ void	program_free(t_program *program)
 		cursor = cursor->next;
 		free(to_free);
 	}
+	program->first = NULL;
+	program->last = NULL;
 }

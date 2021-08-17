@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:59 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 16:56:42 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 17:42:33 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,22 @@
 
 void	op_swap_a_no_edit(t_push_swap *ps)
 {
+	t_node	*first;
+	t_node	*second;
+	t_node	*rest;
+
 	if (ps->a.node_count < 2)
 		return ;
-	if (ps->a.node_count > 2)
-	{
-		ps->a.top->prev = ps->a.top->next;
-		ps->a.top->next->next->prev = ps->a.top;
-		ps->a.top->next = ps->a.top->next->next;
-		ps->a.top->prev->next = ps->a.top;
-		ps->a.top = ps->a.top->prev;
-		ps->a.top->prev = NULL;
-	}
-	else if (ps->a.node_count == 2)
-	{
-		ps->a.bottom = ps->a.top;
-		ps->a.top->prev = ps->a.top->next;
-		ps->a.top->next = ps->a.top->next->next;
-		ps->a.top->prev->next = ps->a.top;
-		ps->a.top = ps->a.top->prev;
-		ps->a.top->prev = NULL;
-	}
+	first = ps->a.top;
+	second = first->next;
+	rest = second->next;
+	ps->a.top = second;
+	second->prev = NULL;
+	second->next = first;
+	first->prev = second;
+	first->next = rest;
+	if (rest != NULL)
+		rest->prev = first;
 }
 
 void	op_swap_a(t_push_swap *ps)
@@ -44,26 +40,22 @@ void	op_swap_a(t_push_swap *ps)
 
 static void	op_swap_b_no_edit(t_push_swap *ps)
 {
-	if (ps->b.node_count < 2)
+	t_node	*first;
+	t_node	*second;
+	t_node	*rest;
+
+	if (ps->a.node_count < 2)
 		return ;
-	if (ps->b.node_count > 2)
-	{
-		ps->b.top->next->next->prev = ps->b.top;
-		ps->b.top->prev = ps->b.top->next;
-		ps->b.top->next = ps->b.top->next->next;
-		ps->b.top->prev->next = ps->b.top;
-		ps->b.top = ps->b.top->prev;
-		ps->b.top->prev = NULL;
-	}
-	else if (ps->b.node_count == 2)
-	{
-		ps->b.bottom = ps->b.top;
-		ps->b.top->prev = ps->b.top->next;
-		ps->b.top->next = ps->b.top->next->next;
-		ps->b.top->prev->next = ps->b.top;
-		ps->b.top = ps->b.top->prev;
-		ps->b.top->prev = NULL;
-	}
+	first = ps->b.top;
+	second = first->next;
+	rest = second->next;
+	ps->b.top = second;
+	second->prev = NULL;
+	second->next = first;
+	first->prev = second;
+	first->next = rest;
+	if (rest != NULL)
+		rest->prev = first;
 }
 
 void	op_swap_b(t_push_swap *ps)

@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:14 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 16:53:51 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 17:48:56 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,15 @@ void	stack_init(t_stack *stack)
 	stack->node_count = 0;
 }
 
-void	stack_add_node_back(t_stack *stack, t_node *new_node)
+void	stack_add_node_back(t_stack *stack, t_node *node)
 {
 	if (stack->top == NULL)
-	{
-		stack->top = new_node;
-		stack->bottom = new_node;
-		stack->node_count++;
-	}
+		stack->top = node;
 	else
-	{
-		new_node->prev = stack->bottom;
-		stack->bottom->next = new_node;
-		new_node->prev = stack->bottom;
-		stack->bottom = new_node;
-		stack->node_count++;
-	}
+		stack->bottom->next = node;
+	node->prev = stack->bottom;
+	stack->bottom = node;
+	stack->node_count += 1;
 }
 
 void	stack_store_value(t_push_swap *ps, char **argv, t_stack *stack)
@@ -43,11 +36,11 @@ void	stack_store_value(t_push_swap *ps, char **argv, t_stack *stack)
 	t_node	*new_node;
 
 	i = 1;
-	new_node = ft_lstnew(ft_atoi(argv[i]));
-	if (!new_node)
-		print_error_exit(ps);
 	while (argv[i])
 	{
+		new_node = ft_lstnew(ft_atoi(argv[i]));
+		if (!new_node)
+			print_error_exit(ps);
 		stack_add_node_back(stack, new_node);
 		i++;
 	}
@@ -55,15 +48,16 @@ void	stack_store_value(t_push_swap *ps, char **argv, t_stack *stack)
 
 void	stack_free(t_stack *stack)
 {
-	int	i;
+	t_node	*to_free;
 
-	i = 0;
-	while (i < stack->node_count)
+	while (stack->top != NULL)
 	{
-		free(stack->top);
+		to_free = stack->top;
 		stack->top = stack->top->next;
-		i++;
+		// free(to_free);
 	}
+	stack->node_count = 0;
+	stack->bottom = 0;
 }
 
 void	stack_free_all(t_stack *a, t_stack *b)
