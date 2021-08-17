@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:25:59 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 02:52:47 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 04:06:41 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	find_min_value_in_range(t_node *node, int range)
 {
-	int	i;
-	int	min;
+	int		i;
+	int		min;
 	t_node	*temp;
 
 	i = 0;
@@ -36,9 +36,9 @@ int	find_min_value_in_range(t_node *node, int range)
 
 int	find_max_value_in_range(t_node *node, int range)
 {
-	int	i;
-	int	max;
-	t_node *temp;
+	int		i;
+	int		max;
+	t_node	*temp;
 
 	i = 0;
 	max = node->content;
@@ -50,7 +50,7 @@ int	find_max_value_in_range(t_node *node, int range)
 		if (temp->next)
 			temp = temp->next;
 		else
-			break;
+			break ;
 		i++;
 	}
 	return (max);
@@ -59,7 +59,7 @@ int	find_max_value_in_range(t_node *node, int range)
 int	find_mid_value_in_range_a(t_node *node, int size)
 {
 	int	i;
-	int result;
+	int	result;
 	int	*nbr;
 
 	nbr = malloc(sizeof(int) * size);
@@ -79,7 +79,7 @@ int	find_mid_value_in_range_a(t_node *node, int size)
 int	find_mid_value_in_range_b(t_node *node, int size)
 {
 	int	i;
-	int result;
+	int	result;
 	int	*nbr;
 
 	nbr = malloc(sizeof(int) * size);

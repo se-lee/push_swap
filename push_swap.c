@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:27:07 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 03:27:15 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 04:23:01 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,3 @@ void	push_swap_solve(t_push_swap *ps)
 	program_optimize(&ps->program);
 	program_run(&ps->program);
 }
- 

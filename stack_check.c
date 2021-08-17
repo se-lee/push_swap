@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_check.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/17 04:21:18 by selee             #+#    #+#             */
+/*   Updated: 2021/08/17 04:21:19 by selee            ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int		stack_has_duplicate(t_stack *stack)
+int	stack_has_duplicate(t_stack *stack)
 {
 	t_node	*cursor;
 	t_node	*cursor_2;
@@ -36,7 +48,7 @@ int	stack_is_sorted(t_stack *stack)
 
 int	stack_is_reverse_sorted(t_stack *stack)
 {
-	t_node *cursor;
+	t_node	*cursor;
 
 	cursor = stack->top;
 	while (cursor != NULL && cursor->next != NULL)

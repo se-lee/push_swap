@@ -6,13 +6,13 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:33:03 by selee             #+#    #+#             */
-/*   Updated: 2021/08/16 23:38:44 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 04:05:27 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		arg_is_int(char *argv)
+int	arg_is_int(char *argv)
 {
 	int	i;
 
@@ -28,7 +28,7 @@ int		arg_is_int(char *argv)
 	return (1);
 }
 
-int		arg_over_int_max_min(char *argv)
+int	arg_over_int_max_min(char *argv)
 {
 	int				i;
 	int				sign;
@@ -47,18 +47,19 @@ int		arg_over_int_max_min(char *argv)
 	while (argv[i])
 	{
 		if (argv[i] >= '0' && argv[i] <= '9')
-			nbr = nbr * 10 + (argv[i] - '0');		
+			nbr = nbr * 10 + (argv[i] - '0');
 		i++;
 	}
-	if (arg_len > 11 || (sign == 1 && nbr > INT_MAX) || (sign == -1 && nbr > INT_MIN))
+	if (arg_len > 11 || (sign == 1 && nbr > INT_MAX)
+		|| (sign == -1 && nbr > INT_MIN))
 		return (1);
 	return (0);
 }
 
-int		arg_has_error(char **argv)
+int	arg_has_error(char **argv)
 {
 	int	i;
-	
+
 	i = 1;
 	while (argv[i])
 	{

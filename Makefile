@@ -7,6 +7,7 @@ SRCS	=	arg_check.c\
 			op_rotate.c\
 			op_swap.c\
 			program.c\
+			program_optimize.c\
 			push_swap_utils.c\
 			push_swap.c\
 			quick_sort_stack_a.c\

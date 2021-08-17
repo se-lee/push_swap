@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 23:47:39 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 02:48:26 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 04:15:44 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,10 @@ void	sort_two_a(t_push_swap *ps)
 		op_swap_a(ps);
 }
 
-#include <assert.h>
-
 t_op_count	partition_a_in_range(t_push_swap *ps, int range)
 {
-	int	pivot;
-	int	temp;
+	int			pivot;
+	int			temp;
 	t_op_count	count;
 
 	pivot = find_mid_value_in_range_a(ps->a.top, range);
@@ -42,8 +40,6 @@ t_op_count	partition_a_in_range(t_push_swap *ps, int range)
 			count.ra_count++;
 		}
 	}
-	assert(count.ra_count == count.pb_count + 1
-		|| count.ra_count == count.pb_count);
 	if (count.ra_count != ps->a.node_count)
 	{
 		temp = count.ra_count;
@@ -55,7 +51,7 @@ t_op_count	partition_a_in_range(t_push_swap *ps, int range)
 
 void	quick_sort_a(t_push_swap *ps, int range)
 {
-	t_op_count count;
+	t_op_count	count;
 
 	if (range <= 1 || stack_is_sorted(&ps->a))
 		return ;

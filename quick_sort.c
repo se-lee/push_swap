@@ -6,12 +6,11 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:26:09 by selee             #+#    #+#             */
-/*   Updated: 2021/08/13 13:52:45 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 04:17:31 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stddef.h>
+#include "push_swap.h"
 
 void	swap(int *a, int *b)
 {
@@ -54,33 +53,3 @@ void	quick_sort(int array[], size_t length)
 	quick_sort(&array[0], pivot_index);
 	quick_sort(&array[pivot_index + 1], length - (pivot_index + 1));
 }
-
-/*
-
-int main()
-{
-    size_t            i;
-    const size_t    length = 10;
-    int                array[length] = {3, 7, 1, 5, 6, 4, 8, 2, 0, 9};
-
-    printf("before sort: ");
-    i = 0;
-    while (i < 10)
-    {
-        printf("%d ", array[i]);
-        i++;
-    }
-    printf("\n");
-    quick_sort(array, length);
-    printf("after sort: ");
-    i = 0;
-    while (i < 10)
-    {
-        printf("%d ", array[i]);
-        i++;
-    }
-    printf("\n");
-    return (0);
-}
-
-*/
