@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 04:02:52 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 05:46:09 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,10 +134,11 @@ void		quick_sort_b(t_push_swap *ps, int range);
 
 /* push_swap */
 void		push_swap_solve(t_push_swap *ps);
+void		push_swap_free(t_push_swap *ps);
 
 /* push swap utils */
 void		init_op_count(t_op_count *count);
-void		print_error_exit(void);
+void		print_error_exit(t_push_swap *ps);
 void		quick_sort(int array[], size_t length);
 
 #endif
