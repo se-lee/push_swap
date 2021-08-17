@@ -14,7 +14,6 @@ int	main(int argc, char **argv)
 	if (stack_has_duplicate(&push_swap.a))
 		print_error_exit();
 	push_swap_solve(&push_swap);
-	program_run(&push_swap.program);
 	stack_free_all(&push_swap.a, &push_swap.b);
 	return (0);
 }

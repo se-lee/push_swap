@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   op_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
+/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 12:13:34 by selee             #+#    #+#             */
-/*   Updated: 2021/08/16 23:17:50 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 03:04:55 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ void	op_rotate_b_no_edit(t_push_swap *ps)
 
 void	op_rotate_b(t_push_swap *ps)
 {
-	program_add_instruction(&ps->program, ra);
+	op_rotate_b_no_edit(ps);
+	program_add_instruction(&ps->program, rb);
 }
 
 void	op_rotate_all(t_push_swap *ps)

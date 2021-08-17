@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 23:47:56 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 00:21:52 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 03:14:18 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,20 @@ void	sort_two_reverse_b(t_push_swap *ps)
 		op_swap_b(ps);
 }
 
+#include <assert.h>
+
 t_op_count	partition_b_in_range(t_push_swap *ps, int range)
 {
 	int	pivot;
 	int	temp;
 	t_op_count count;
 
-	pivot = find_mid_value_in_range(ps->b.top, range);
+	pivot = find_mid_value_in_range_b(ps->b.top, range);
 	init_op_count(&count);
 	temp = range;
 	while (temp--)
 	{
-		if (ps->b.top->content >= pivot)
+		if (ps->b.top->content > pivot)
 		{
 			op_push_to_a(ps);
 			count.pa_count++;
@@ -40,6 +42,12 @@ t_op_count	partition_b_in_range(t_push_swap *ps, int range)
 			count.rb_count++;
 		}
 	}
+	// if (!(count.rb_count == count.pa_count + 1
+	//	|| count.rb_count == count.pa_count))
+	// {
+	//	printf("%d %d", count.rb_count, count.pa_count);
+	//	exit(1);
+	//}
 	if (count.rb_count != ps->b.node_count)
 	{
 		temp = count.rb_count;

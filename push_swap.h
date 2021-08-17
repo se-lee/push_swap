@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 00:22:07 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 03:17:30 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef enum {
 typedef struct s_program_node {
 	t_instruction instruction;
 	struct s_program_node *next;
+	struct s_program_node *prev;
 } t_program_node;
 
 typedef struct  {
@@ -105,8 +106,9 @@ void	op_reverse_rotate_all(t_push_swap *ps);
 
 /* find numbers*/
 int		find_min_value_in_range(t_node *node, int range);
-int		find_mid_value_in_range(t_node *node, int range);
+int		find_mid_value_in_range_a(t_node *node, int range);
 int		find_max_value_in_range(t_node *node, int range);
+int		find_mid_value_in_range_b(t_node *node, int range);
 
 /* sort three a */
 void	sort_two_a(t_push_swap *ps);

@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:25:59 by selee             #+#    #+#             */
-/*   Updated: 2021/08/16 23:45:52 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 02:52:47 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,13 @@ int	find_max_value_in_range(t_node *node, int range)
 	return (max);
 }
 
-int	find_mid_value_in_range(t_node *node, int size)
+int	find_mid_value_in_range_a(t_node *node, int size)
 {
 	int	i;
-	int	nbr[size];
+	int result;
+	int	*nbr;
 
+	nbr = malloc(sizeof(int) * size);
 	i = 0;
 	while (i < size)
 	{
@@ -69,6 +71,27 @@ int	find_mid_value_in_range(t_node *node, int size)
 		i++;
 	}
 	quick_sort(nbr, size);
-	i = (size + 1) / 2 - 1;
-	return (nbr[size / 2]);
+	result = nbr[size / 2 - 1];
+	free(nbr);
+	return (result);
+}
+
+int	find_mid_value_in_range_b(t_node *node, int size)
+{
+	int	i;
+	int result;
+	int	*nbr;
+
+	nbr = malloc(sizeof(int) * size);
+	i = 0;
+	while (i < size)
+	{
+		nbr[i] = node->content;
+		node = node->next;
+		i++;
+	}
+	quick_sort(nbr, size);
+	result = nbr[size / 2];
+	free(nbr);
+	return (result);
 }

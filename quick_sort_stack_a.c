@@ -6,11 +6,19 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 23:47:39 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 00:14:58 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 02:48:26 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_two_a(t_push_swap *ps)
+{
+	if (ps->a.top->content > ps->a.top->next->content)
+		op_swap_a(ps);
+}
+
+#include <assert.h>
 
 t_op_count	partition_a_in_range(t_push_swap *ps, int range)
 {
@@ -18,7 +26,7 @@ t_op_count	partition_a_in_range(t_push_swap *ps, int range)
 	int	temp;
 	t_op_count	count;
 
-	pivot = find_mid_value_in_range(ps->a.top, range);
+	pivot = find_mid_value_in_range_a(ps->a.top, range);
 	init_op_count(&count);
 	temp = range;
 	while (temp--)
@@ -34,7 +42,8 @@ t_op_count	partition_a_in_range(t_push_swap *ps, int range)
 			count.ra_count++;
 		}
 	}
-
+	assert(count.ra_count == count.pb_count + 1
+		|| count.ra_count == count.pb_count);
 	if (count.ra_count != ps->a.node_count)
 	{
 		temp = count.ra_count;
