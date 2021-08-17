@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:14 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 00:18:10 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 16:53:51 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,18 @@ void	stack_add_node_back(t_stack *stack, t_node *new_node)
 	}
 }
 
-void	stack_store_value(char **argv, t_stack *stack)
+void	stack_store_value(t_push_swap *ps, char **argv, t_stack *stack)
 {
-	int	i;
+	int		i;
+	t_node	*new_node;
 
 	i = 1;
+	new_node = ft_lstnew(ft_atoi(argv[i]));
+	if (!new_node)
+		print_error_exit(ps);
 	while (argv[i])
 	{
-		stack_add_node_back(stack, ft_lstnew(ft_atoi(argv[i])));
+		stack_add_node_back(stack, new_node);
 		i++;
 	}
 }

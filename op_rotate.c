@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 12:13:34 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 03:04:55 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 16:56:28 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	op_rotate_a_no_edit(t_push_swap *ps)
 void	op_rotate_a(t_push_swap *ps)
 {
 	op_rotate_a_no_edit(ps);
-	program_add_instruction(&ps->program, ra);
+	program_add_instruction(ps, &ps->program, ra);
 }
 
 void	op_rotate_b_no_edit(t_push_swap *ps)
@@ -41,12 +41,12 @@ void	op_rotate_b_no_edit(t_push_swap *ps)
 void	op_rotate_b(t_push_swap *ps)
 {
 	op_rotate_b_no_edit(ps);
-	program_add_instruction(&ps->program, rb);
+	program_add_instruction(ps, &ps->program, rb);
 }
 
 void	op_rotate_all(t_push_swap *ps)
 {
 	op_rotate_a_no_edit(ps);
 	op_rotate_b_no_edit(ps);
-	program_add_instruction(&ps->program, rr);
+	program_add_instruction(ps, &ps->program, rr);
 }

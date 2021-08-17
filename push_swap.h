@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 15:44:20 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 16:50:59 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,12 @@ typedef struct s_op_count
 
 /* program */
 void		program_init(t_program *program);
-void		program_add_instruction(t_program *program,
-				t_instruction instruction);
+void		program_add_instruction(
+				t_push_swap *ps, t_program *program, t_instruction instruction);
 void		program_optimize(t_program *program);
 int			instruction_cancel_each_other(t_instruction a, t_instruction b);
-int			try_merge_instructions(t_instruction a, t_instruction b, \
-				t_instruction *result);
+int			try_merge_instructions(
+				t_instruction a, t_instruction b, t_instruction *result);
 void		program_run(t_program *program);
 void		program_free(t_program *program);
 
@@ -96,7 +96,7 @@ int			stack_is_reverse_sorted(t_stack *stack);
 /* stack_utils */
 void		stack_init(t_stack *stack);
 void		stack_add_node_back(t_stack *stack, t_node *new_node);
-void		stack_store_value(char **argv, t_stack *stack);
+void		stack_store_value(t_push_swap *ps, char **argv, t_stack *stack);
 void		stack_free(t_stack *stack);
 void		stack_free_all(t_stack *a, t_stack *b);
 
@@ -114,10 +114,10 @@ void		op_reverse_rotate_b(t_push_swap *ps);
 void		op_reverse_rotate_all(t_push_swap *ps);
 
 /* find numbers*/
-int			find_min_value_in_range(t_node *node, int range);
-int			find_mid_value_in_range_a(t_node *node, int range);
-int			find_max_value_in_range(t_node *node, int range);
-int			find_mid_value_in_range_b(t_node *node, int range);
+int			find_mid_value_in_range_a(
+				t_push_swap *ps, t_stack *stack, int range);
+int			find_mid_value_in_range_b(
+				t_push_swap *ps, t_stack *stack, int range);
 
 /* sort three a */
 void		sort_two_a(t_push_swap *ps);

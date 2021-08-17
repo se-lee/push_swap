@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:59 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 04:07:44 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 16:56:42 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	op_swap_a_no_edit(t_push_swap *ps)
 void	op_swap_a(t_push_swap *ps)
 {
 	op_swap_a_no_edit(ps);
-	program_add_instruction(&ps->program, sa);
+	program_add_instruction(ps, &ps->program, sa);
 }
 
 static void	op_swap_b_no_edit(t_push_swap *ps)
@@ -69,12 +69,12 @@ static void	op_swap_b_no_edit(t_push_swap *ps)
 void	op_swap_b(t_push_swap *ps)
 {
 	op_swap_b_no_edit(ps);
-	program_add_instruction(&ps->program, sb);
+	program_add_instruction(ps, &ps->program, sb);
 }
 
 void	op_swap_all(t_push_swap *ps)
 {
 	op_swap_a_no_edit(ps);
 	op_swap_b_no_edit(ps);
-	program_add_instruction(&ps->program, ss);
+	program_add_instruction(ps, &ps->program, ss);
 }

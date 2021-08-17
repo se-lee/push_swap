@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 23:47:39 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 15:28:26 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 16:58:04 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_op_count	partition_a_in_range(t_push_swap *ps, int range)
 	int			temp;
 	t_op_count	count;
 
-	pivot = find_mid_value_in_range_a(ps->a.top, range);
+	pivot = find_mid_value_in_range_a(ps, &ps->a, range);
 	init_op_count(&count);
 	temp = range;
 	while (temp--)

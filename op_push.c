@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 12:07:29 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 05:33:09 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 16:55:51 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	op_push_to_a(t_push_swap *ps)
 	if (ps->a.bottom == NULL)
 		ps->a.bottom = node;
 	ps->a.node_count++;
-	program_add_instruction(&ps->program, pa);
+	program_add_instruction(ps, &ps->program, pa);
 }
 
 void	op_push_to_b(t_push_swap *ps)
@@ -51,5 +51,5 @@ void	op_push_to_b(t_push_swap *ps)
 	if (ps->b.bottom == NULL)
 		ps->b.bottom = node;
 	ps->b.node_count++;
-	program_add_instruction(&ps->program, pb);
+	program_add_instruction(ps, &ps->program, pb);
 }

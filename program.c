@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 04:11:24 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 04:12:13 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 16:47:30 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,14 @@ void	program_init(t_program *program)
 	program->last = NULL;
 }
 
-void	program_add_instruction(t_program *program, t_instruction instruction)
+void	program_add_instruction(
+		t_push_swap *ps, t_program *program, t_instruction instruction)
 {
 	t_program_node	*node;
 
 	node = malloc(sizeof(t_program_node));
+	if (!node)
+		print_error_exit(ps);
 	node->instruction = instruction;
 	node->next = NULL;
 	if (program->first == NULL)
