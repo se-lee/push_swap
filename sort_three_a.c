@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_three_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 21:10:19 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 04:19:26 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 12:37:20 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,9 @@ static void	sort_a_3_alone(t_push_swap *ps)
 		}
 	}
 }
+
+
+
 
 static void	sort_a_3_not_alone(t_push_swap *ps)
 {

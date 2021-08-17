@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort_stack_b.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
+/*   By: seoyounglee <seoyounglee@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 23:47:56 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 04:16:40 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 12:33:28 by seoyounglee      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ void	sort_two_reverse_b(t_push_swap *ps)
 {
 	if (ps->b.top->content < ps->b.top->next->content)
 		op_swap_b(ps);
+}
+
+void	divide_stack_b(t_push_swap *ps, t_op_count *count)
+{
+	
 }
 
 t_op_count	partition_b_in_range(t_push_swap *ps, int range)
