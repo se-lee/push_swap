@@ -6,13 +6,13 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 15:12:07 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 17:06:58 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 17:57:03 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	program_remove_useless2(t_program **program, 
+static void	program_remove_useless2(t_program **program,
 	t_program_node **previous, t_program_node **rest, t_program_node **cursor)
 {
 	(*previous) = (*cursor)->prev;
