@@ -15,7 +15,8 @@ SRCS	=	arg_check.c\
 			quick_sort_stack_b.c\
 			quick_sort.c\
 			sort_three_a.c\
-			sort_three_rev_b.c\
+			sort_three_rev_b_alone.c\
+			sort_three_rev_b_not_alone.c\
 			stack_check.c\
 			stack_utils.c\
 

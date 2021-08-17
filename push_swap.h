@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 15:21:06 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 15:44:20 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,8 +123,9 @@ int			find_mid_value_in_range_b(t_node *node, int range);
 void		sort_two_a(t_push_swap *ps);
 void		sort_a_3(t_push_swap *ps);
 
-/* sort three reverse */
+/* sort three reverse b */
 void		sort_two_reverse_b(t_push_swap *ps);
+void		sort_b_3_not_alone(t_push_swap *ps);
 void		sort_b_3(t_push_swap *ps);
 
 /* quick sort stack a */
