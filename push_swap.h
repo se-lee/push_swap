@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:31:37 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 05:46:09 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 15:21:06 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,9 @@ void		program_init(t_program *program);
 void		program_add_instruction(t_program *program,
 				t_instruction instruction);
 void		program_optimize(t_program *program);
+int			instruction_cancel_each_other(t_instruction a, t_instruction b);
+int			try_merge_instructions(t_instruction a, t_instruction b, \
+				t_instruction *result);
 void		program_run(t_program *program);
 void		program_free(t_program *program);
 

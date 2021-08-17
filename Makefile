@@ -8,6 +8,7 @@ SRCS	=	arg_check.c\
 			op_swap.c\
 			program.c\
 			program_optimize.c\
+			program_optimize2.c\
 			push_swap_utils.c\
 			push_swap.c\
 			quick_sort_stack_a.c\
@@ -23,7 +24,7 @@ NAME	= push_swap
 LIBFT	= libft
 LIBFT_FILE	= $(LIBFT)/libft.a
 CC		= gcc
-CFLAGS	= -Wall -Werror -Wextra -g # -D DEBUG
+CFLAGS	= -Wall -Werror -Wextra -g
 RM		= rm -rf
 
 all:	init $(NAME)

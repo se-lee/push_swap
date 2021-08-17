@@ -6,7 +6,7 @@
 /*   By: selee <selee@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 23:47:56 by selee             #+#    #+#             */
-/*   Updated: 2021/08/17 15:08:38 by selee            ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 15:30:19 by selee            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,19 @@ void	sort_two_reverse_b(t_push_swap *ps)
 		op_swap_b(ps);
 }
 
-// void	divide_stack_b(t_push_swap *ps, t_op_count *count)
-// {
-	
-// }
+void	divide_stack_b(t_push_swap *ps, t_op_count *count, int *pivot)
+{
+	if (ps->b.top->content > *pivot)
+	{
+		op_push_to_a(ps);
+		count->pa_count++;
+	}
+	else
+	{
+		op_rotate_b(ps);
+		count->rb_count++;
+	}
+}
 
 t_op_count	partition_b_in_range(t_push_swap *ps, int range)
 {
@@ -33,18 +42,7 @@ t_op_count	partition_b_in_range(t_push_swap *ps, int range)
 	init_op_count(&count);
 	temp = range;
 	while (temp--)
-	{
-		if (ps->b.top->content > pivot)
-		{
-			op_push_to_a(ps);
-			count.pa_count++;
-		}
-		else
-		{
-			op_rotate_b(ps);
-			count.rb_count++;
-		}
-	}
+		divide_stack_b(ps, &count, &pivot);
 	if (count.rb_count != ps->b.node_count)
 	{
 		temp = count.rb_count;
